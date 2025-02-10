@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import { Link, RouterProvider, createRouter } from '@tanstack/react-router'
+import { Theme, ThemePanel } from '@radix-ui/themes'
 import './global.css'
 
 // Import the generated route tree
@@ -32,7 +33,10 @@ if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement)
   root.render(
     <StrictMode>
-      <RouterProvider router={router} />
+      <Theme>
+        <RouterProvider router={router} />
+        <ThemePanel />
+      </Theme>
     </StrictMode>
   )
 }
