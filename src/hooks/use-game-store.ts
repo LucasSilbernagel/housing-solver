@@ -39,7 +39,7 @@ export const useGameStore = create<GameState>()(
           })),
       }),
       {
-        name: 'theme-store',
+        name: 'housing-solver-store',
       }
     )
   )
