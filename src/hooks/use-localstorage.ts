@@ -3,11 +3,11 @@ import {
   getFromLocalStorage,
   setToLocalStorage,
 } from '../utils/localstorage-helpers'
-import { useThemeStore } from './use-theme-store'
+import { useGameStore } from './use-game-store'
 
 export const useLocalStorage = () => {
-  const shouldUseDarkTheme = useThemeStore((state) => state.shouldUseDarkTheme)
-  const toggleDarkTheme = useThemeStore((state) => state.toggleTheme)
+  const shouldUseDarkTheme = useGameStore((state) => state.shouldUseDarkTheme)
+  const toggleDarkTheme = useGameStore((state) => state.toggleTheme)
 
   useEffect(() => {
     setToLocalStorage('housing-solver-dark-theme', shouldUseDarkTheme)

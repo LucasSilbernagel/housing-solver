@@ -1,9 +1,15 @@
 import { AlertDialog, Button, Flex, Switch, Text } from '@radix-ui/themes'
-import { useThemeStore } from '../../../hooks/use-theme-store'
+import { useShallow } from 'zustand/shallow'
+import { useGameStore } from '../../../hooks/use-game-store'
 
 const Settings = () => {
-  const shouldUseDarkTheme = useThemeStore((state) => state.shouldUseDarkTheme)
-  const toggleDarkTheme = useThemeStore((state) => state.toggleTheme)
+  const { shouldUseDarkTheme, toggleDarkTheme, resetGame } = useGameStore(
+    useShallow((state) => ({
+      shouldUseDarkTheme: state.shouldUseDarkTheme,
+      toggleDarkTheme: state.toggleTheme,
+      resetGame: state.resetGame,
+    }))
+  )
 
   const handleDarkThemeToggle = () => {
     toggleDarkTheme()
@@ -39,8 +45,8 @@ const Settings = () => {
                 </Button>
               </AlertDialog.Cancel>
               <AlertDialog.Action>
-                <Button variant="solid" color="red">
-                  Revoke access
+                <Button variant="solid" color="red" onClick={resetGame}>
+                  Reset game
                 </Button>
               </AlertDialog.Action>
             </Flex>

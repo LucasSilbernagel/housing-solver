@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom/client'
 import './global.css'
 
 // Import the generated route tree
-import { useThemeStore } from './hooks/use-theme-store'
+import { useGameStore } from './hooks/use-game-store'
 import { routeTree } from './routeTree.gen'
 
 // Create a new router instance
@@ -39,7 +39,7 @@ if (!rootElement.innerHTML) {
 }
 
 function AppRoot() {
-  const shouldUseDarkTheme = useThemeStore((state) => state.shouldUseDarkTheme)
+  const shouldUseDarkTheme = useGameStore((state) => state.shouldUseDarkTheme)
   return (
     <Theme appearance={shouldUseDarkTheme ? 'dark' : 'light'}>
       <RouterProvider router={router} />

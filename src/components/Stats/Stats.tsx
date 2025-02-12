@@ -1,14 +1,32 @@
 import { InfoCircledIcon } from '@radix-ui/react-icons'
 import { Button, Card, IconButton, Popover, Separator } from '@radix-ui/themes'
+import { useShallow } from 'zustand/shallow'
+import { MAXIMUM_SUPPORT_POINTS } from '../../constants'
+import { useGameStore } from '../../hooks/use-game-store'
 
 const Stats = () => {
+  const {
+    unaffordabilityScore,
+    manualIncrementAmount,
+    supportPoints,
+    generateSupportPoints,
+  } = useGameStore(
+    useShallow((state) => ({
+      unaffordabilityScore: state.housingUnaffordabilityScore,
+      manualIncrementAmount: state.manualIncrementAmount,
+      supportPoints: state.supportPoints,
+      generateSupportPoints: state.generateSupportPoints,
+    }))
+  )
   return (
     <Card size="4" className="shadow-lg w-full max-w-max">
       <div className="relative">
         <h2 className="mb-1 text-2xl text-center">Housing Unaffordability:</h2>
         <div className="flex justify-center items-center border-12 mx-auto border-red-500 rounded-[50%] w-25 h-25 font-bold text-3xl">
           <div>
-            <h3>35%</h3>
+            <h3>
+              <span>{unaffordabilityScore}</span>%
+            </h3>
           </div>
         </div>
         <div className="right-0 bottom-0 absolute">
@@ -46,10 +64,18 @@ const Stats = () => {
       <div className="relative">
         <h2 className="text-2xl text-center">Support Points:</h2>
         <div className="my-4">
-          <h3 className="font-bold text-center text-xl">100,000,000,000,000</h3>
+          <h3 className="font-bold text-center text-xl">
+            {supportPoints.toLocaleString()}
+          </h3>
         </div>
         <div className="flex justify-center w-full">
-          <Button size="4">Generate Support Points</Button>
+          <Button
+            size="4"
+            onClick={() => generateSupportPoints(manualIncrementAmount)}
+            disabled={supportPoints >= MAXIMUM_SUPPORT_POINTS}
+          >
+            Generate Support Points
+          </Button>
         </div>
         <div className="top-[5px] right-0 absolute">
           <Popover.Root>
