@@ -10,7 +10,7 @@ const Settings = () => {
   }
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-12">
       <Text as="label" size="4">
         <Flex gap="2">
           <Switch

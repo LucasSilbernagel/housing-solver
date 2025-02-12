@@ -3,7 +3,7 @@ import { Button, Card, IconButton, Popover, Separator } from '@radix-ui/themes'
 
 const Stats = () => {
   return (
-    <Card size="4" className="shadow-lg max-w-max">
+    <Card size="4" className="shadow-lg w-full max-w-max">
       <div className="relative">
         <h2 className="mb-1 text-2xl text-center">Housing Unaffordability:</h2>
         <div className="flex justify-center items-center border-12 mx-auto border-red-500 rounded-[50%] w-25 h-25 font-bold text-3xl">
@@ -46,9 +46,7 @@ const Stats = () => {
       <div className="relative">
         <h2 className="text-2xl text-center">Support Points:</h2>
         <div className="my-4">
-          <h3 className="font-bold text-center text-xl">
-            100,000,000,000,000,000
-          </h3>
+          <h3 className="font-bold text-center text-xl">100,000,000,000,000</h3>
         </div>
         <div className="flex justify-center w-full">
           <Button size="4">Generate Support Points</Button>
