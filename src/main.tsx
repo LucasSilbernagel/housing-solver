@@ -1,12 +1,12 @@
+import { Theme } from '@radix-ui/themes'
+import { Link, RouterProvider, createRouter } from '@tanstack/react-router'
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
-import { Link, RouterProvider, createRouter } from '@tanstack/react-router'
-import { Theme, ThemePanel } from '@radix-ui/themes'
 import './global.css'
 
 // Import the generated route tree
-import { routeTree } from './routeTree.gen'
 import { useThemeStore } from './hooks/use-theme-store'
+import { routeTree } from './routeTree.gen'
 
 // Create a new router instance
 const router = createRouter({
@@ -43,7 +43,6 @@ function AppRoot() {
   return (
     <Theme appearance={shouldUseDarkTheme ? 'dark' : 'light'}>
       <RouterProvider router={router} />
-      <ThemePanel />
     </Theme>
   )
 }
