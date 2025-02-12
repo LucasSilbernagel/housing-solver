@@ -6,6 +6,7 @@ import './global.css'
 
 // Import the generated route tree
 import { routeTree } from './routeTree.gen'
+import { useThemeStore } from './hooks/use-theme-store'
 
 // Create a new router instance
 const router = createRouter({
@@ -27,16 +28,24 @@ declare module '@tanstack/react-router' {
   }
 }
 
-// Render the app
 const rootElement = document.querySelector('#root')!
 if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement)
   root.render(
     <StrictMode>
-      <Theme>
-        <RouterProvider router={router} />
-        <ThemePanel />
-      </Theme>
+      <AppRoot />
     </StrictMode>
   )
 }
+
+function AppRoot() {
+  const shouldUseDarkTheme = useThemeStore((state) => state.shouldUseDarkTheme)
+  return (
+    <Theme appearance={shouldUseDarkTheme ? 'dark' : 'light'}>
+      <RouterProvider router={router} />
+      <ThemePanel />
+    </Theme>
+  )
+}
+
+export default AppRoot

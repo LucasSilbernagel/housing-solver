@@ -3,18 +3,45 @@ import {
   Box,
   Button,
   Card,
+  Flex,
   IconButton,
   Popover,
   Separator,
+  Switch,
   Tabs,
+  Text,
 } from '@radix-ui/themes'
 import { createFileRoute } from '@tanstack/react-router'
+import { useThemeStore } from '../hooks/use-theme-store'
+import { useEffect } from 'react'
+import {
+  getFromLocalStorage,
+  setToLocalStorage,
+} from '../utils/localstorage-helpers'
 
 export const Route = createFileRoute('/')({
   component: Index,
 })
 
 function Index() {
+  const shouldUseDarkTheme = useThemeStore((state) => state.shouldUseDarkTheme)
+  const toggleDarkTheme = useThemeStore((state) => state.toggleTheme)
+
+  const handleDarkThemeToggle = () => {
+    toggleDarkTheme()
+  }
+
+  useEffect(() => {
+    setToLocalStorage('housing-solver-dark-theme', shouldUseDarkTheme)
+  }, [shouldUseDarkTheme])
+
+  useEffect(() => {
+    const darkTheme = getFromLocalStorage('housing-solver-dark-theme')
+    if (darkTheme) {
+      toggleDarkTheme()
+    }
+  }, [toggleDarkTheme])
+
   return (
     <div className="p-4">
       <h1 className="sr-only">Housing Solver</h1>
@@ -118,7 +145,18 @@ function Index() {
                 </Tabs.Content>
 
                 <Tabs.Content value="settings">
-                  <p>Settings go here</p>
+                  <div>
+                    <Text as="label" size="4">
+                      <Flex gap="2">
+                        <Switch
+                          size="3"
+                          checked={shouldUseDarkTheme}
+                          onClick={handleDarkThemeToggle}
+                        />{' '}
+                        Dark theme
+                      </Flex>
+                    </Text>
+                  </div>
                 </Tabs.Content>
               </Box>
             </Tabs.Root>
