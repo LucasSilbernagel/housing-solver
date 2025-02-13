@@ -8,7 +8,7 @@ export const Route = createFileRoute('/')({
 
 function Index() {
   return (
-    <div className="p-4">
+    <div className="mx-auto p-4 max-w-screen-2xl">
       <h1 className="sr-only">Housing Solver</h1>
       <div className="flex xl:flex-row flex-col gap-4">
         <Stats />
