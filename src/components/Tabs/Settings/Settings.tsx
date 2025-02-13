@@ -1,4 +1,11 @@
-import { AlertDialog, Button, Flex, Switch, Text } from '@radix-ui/themes'
+import {
+  AlertDialog,
+  Button,
+  Flex,
+  Switch,
+  Text,
+  TextArea,
+} from '@radix-ui/themes'
 import { useShallow } from 'zustand/shallow'
 import { useGameStore } from '../../../hooks/use-game-store'
 
@@ -16,7 +23,7 @@ const Settings = () => {
   }
 
   return (
-    <div className="flex flex-col gap-12">
+    <div className="flex flex-col gap-10">
       <Text as="label" size="4">
         <Flex gap="2">
           <Switch
@@ -52,6 +59,18 @@ const Settings = () => {
             </Flex>
           </AlertDialog.Content>
         </AlertDialog.Root>
+      </div>
+      <div>
+        <Text as="label" size="4">
+          <Flex gap="2" direction="column">
+            Backup
+            <TextArea placeholder="Backup code goes here..." />
+          </Flex>
+        </Text>
+        <div className="flex gap-2 mt-2">
+          <Button>Create backup</Button>
+          <Button>Import backup</Button>
+        </div>
       </div>
     </div>
   )
