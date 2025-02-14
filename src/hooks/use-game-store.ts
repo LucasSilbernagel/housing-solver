@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
 
-interface GameState {
+export interface GameState {
   shouldUseDarkTheme: boolean
   toggleTheme: () => void
   housingUnaffordabilityScore: number

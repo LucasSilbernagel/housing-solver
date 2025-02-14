@@ -2,6 +2,7 @@ import { Theme } from '@radix-ui/themes'
 import { Link, RouterProvider, createRouter } from '@tanstack/react-router'
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
+import { Toaster } from 'react-hot-toast'
 import './global.css'
 
 // Import the generated route tree
@@ -43,6 +44,7 @@ function AppRoot() {
   return (
     <Theme appearance={shouldUseDarkTheme ? 'dark' : 'light'}>
       <RouterProvider router={router} />
+      <Toaster />
     </Theme>
   )
 }

@@ -45,6 +45,7 @@ export default tseslint.config(
       'unicorn/prevent-abbreviations': 'warn',
       'unicorn/no-abusive-eslint-disable': 'warn',
       'unicorn/filename-case': 'off',
+      'unicorn/consistent-function-scoping': 'off',
     },
   }
 )

@@ -22,7 +22,7 @@ const Stats = () => {
     <Card size="4" className="shadow-lg w-full max-w-max">
       <div className="relative">
         <h2 className="mb-1 text-2xl text-center">Housing Unaffordability:</h2>
-        <div className="flex justify-center items-center border-12 mx-auto border-red-500 rounded-[50%] w-25 h-25 font-bold text-3xl">
+        <div className="flex justify-center items-center mx-auto border-12 border-red-500 rounded-[50%] w-25 h-25 font-bold text-3xl">
           <div>
             <h3>
               <span>{unaffordabilityScore}</span>%
@@ -60,11 +60,11 @@ const Stats = () => {
           </Popover.Root>
         </div>
       </div>
-      <Separator size="4" className="my-6" />
+      <Separator size="4" className="my-12" />
       <div className="relative">
         <h2 className="text-2xl text-center">Support Points:</h2>
         <div className="my-4">
-          <h3 className="font-bold text-center text-xl">
+          <h3 className="font-bold text-xl text-center">
             {supportPoints.toLocaleString()}
           </h3>
         </div>
@@ -97,10 +97,6 @@ const Stats = () => {
             </Popover.Content>
           </Popover.Root>
         </div>
-      </div>
-      <Separator size="4" className="my-6" />
-      <div>
-        <p className="text-center">Game saved 30 seconds ago</p>
       </div>
     </Card>
   )
