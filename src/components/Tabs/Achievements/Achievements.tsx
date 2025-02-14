@@ -1,5 +1,5 @@
 import { CheckIcon, CountdownTimerIcon } from '@radix-ui/react-icons'
-import { Card, Text } from '@radix-ui/themes'
+import { Card, Text, Tooltip } from '@radix-ui/themes'
 import clsx from 'clsx'
 import { useShallow } from 'zustand/shallow'
 import { useGameStore } from '../../../hooks/use-game-store'
@@ -30,17 +30,26 @@ const Achievements = () => {
                     {achievement.text}
                   </Text>
                 </div>
-                <div>
-                  {achievement.achieved ? (
-                    <CheckIcon width="25" height="25" color="green" />
-                  ) : (
-                    <CountdownTimerIcon
-                      width="25"
-                      height="25"
-                      // color="gray"
-                    />
-                  )}
-                </div>
+                <Tooltip
+                  content={achievement.achieved ? 'Achieved' : 'In progress'}
+                >
+                  <button>
+                    {achievement.achieved ? (
+                      <CheckIcon
+                        width="25"
+                        height="25"
+                        color="green"
+                        aria-label="achieved"
+                      />
+                    ) : (
+                      <CountdownTimerIcon
+                        width="25"
+                        height="25"
+                        aria-label="in progress"
+                      />
+                    )}
+                  </button>
+                </Tooltip>
               </div>
             </Card>
           </li>

@@ -22,6 +22,11 @@ export interface GameState {
   electedToNationalOffice: boolean
   electToNationalOffice: () => void
   achievements: Achievement[]
+  updateAchievement: (
+    achievementText: string,
+    property: 'visible' | 'achieved',
+    value: boolean
+  ) => void
   resetGame: () => void
 }
 
@@ -69,6 +74,18 @@ export const useGameStore = create<GameState>()(
             electedToNationalOffice: true,
           })),
         achievements: ACHIEVEMENTS,
+        updateAchievement: (
+          achievementText: string,
+          property: 'visible' | 'achieved',
+          value: boolean
+        ) =>
+          set((state) => ({
+            achievements: state.achievements.map((achievement) =>
+              achievement.text === achievementText
+                ? { ...achievement, [property]: value }
+                : achievement
+            ),
+          })),
         resetGame: () =>
           set(() => ({
             supportPoints: 0,

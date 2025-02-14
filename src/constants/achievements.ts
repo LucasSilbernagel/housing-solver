@@ -5,7 +5,7 @@ export interface Achievement {
 }
 
 export const ACHIEVEMENTS: Achievement[] = [
-  { text: 'Generate 100 support points', visible: true, achieved: false },
+  { text: 'Generate 100 support points', visible: false, achieved: false },
   { text: 'Generate 1,000 support points', visible: false, achieved: false },
   { text: 'Generate 10,000 support points', visible: false, achieved: false },
   { text: 'Generate 100,000 support points', visible: false, achieved: false },
@@ -57,7 +57,7 @@ export const ACHIEVEMENTS: Achievement[] = [
   },
   {
     text: 'Reduce housing unaffordability to 30%',
-    visible: true,
+    visible: false,
     achieved: false,
   },
   {
@@ -87,51 +87,6 @@ export const ACHIEVEMENTS: Achievement[] = [
   },
   {
     text: 'Completely eliminate housing unaffordability',
-    visible: false,
-    achieved: false,
-  },
-  {
-    text: 'Prevent a NIMBY protest',
-    visible: true,
-    achieved: false,
-  },
-  {
-    text: 'Prevent 2 NIMBY protests',
-    visible: false,
-    achieved: false,
-  },
-  {
-    text: 'Prevent 5 NIMBY protests',
-    visible: false,
-    achieved: false,
-  },
-  {
-    text: 'Prevent 10 NIMBY protests',
-    visible: false,
-    achieved: false,
-  },
-  {
-    text: 'Prevent 20 NIMBY protests',
-    visible: false,
-    achieved: false,
-  },
-  {
-    text: 'Prevent 50 NIMBY protests',
-    visible: false,
-    achieved: false,
-  },
-  {
-    text: 'Prevent 100 NIMBY protests',
-    visible: false,
-    achieved: false,
-  },
-  {
-    text: 'Prevent 500 NIMBY protests',
-    visible: false,
-    achieved: false,
-  },
-  {
-    text: 'Prevent 1,000 NIMBY protests',
     visible: false,
     achieved: false,
   },
@@ -177,7 +132,7 @@ export const ACHIEVEMENTS: Achievement[] = [
   },
   {
     text: 'Get elected to local office',
-    visible: true,
+    visible: false,
     achieved: false,
   },
   {
@@ -187,7 +142,52 @@ export const ACHIEVEMENTS: Achievement[] = [
   },
   {
     text: 'Get elected to national office',
-    visible: true,
+    visible: false,
+    achieved: false,
+  },
+  {
+    text: 'Prevent a NIMBY protest',
+    visible: false,
+    achieved: false,
+  },
+  {
+    text: 'Prevent 2 NIMBY protests',
+    visible: false,
+    achieved: false,
+  },
+  {
+    text: 'Prevent 5 NIMBY protests',
+    visible: false,
+    achieved: false,
+  },
+  {
+    text: 'Prevent 10 NIMBY protests',
+    visible: false,
+    achieved: false,
+  },
+  {
+    text: 'Prevent 20 NIMBY protests',
+    visible: false,
+    achieved: false,
+  },
+  {
+    text: 'Prevent 50 NIMBY protests',
+    visible: false,
+    achieved: false,
+  },
+  {
+    text: 'Prevent 100 NIMBY protests',
+    visible: false,
+    achieved: false,
+  },
+  {
+    text: 'Prevent 500 NIMBY protests',
+    visible: false,
+    achieved: false,
+  },
+  {
+    text: 'Prevent 1,000 NIMBY protests',
+    visible: false,
     achieved: false,
   },
 ]
