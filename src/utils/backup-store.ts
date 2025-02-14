@@ -2,6 +2,7 @@ import {
   compressToEncodedURIComponent,
   decompressFromEncodedURIComponent,
 } from 'lz-string'
+import { ACHIEVEMENTS } from '../constants/achievements'
 import { GameState, useGameStore } from '../hooks/use-game-store'
 
 function isGameState(object: unknown): object is GameState {
@@ -18,7 +19,15 @@ function isGameState(object: unknown): object is GameState {
     Number.isFinite(candidate.manualIncrementAmount) &&
     typeof candidate.supportPoints === 'number' &&
     !Number.isNaN(candidate.supportPoints) &&
-    Number.isFinite(candidate.supportPoints)
+    Number.isFinite(candidate.supportPoints) &&
+    !Number.isNaN(candidate.nimbyProtestsPrevented) &&
+    Number.isFinite(candidate.nimbyProtestsPrevented) &&
+    !Number.isNaN(candidate.volunteersRecruited) &&
+    Number.isFinite(candidate.volunteersRecruited) &&
+    typeof candidate.electToLocalOffice === 'boolean' &&
+    typeof candidate.electToRegionalOffice === 'boolean' &&
+    typeof candidate.electToNationalOffice === 'boolean' &&
+    typeof candidate.achievements === typeof ACHIEVEMENTS
   )
 }
 

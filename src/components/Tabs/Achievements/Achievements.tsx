@@ -1,17 +1,23 @@
-import { CheckIcon } from '@radix-ui/react-icons'
+import { CheckIcon, CountdownTimerIcon } from '@radix-ui/react-icons'
 import { Card, Text } from '@radix-ui/themes'
 import clsx from 'clsx'
+import { useShallow } from 'zustand/shallow'
+import { useGameStore } from '../../../hooks/use-game-store'
 
 const Achievements = () => {
-  const achievements = [
-    { text: 'Generate 100 support points', achieved: true },
-    { text: 'Generate 1,000 support points', achieved: false },
-  ]
+  const { achievements } = useGameStore(
+    useShallow((state) => ({
+      achievements: state.achievements,
+    }))
+  )
   return (
-    <ul className="space-y-4">
+    <ul className="space-y-4 max-w-[600px]">
       {achievements.map((achievement) => {
         return (
-          <li key={achievement.text}>
+          <li
+            key={achievement.text}
+            className={clsx(achievement.visible ? 'visible' : 'hidden')}
+          >
             <Card className="shadow-sm">
               <div className="flex justify-between items-center gap-4">
                 <div>
@@ -25,14 +31,15 @@ const Achievements = () => {
                   </Text>
                 </div>
                 <div>
-                  <CheckIcon
-                    width="25"
-                    height="25"
-                    color="green"
-                    className={clsx(
-                      achievement.achieved ? 'visible' : 'invisible'
-                    )}
-                  />
+                  {achievement.achieved ? (
+                    <CheckIcon width="25" height="25" color="green" />
+                  ) : (
+                    <CountdownTimerIcon
+                      width="25"
+                      height="25"
+                      // color="gray"
+                    />
+                  )}
                 </div>
               </div>
             </Card>

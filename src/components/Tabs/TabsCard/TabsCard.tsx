@@ -5,7 +5,7 @@ import Upgrades from '../Upgrades/Upgrades'
 
 const TabsCard = () => {
   return (
-    <Card size="4" className="shadow-lg w-full">
+    <Card size="4" className="shadow-lg w-full max-w-[800px]">
       <Tabs.Root defaultValue="upgrades">
         <Tabs.List wrap="wrap">
           <Tabs.Trigger value="upgrades">Upgrades</Tabs.Trigger>

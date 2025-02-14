@@ -1,7 +1,7 @@
 import { InfoCircledIcon } from '@radix-ui/react-icons'
 import { Button, Card, IconButton, Popover, Separator } from '@radix-ui/themes'
 import { useShallow } from 'zustand/shallow'
-import { MAXIMUM_SUPPORT_POINTS } from '../../constants'
+import { MAXIMUM_SUPPORT_POINTS } from '../../constants/stats'
 import { useGameStore } from '../../hooks/use-game-store'
 
 const Stats = () => {
