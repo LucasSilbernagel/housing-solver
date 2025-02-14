@@ -11,8 +11,14 @@ function isGameState(object: unknown): object is GameState {
     candidate !== null &&
     typeof candidate.shouldUseDarkTheme === 'boolean' &&
     typeof candidate.housingUnaffordabilityScore === 'number' &&
+    !Number.isNaN(candidate.housingUnaffordabilityScore) &&
+    Number.isFinite(candidate.housingUnaffordabilityScore) &&
     typeof candidate.manualIncrementAmount === 'number' &&
-    typeof candidate.supportPoints === 'number'
+    !Number.isNaN(candidate.manualIncrementAmount) &&
+    Number.isFinite(candidate.manualIncrementAmount) &&
+    typeof candidate.supportPoints === 'number' &&
+    !Number.isNaN(candidate.supportPoints) &&
+    Number.isFinite(candidate.supportPoints)
   )
 }
 
@@ -24,6 +30,9 @@ export const serializeStore = () => {
 }
 
 export const deserializeStore = (compressedData: string) => {
+  if (compressedData.length > 50_000) {
+    throw new Error('Backup data too large')
+  }
   const jsonData = decompressFromEncodedURIComponent(compressedData)
   if (!jsonData) {
     throw new Error('Invalid game backup data')
