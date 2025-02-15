@@ -113,7 +113,7 @@ const Settings = () => {
           href="https://lucassilbernagel.com/"
           target="_blank"
           rel="noreferrer"
-          className="underline underline-offset-2 transition-all duration-300 ease-in-out hover:underline-offset-0 focus-visible:underline-offset-0"
+          className="underline underline-offset-2 transition-all duration-300 ease-in-out hover:underline-offset-4 focus-visible:underline-offset-4"
         >
           Lucas Silbernagel
         </a>{' '}
