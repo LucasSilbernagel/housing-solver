@@ -9,8 +9,13 @@ export interface GameState {
   setHousingUnaffordabilityScore: (score: number) => void
   manualIncrementAmount: number
   updateManualIncrementAmount: (amount: number) => void
-  supportPoints: number
-  generateSupportPoints: (manualIncrementAmount: number) => void
+  automaticIncrementAmount: number
+  updateAutomaticIncrementAmount: (amount: number) => void
+  allTimePoints: number
+  manuallyIncrementPoints: (manualIncrementAmount: number) => void
+  availablePoints: number
+  updateAvailablePoints: (amount: number) => void
+  automaticallyIncrementPoints: (manualIncrementAmount: number) => void
   nimbyProtestsPrevented: number
   incrementNimbyProtestsPrevented: () => void
   volunteersRecruited: number
@@ -42,11 +47,27 @@ export const useGameStore = create<GameState>()(
           set(() => ({ housingUnaffordabilityScore: score })),
         manualIncrementAmount: 1,
         updateManualIncrementAmount: (amount) =>
-          set(() => ({ housingUnaffordabilityScore: amount })),
-        supportPoints: 0,
-        generateSupportPoints: () =>
+          set(() => ({ manualIncrementAmount: amount })),
+        automaticIncrementAmount: 0,
+        updateAutomaticIncrementAmount: (amount) =>
+          set(() => ({ automaticIncrementAmount: amount })),
+        allTimePoints: 0,
+        manuallyIncrementPoints: () =>
           set((state) => ({
-            supportPoints: state.supportPoints + state.manualIncrementAmount,
+            allTimePoints: state.allTimePoints + state.manualIncrementAmount,
+            availablePoints:
+              state.availablePoints + state.manualIncrementAmount,
+          })),
+        availablePoints: 0,
+        updateAvailablePoints: (amount) =>
+          set((state) => ({
+            availablePoints: state.availablePoints + amount,
+          })),
+        automaticallyIncrementPoints: () =>
+          set((state) => ({
+            allTimePoints: state.allTimePoints + state.automaticIncrementAmount,
+            availablePoints:
+              state.availablePoints + state.automaticIncrementAmount,
           })),
         nimbyProtestsPrevented: 0,
         incrementNimbyProtestsPrevented: () =>
@@ -88,9 +109,11 @@ export const useGameStore = create<GameState>()(
           })),
         resetGame: () =>
           set(() => ({
-            supportPoints: 0,
+            allTimePoints: 0,
+            availablePoints: 0,
             housingUnaffordabilityScore: 35,
             manualIncrementAmount: 1,
+            automaticIncrementAmount: 0,
             nimbyProtestsPrevented: 0,
             volunteersRecruited: 0,
             electedToLocalOffice: false,

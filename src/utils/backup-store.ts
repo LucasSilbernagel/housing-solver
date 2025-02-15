@@ -16,10 +16,14 @@ function isGameState(object: unknown): object is GameState {
     Number.isFinite(candidate.housingUnaffordabilityScore) &&
     typeof candidate.manualIncrementAmount === 'number' &&
     !Number.isNaN(candidate.manualIncrementAmount) &&
+    typeof candidate.automaticIncrementAmount === 'number' &&
+    !Number.isNaN(candidate.automaticIncrementAmount) &&
     Number.isFinite(candidate.manualIncrementAmount) &&
-    typeof candidate.supportPoints === 'number' &&
-    !Number.isNaN(candidate.supportPoints) &&
-    Number.isFinite(candidate.supportPoints) &&
+    typeof candidate.allTimePoints === 'number' &&
+    !Number.isNaN(candidate.allTimePoints) &&
+    Number.isFinite(candidate.allTimePoints) &&
+    !Number.isNaN(candidate.availablePoints) &&
+    Number.isFinite(candidate.availablePoints) &&
     !Number.isNaN(candidate.nimbyProtestsPrevented) &&
     Number.isFinite(candidate.nimbyProtestsPrevented) &&
     !Number.isNaN(candidate.volunteersRecruited) &&

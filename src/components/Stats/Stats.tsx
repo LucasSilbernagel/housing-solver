@@ -8,14 +8,14 @@ const Stats = () => {
   const {
     unaffordabilityScore,
     manualIncrementAmount,
-    supportPoints,
-    generateSupportPoints,
+    availablePoints,
+    manuallyIncrementPoints,
   } = useGameStore(
     useShallow((state) => ({
       unaffordabilityScore: state.housingUnaffordabilityScore,
       manualIncrementAmount: state.manualIncrementAmount,
-      supportPoints: state.supportPoints,
-      generateSupportPoints: state.generateSupportPoints,
+      availablePoints: state.availablePoints,
+      manuallyIncrementPoints: state.manuallyIncrementPoints,
     }))
   )
   return (
@@ -65,14 +65,14 @@ const Stats = () => {
         <h2 className="text-2xl text-center">Support Points:</h2>
         <div className="my-4">
           <h3 className="font-bold text-xl text-center">
-            {supportPoints.toLocaleString()}
+            {availablePoints.toLocaleString()}
           </h3>
         </div>
         <div className="flex justify-center w-full">
           <Button
             size="4"
-            onClick={() => generateSupportPoints(manualIncrementAmount)}
-            disabled={supportPoints >= MAXIMUM_SUPPORT_POINTS}
+            onClick={() => manuallyIncrementPoints(manualIncrementAmount)}
+            disabled={availablePoints >= MAXIMUM_SUPPORT_POINTS}
           >
             Generate Support Points
           </Button>
