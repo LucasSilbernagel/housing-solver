@@ -1,5 +1,6 @@
 import { InfoCircledIcon } from '@radix-ui/react-icons'
 import { Button, Card, IconButton, Popover, Separator } from '@radix-ui/themes'
+import clsx from 'clsx'
 import { useShallow } from 'zustand/shallow'
 import { MAXIMUM_SUPPORT_POINTS } from '../../constants/stats'
 import { useGameStore } from '../../hooks/use-game-store'
@@ -22,7 +23,12 @@ const Stats = () => {
     <Card size="4" className="shadow-lg w-full max-w-max">
       <div className="relative">
         <h2 className="mb-1 text-2xl text-center">Housing Unaffordability:</h2>
-        <div className="flex justify-center items-center mx-auto border-12 border-red-500 rounded-[50%] w-25 h-25 font-bold text-3xl">
+        <div
+          className={clsx(
+            'flex justify-center items-center mx-auto border-12 border-red-500 rounded-[50%] w-25 h-25 font-bold text-3xl',
+            unaffordabilityScore >= 40 ? 'animate-pulse' : 'animate-none'
+          )}
+        >
           <div>
             <h3>
               <span>{unaffordabilityScore}</span>%
