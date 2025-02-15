@@ -131,27 +131,27 @@ export const ACHIEVEMENTS: Achievement[] = [
     achieved: false,
   },
   {
-    text: 'Run an ad campaign',
+    text: 'Run an ad campaign about the affordable housing crisis',
     visible: false,
     achieved: false,
   },
   {
-    text: 'Run 10 ad campaigns',
+    text: 'Run 10 ad campaigns about the affordable housing crisis',
     visible: false,
     achieved: false,
   },
   {
-    text: 'Run 100 ad campaigns',
+    text: 'Run 100 ad campaigns about the affordable housing crisis',
     visible: false,
     achieved: false,
   },
   {
-    text: 'Run 500 ad campaigns',
+    text: 'Run 500 ad campaigns about the affordable housing crisis',
     visible: false,
     achieved: false,
   },
   {
-    text: 'Run 1,000 ad campaigns',
+    text: 'Run 1,000 ad campaigns about the affordable housing crisis',
     visible: false,
     achieved: false,
   },

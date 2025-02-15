@@ -13,6 +13,12 @@ export const useAchievements = () => {
     volunteersRecruited,
     volunteerRecruitersRecruited,
     campaignManagersRecruited,
+    totalAdCampaigns,
+    totalTrainingProgramsFunded,
+    electedToRegionalOffice,
+    electedToNationalOffice,
+    nimbyProtestsPrevented,
+    totalNimbyProtests,
   } = useGameStore(
     useShallow((state) => ({
       achievements: state.achievements,
@@ -23,6 +29,12 @@ export const useAchievements = () => {
       volunteersRecruited: state.volunteersRecruited,
       volunteerRecruitersRecruited: state.volunteerRecruitersRecruited,
       campaignManagersRecruited: state.campaignManagersRecruited,
+      totalAdCampaigns: state.totalAdCampaigns,
+      totalTrainingProgramsFunded: state.totalTrainingProgramsFunded,
+      electedToRegionalOffice: state.electedToRegionalOffice,
+      electedToNationalOffice: state.electedToNationalOffice,
+      nimbyProtestsPrevented: state.nimbyProtestsPrevented,
+      totalNimbyProtests: state.totalNimbyProtests,
     }))
   )
 
@@ -388,6 +400,423 @@ export const useAchievements = () => {
       updateAchievement('Recruit 100 volunteers', 'achieved', true)
       toast.success('You recruited 100 volunteers!')
     }
+    if (
+      checkAchievement('Recruit 100 volunteers', 'achieved') &&
+      !checkAchievement('Recruit 500 volunteers', 'visible')
+    ) {
+      updateAchievement('Recruit 500 volunteers', 'visible', true)
+    }
+    if (
+      totalVolunteers >= 500 &&
+      !checkAchievement('Recruit 500 volunteers', 'achieved')
+    ) {
+      updateAchievement('Recruit 500 volunteers', 'achieved', true)
+      toast.success('You recruited 500 volunteers!')
+    }
+    if (
+      checkAchievement('Recruit 500 volunteers', 'achieved') &&
+      !checkAchievement('Recruit 1,000 volunteers', 'visible')
+    ) {
+      updateAchievement('Recruit 1,000 volunteers', 'visible', true)
+    }
+    if (
+      totalVolunteers >= 1000 &&
+      !checkAchievement('Recruit 1,000 volunteers', 'achieved')
+    ) {
+      updateAchievement('Recruit 1,000 volunteers', 'achieved', true)
+      toast.success('You recruited 1,000 volunteers!')
+    }
+    if (
+      checkAchievement('Recruit 1,000 volunteers', 'achieved') &&
+      !checkAchievement('Recruit 10,000 volunteers', 'visible')
+    ) {
+      updateAchievement('Recruit 10,000 volunteers', 'visible', true)
+    }
+    if (
+      totalVolunteers >= 10_000 &&
+      !checkAchievement('Recruit 10,000 volunteers', 'achieved')
+    ) {
+      updateAchievement('Recruit 10,000 volunteers', 'achieved', true)
+      toast.success('You recruited 10,000 volunteers!')
+    }
+    if (
+      checkAchievement('Recruit 10,000 volunteers', 'achieved') &&
+      !checkAchievement('Recruit 100,000 volunteers', 'visible')
+    ) {
+      updateAchievement('Recruit 100,000 volunteers', 'visible', true)
+    }
+    if (
+      totalVolunteers >= 100_000 &&
+      !checkAchievement('Recruit 100,000 volunteers', 'achieved')
+    ) {
+      updateAchievement('Recruit 100,000 volunteers', 'achieved', true)
+      toast.success('You recruited 100,000 volunteers!')
+    }
+    if (
+      checkAchievement('Recruit 100,000 volunteers', 'achieved') &&
+      !checkAchievement('Recruit 1,000,000 volunteers', 'visible')
+    ) {
+      updateAchievement('Recruit 1,000,000 volunteers', 'visible', true)
+    }
+    if (
+      totalVolunteers >= 1_000_000 &&
+      !checkAchievement('Recruit 1,000,000 volunteers', 'achieved')
+    ) {
+      updateAchievement('Recruit 1,000,000 volunteers', 'achieved', true)
+      toast.success('You recruited 1,000,000 volunteers!')
+    }
+    if (
+      campaignManagersRecruited >= 1 &&
+      !checkAchievement(
+        'Run an ad campaign about the affordable housing crisis',
+        'visible'
+      )
+    ) {
+      updateAchievement(
+        'Run an ad campaign about the affordable housing crisis',
+        'visible',
+        true
+      )
+    }
+    if (
+      totalAdCampaigns >= 1 &&
+      !checkAchievement(
+        'Run an ad campaign about the affordable housing crisis',
+        'achieved'
+      )
+    ) {
+      updateAchievement(
+        'Run an ad campaign about the affordable housing crisis',
+        'achieved',
+        true
+      )
+      toast.success(
+        'You ran your first ad campaign about the affordable housing crisis!'
+      )
+    }
+    if (
+      checkAchievement(
+        'Run an ad campaign about the affordable housing crisis',
+        'achieved'
+      ) &&
+      !checkAchievement(
+        'Run 10 ad campaigns about the affordable housing crisis',
+        'visible'
+      )
+    ) {
+      updateAchievement(
+        'Run 10 ad campaigns about the affordable housing crisis',
+        'visible',
+        true
+      )
+    }
+    if (
+      totalAdCampaigns >= 10 &&
+      !checkAchievement(
+        'Run 10 ad campaigns about the affordable housing crisis',
+        'achieved'
+      )
+    ) {
+      updateAchievement(
+        'Run 10 ad campaigns about the affordable housing crisis',
+        'achieved',
+        true
+      )
+      toast.success(
+        'You ran 10 ad campaigns about the affordable housing crisis!'
+      )
+    }
+    if (
+      checkAchievement(
+        'Run 10 ad campaigns about the affordable housing crisis',
+        'achieved'
+      ) &&
+      !checkAchievement(
+        'Run 100 ad campaigns about the affordable housing crisis',
+        'visible'
+      )
+    ) {
+      updateAchievement(
+        'Run 100 ad campaigns about the affordable housing crisis',
+        'visible',
+        true
+      )
+    }
+    if (
+      totalAdCampaigns >= 100 &&
+      !checkAchievement(
+        'Run 100 ad campaigns about the affordable housing crisis',
+        'achieved'
+      )
+    ) {
+      updateAchievement(
+        'Run 100 ad campaigns about the affordable housing crisis',
+        'achieved',
+        true
+      )
+      toast.success(
+        'You ran 100 ad campaigns about the affordable housing crisis!'
+      )
+    }
+    if (
+      checkAchievement(
+        'Run 100 ad campaigns about the affordable housing crisis',
+        'achieved'
+      ) &&
+      !checkAchievement(
+        'Run 500 ad campaigns about the affordable housing crisis',
+        'visible'
+      )
+    ) {
+      updateAchievement(
+        'Run 500 ad campaigns about the affordable housing crisis',
+        'visible',
+        true
+      )
+    }
+    if (
+      totalAdCampaigns >= 500 &&
+      !checkAchievement(
+        'Run 500 ad campaigns about the affordable housing crisis',
+        'achieved'
+      )
+    ) {
+      updateAchievement(
+        'Run 500 ad campaigns about the affordable housing crisis',
+        'achieved',
+        true
+      )
+      toast.success(
+        'You ran 500 ad campaigns about the affordable housing crisis!'
+      )
+    }
+    if (
+      checkAchievement(
+        'Run 600 ad campaigns about the affordable housing crisis',
+        'achieved'
+      ) &&
+      !checkAchievement(
+        'Run 1,000 ad campaigns about the affordable housing crisis',
+        'visible'
+      )
+    ) {
+      updateAchievement(
+        'Run 1,000 ad campaigns about the affordable housing crisis',
+        'visible',
+        true
+      )
+    }
+    if (
+      totalAdCampaigns >= 1000 &&
+      !checkAchievement(
+        'Run 1,000 ad campaigns about the affordable housing crisis',
+        'achieved'
+      )
+    ) {
+      updateAchievement(
+        'Run 1,000 ad campaigns about the affordable housing crisis',
+        'achieved',
+        true
+      )
+      toast.success(
+        'You ran 1,000 ad campaigns about the affordable housing crisis!'
+      )
+    }
+    if (
+      electedToLocalOffice &&
+      !checkAchievement('Fund a job training program', 'visible')
+    ) {
+      updateAchievement('Fund a job training program', 'visible', true)
+    }
+    if (
+      totalTrainingProgramsFunded >= 1 &&
+      !checkAchievement('Fund a job training program', 'achieved')
+    ) {
+      updateAchievement('Fund a job training program', 'achieved', true)
+      toast.success('You successfully funded a job training program!')
+    }
+    if (
+      checkAchievement('Fund a job training program', 'achieved') &&
+      !checkAchievement('Fund 5 job training programs', 'visible')
+    ) {
+      updateAchievement('Fund 5 job training programs', 'visible', true)
+    }
+    if (
+      totalTrainingProgramsFunded >= 5 &&
+      !checkAchievement('Fund 5 job training programs', 'achieved')
+    ) {
+      updateAchievement('Fund 5 job training programs', 'achieved', true)
+      toast.success('You funded 5 job training programs!')
+    }
+    if (
+      checkAchievement('Fund 5 job training programs', 'achieved') &&
+      !checkAchievement('Fund 10 job training programs', 'visible')
+    ) {
+      updateAchievement('Fund 10 job training programs', 'visible', true)
+    }
+    if (
+      totalTrainingProgramsFunded >= 10 &&
+      !checkAchievement('Fund 10 job training programs', 'achieved')
+    ) {
+      updateAchievement('Fund 10 job training programs', 'achieved', true)
+      toast.success('You funded 10 job training programs!')
+    }
+    if (
+      totalAdCampaigns >= 1 &&
+      !checkAchievement('Get elected to local office', 'visible')
+    ) {
+      updateAchievement('Get elected to local office', 'visible', true)
+    }
+    if (
+      electedToLocalOffice &&
+      !checkAchievement('Get elected to local office', 'achieved')
+    ) {
+      updateAchievement('Get elected to local office', 'achieved', true)
+      toast.success('You were elected to local office!')
+    }
+    if (
+      checkAchievement('Get elected to local office', 'achieved') &&
+      !checkAchievement('Get elected to regional office', 'visible')
+    ) {
+      updateAchievement('Get elected to regional office', 'visible', true)
+    }
+    if (
+      electedToRegionalOffice &&
+      !checkAchievement('Get elected to regional office', 'achieved')
+    ) {
+      updateAchievement('Get elected to regional office', 'achieved', true)
+      toast.success('You were elected to regional office!')
+    }
+    if (
+      checkAchievement('Get elected to regional office', 'achieved') &&
+      !checkAchievement('Get elected to national office', 'visible')
+    ) {
+      updateAchievement('Get elected to national office', 'visible', true)
+    }
+    if (
+      electedToNationalOffice &&
+      !checkAchievement('Get elected to national office', 'achieved')
+    ) {
+      updateAchievement('Get elected to national office', 'achieved', true)
+      toast.success('You were elected to national office!')
+    }
+    if (
+      totalNimbyProtests >= 1 &&
+      !checkAchievement('Prevent a NIMBY protest', 'visible')
+    ) {
+      updateAchievement('Prevent a NIMBY protest', 'visible', true)
+    }
+    if (
+      nimbyProtestsPrevented >= 1 &&
+      !checkAchievement('Prevent a NIMBY protest', 'achieved')
+    ) {
+      updateAchievement('Prevent a NIMBY protest', 'achieved', true)
+      toast.success('You were able to prevent a NIMBY protest!')
+    }
+    if (
+      checkAchievement('Prevent a NIMBY protest', 'achieved') &&
+      !checkAchievement('Prevent 2 NIMBY protests', 'visible')
+    ) {
+      updateAchievement('Prevent 2 NIMBY protests', 'visible', true)
+    }
+    if (
+      nimbyProtestsPrevented >= 2 &&
+      !checkAchievement('Prevent 2 NIMBY protests', 'achieved')
+    ) {
+      updateAchievement('Prevent 2 NIMBY protests', 'achieved', true)
+      toast.success('You prevented 2 NIMBY protests!')
+    }
+    if (
+      checkAchievement('Prevent 2 NIMBY protests', 'achieved') &&
+      !checkAchievement('Prevent 5 NIMBY protests', 'visible')
+    ) {
+      updateAchievement('Prevent 5 NIMBY protests', 'visible', true)
+    }
+    if (
+      nimbyProtestsPrevented >= 5 &&
+      !checkAchievement('Prevent 5 NIMBY protests', 'achieved')
+    ) {
+      updateAchievement('Prevent 5 NIMBY protests', 'achieved', true)
+      toast.success('You prevented 5 NIMBY protests!')
+    }
+    if (
+      checkAchievement('Prevent 5 NIMBY protests', 'achieved') &&
+      !checkAchievement('Prevent 10 NIMBY protests', 'visible')
+    ) {
+      updateAchievement('Prevent 10 NIMBY protests', 'visible', true)
+    }
+    if (
+      nimbyProtestsPrevented >= 10 &&
+      !checkAchievement('Prevent 10 NIMBY protests', 'achieved')
+    ) {
+      updateAchievement('Prevent 10 NIMBY protests', 'achieved', true)
+      toast.success('You prevented 10 NIMBY protests!')
+    }
+    if (
+      checkAchievement('Prevent 10 NIMBY protests', 'achieved') &&
+      !checkAchievement('Prevent 20 NIMBY protests', 'visible')
+    ) {
+      updateAchievement('Prevent 20 NIMBY protests', 'visible', true)
+    }
+    if (
+      nimbyProtestsPrevented >= 20 &&
+      !checkAchievement('Prevent 20 NIMBY protests', 'achieved')
+    ) {
+      updateAchievement('Prevent 20 NIMBY protests', 'achieved', true)
+      toast.success('You prevented 20 NIMBY protests!')
+    }
+    if (
+      checkAchievement('Prevent 20 NIMBY protests', 'achieved') &&
+      !checkAchievement('Prevent 50 NIMBY protests', 'visible')
+    ) {
+      updateAchievement('Prevent 50 NIMBY protests', 'visible', true)
+    }
+    if (
+      nimbyProtestsPrevented >= 50 &&
+      !checkAchievement('Prevent 50 NIMBY protests', 'achieved')
+    ) {
+      updateAchievement('Prevent 50 NIMBY protests', 'achieved', true)
+      toast.success('You prevented 50 NIMBY protests!')
+    }
+    if (
+      checkAchievement('Prevent 50 NIMBY protests', 'achieved') &&
+      !checkAchievement('Prevent 100 NIMBY protests', 'visible')
+    ) {
+      updateAchievement('Prevent 100 NIMBY protests', 'visible', true)
+    }
+    if (
+      nimbyProtestsPrevented >= 100 &&
+      !checkAchievement('Prevent 100 NIMBY protests', 'achieved')
+    ) {
+      updateAchievement('Prevent 100 NIMBY protests', 'achieved', true)
+      toast.success('You prevented 100 NIMBY protests!')
+    }
+    if (
+      checkAchievement('Prevent 100 NIMBY protests', 'achieved') &&
+      !checkAchievement('Prevent 500 NIMBY protests', 'visible')
+    ) {
+      updateAchievement('Prevent 500 NIMBY protests', 'visible', true)
+    }
+    if (
+      nimbyProtestsPrevented >= 500 &&
+      !checkAchievement('Prevent 500 NIMBY protests', 'achieved')
+    ) {
+      updateAchievement('Prevent 500 NIMBY protests', 'achieved', true)
+      toast.success('You prevented 500 NIMBY protests!')
+    }
+    if (
+      checkAchievement('Prevent 500 NIMBY protests', 'achieved') &&
+      !checkAchievement('Prevent 1,000 NIMBY protests', 'visible')
+    ) {
+      updateAchievement('Prevent 1,000 NIMBY protests', 'visible', true)
+    }
+    if (
+      nimbyProtestsPrevented >= 1000 &&
+      !checkAchievement('Prevent 1,000 NIMBY protests', 'achieved')
+    ) {
+      updateAchievement('Prevent 1,000 NIMBY protests', 'achieved', true)
+      toast.success('You prevented 1,000 NIMBY protests!')
+    }
   }, [
     allTimePoints,
     updateAchievement,
@@ -395,5 +824,12 @@ export const useAchievements = () => {
     housingUnaffordabilityScore,
     electedToLocalOffice,
     totalVolunteers,
+    campaignManagersRecruited,
+    totalAdCampaigns,
+    totalTrainingProgramsFunded,
+    electedToRegionalOffice,
+    electedToNationalOffice,
+    totalNimbyProtests,
+    nimbyProtestsPrevented,
   ])
 }

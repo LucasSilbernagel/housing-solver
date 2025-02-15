@@ -18,6 +18,8 @@ export interface GameState {
   automaticallyIncrementPoints: (manualIncrementAmount: number) => void
   nimbyProtestsPrevented: number
   incrementNimbyProtestsPrevented: () => void
+  totalNimbyProtests: number
+  incrementTotalNimbyProtests: () => void
   volunteersRecruited: number
   incrementVolunteersRecruited: () => void
   volunteerRecruitersRecruited: number
@@ -36,6 +38,10 @@ export interface GameState {
     property: 'visible' | 'achieved',
     value: boolean
   ) => void
+  totalAdCampaigns: number
+  incrementTotalAdCampaigns: () => void
+  totalTrainingProgramsFunded: number
+  incrementTotalTrainingProgramsFunded: () => void
   resetGame: () => void
 }
 
@@ -77,6 +83,11 @@ export const useGameStore = create<GameState>()(
         incrementNimbyProtestsPrevented: () =>
           set((state) => ({
             nimbyProtestsPrevented: state.nimbyProtestsPrevented + 1,
+          })),
+        totalNimbyProtests: 0,
+        incrementTotalNimbyProtests: () =>
+          set((state) => ({
+            totalNimbyProtests: state.totalNimbyProtests + 1,
           })),
         volunteersRecruited: 0,
         incrementVolunteersRecruited: () =>
@@ -122,6 +133,16 @@ export const useGameStore = create<GameState>()(
                 : achievement
             ),
           })),
+        totalAdCampaigns: 0,
+        incrementTotalAdCampaigns: () =>
+          set((state) => ({
+            totalAdCampaigns: state.totalAdCampaigns + 1,
+          })),
+        totalTrainingProgramsFunded: 0,
+        incrementTotalTrainingProgramsFunded: () =>
+          set((state) => ({
+            totalTrainingProgramsFunded: state.totalTrainingProgramsFunded + 1,
+          })),
         resetGame: () =>
           set(() => ({
             allTimePoints: 0,
@@ -130,6 +151,7 @@ export const useGameStore = create<GameState>()(
             manualIncrementAmount: 1,
             automaticIncrementAmount: 0,
             nimbyProtestsPrevented: 0,
+            totalNimbyProtests: 0,
             volunteersRecruited: 0,
             volunteerRecruitersRecruited: 0,
             campaignManagersRecruited: 0,
@@ -137,6 +159,8 @@ export const useGameStore = create<GameState>()(
             electedToRegionalOffice: false,
             electedToNationalOffice: false,
             achievements: ACHIEVEMENTS,
+            totalAdCampaigns: 0,
+            totalTrainingProgramsFunded: 0,
           })),
       }),
       {
