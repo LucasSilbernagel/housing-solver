@@ -6,7 +6,7 @@ export interface GameState {
   shouldUseDarkTheme: boolean
   toggleTheme: () => void
   housingUnaffordabilityScore: number
-  setHousingUnaffordabilityScore: (score: number) => void
+  updateHousingUnaffordabilityScore: (score: number) => void
   manualIncrementAmount: number
   updateManualIncrementAmount: (amount: number) => void
   automaticIncrementAmount: number
@@ -20,6 +20,10 @@ export interface GameState {
   incrementNimbyProtestsPrevented: () => void
   volunteersRecruited: number
   incrementVolunteersRecruited: () => void
+  volunteerRecruitersRecruited: number
+  incrementVolunteerRecruitersRecruited: () => void
+  campaignManagersRecruited: number
+  incrementCampaignManagersRecruited: () => void
   electedToLocalOffice: boolean
   electToLocalOffice: () => void
   electedToRegionalOffice: boolean
@@ -43,7 +47,7 @@ export const useGameStore = create<GameState>()(
         toggleTheme: () =>
           set((state) => ({ shouldUseDarkTheme: !state.shouldUseDarkTheme })),
         housingUnaffordabilityScore: 35,
-        setHousingUnaffordabilityScore: (score) =>
+        updateHousingUnaffordabilityScore: (score) =>
           set(() => ({ housingUnaffordabilityScore: score })),
         manualIncrementAmount: 1,
         updateManualIncrementAmount: (amount) =>
@@ -77,7 +81,18 @@ export const useGameStore = create<GameState>()(
         volunteersRecruited: 0,
         incrementVolunteersRecruited: () =>
           set((state) => ({
-            nimbyProtestsPrevented: state.nimbyProtestsPrevented + 1,
+            volunteersRecruited: state.volunteersRecruited + 1,
+          })),
+        volunteerRecruitersRecruited: 0,
+        incrementVolunteerRecruitersRecruited: () =>
+          set((state) => ({
+            volunteerRecruitersRecruited:
+              state.volunteerRecruitersRecruited + 1,
+          })),
+        campaignManagersRecruited: 0,
+        incrementCampaignManagersRecruited: () =>
+          set((state) => ({
+            campaignManagersRecruited: state.campaignManagersRecruited + 1,
           })),
         electedToLocalOffice: false,
         electToLocalOffice: () =>
@@ -116,6 +131,8 @@ export const useGameStore = create<GameState>()(
             automaticIncrementAmount: 0,
             nimbyProtestsPrevented: 0,
             volunteersRecruited: 0,
+            volunteerRecruitersRecruited: 0,
+            campaignManagersRecruited: 0,
             electedToLocalOffice: false,
             electedToRegionalOffice: false,
             electedToNationalOffice: false,

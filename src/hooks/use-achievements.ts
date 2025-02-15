@@ -206,6 +206,65 @@ export const useAchievements = () => {
       )
     }
     if (
+      electedToLocalOffice &&
+      !checkAchievement('Reduce housing unaffordability to 25%', 'visible')
+    ) {
+      updateAchievement(
+        'Reduce housing unaffordability to 25%',
+        'visible',
+        true
+      )
+    }
+    if (
+      electedToLocalOffice &&
+      !checkAchievement('Reduce housing unaffordability to 20%', 'visible')
+    ) {
+      updateAchievement(
+        'Reduce housing unaffordability to 20%',
+        'visible',
+        true
+      )
+    }
+    if (
+      electedToLocalOffice &&
+      !checkAchievement('Reduce housing unaffordability to 15%', 'visible')
+    ) {
+      updateAchievement(
+        'Reduce housing unaffordability to 15%',
+        'visible',
+        true
+      )
+    }
+    if (
+      electedToLocalOffice &&
+      !checkAchievement('Reduce housing unaffordability to 10%', 'visible')
+    ) {
+      updateAchievement(
+        'Reduce housing unaffordability to 10%',
+        'visible',
+        true
+      )
+    }
+    if (
+      electedToLocalOffice &&
+      !checkAchievement('Reduce housing unaffordability to 5%', 'visible')
+    ) {
+      updateAchievement('Reduce housing unaffordability to 5%', 'visible', true)
+    }
+    if (
+      electedToLocalOffice &&
+      !checkAchievement(
+        'Completely eliminate housing unaffordability',
+        'visible'
+      )
+    ) {
+      updateAchievement(
+        'Completely eliminate housing unaffordability',
+        'visible',
+        true
+      )
+    }
+    if (
       housingUnaffordabilityScore <= 30 &&
       !checkAchievement('Reduce housing unaffordability to 30%', 'achieved')
     ) {
@@ -215,6 +274,75 @@ export const useAchievements = () => {
         true
       )
       toast.success('Reduced housing unaffordability to 30% or lower!')
+    }
+    if (
+      housingUnaffordabilityScore <= 25 &&
+      !checkAchievement('Reduce housing unaffordability to 25%', 'achieved')
+    ) {
+      updateAchievement(
+        'Reduce housing unaffordability to 25%',
+        'achieved',
+        true
+      )
+      toast.success('Reduced housing unaffordability to 25% or lower!')
+    }
+    if (
+      housingUnaffordabilityScore <= 20 &&
+      !checkAchievement('Reduce housing unaffordability to 20%', 'achieved')
+    ) {
+      updateAchievement(
+        'Reduce housing unaffordability to 20%',
+        'achieved',
+        true
+      )
+      toast.success('Reduced housing unaffordability to 20% or lower!')
+    }
+    if (
+      housingUnaffordabilityScore <= 15 &&
+      !checkAchievement('Reduce housing unaffordability to 15%', 'achieved')
+    ) {
+      updateAchievement(
+        'Reduce housing unaffordability to 15%',
+        'achieved',
+        true
+      )
+      toast.success('Reduced housing unaffordability to 15% or lower!')
+    }
+    if (
+      housingUnaffordabilityScore <= 10 &&
+      !checkAchievement('Reduce housing unaffordability to 10%', 'achieved')
+    ) {
+      updateAchievement(
+        'Reduce housing unaffordability to 10%',
+        'achieved',
+        true
+      )
+      toast.success('Reduced housing unaffordability to 10% or lower!')
+    }
+    if (
+      housingUnaffordabilityScore <= 5 &&
+      !checkAchievement('Reduce housing unaffordability to 5%', 'achieved')
+    ) {
+      updateAchievement(
+        'Reduce housing unaffordability to 5%',
+        'achieved',
+        true
+      )
+      toast.success('Reduced housing unaffordability to 5% or lower!')
+    }
+    if (
+      housingUnaffordabilityScore <= 0 &&
+      !checkAchievement(
+        'Completely eliminate housing unaffordability',
+        'achieved'
+      )
+    ) {
+      updateAchievement(
+        'Completely eliminate housing unaffordability',
+        'achieved',
+        true
+      )
+      toast.success('You have completely eliminated housing unaffordability!')
     }
   }, [
     allTimePoints,
