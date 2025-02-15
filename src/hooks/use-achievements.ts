@@ -10,6 +10,9 @@ export const useAchievements = () => {
     allTimePoints,
     housingUnaffordabilityScore,
     electedToLocalOffice,
+    volunteersRecruited,
+    volunteerRecruitersRecruited,
+    campaignManagersRecruited,
   } = useGameStore(
     useShallow((state) => ({
       achievements: state.achievements,
@@ -17,8 +20,16 @@ export const useAchievements = () => {
       allTimePoints: state.allTimePoints,
       housingUnaffordabilityScore: state.housingUnaffordabilityScore,
       electedToLocalOffice: state.electedToLocalOffice,
+      volunteersRecruited: state.volunteersRecruited,
+      volunteerRecruitersRecruited: state.volunteerRecruitersRecruited,
+      campaignManagersRecruited: state.campaignManagersRecruited,
     }))
   )
+
+  const totalVolunteers =
+    volunteersRecruited +
+    volunteerRecruitersRecruited +
+    campaignManagersRecruited
 
   useEffect(() => {
     const checkAchievement = (
@@ -344,11 +355,45 @@ export const useAchievements = () => {
       )
       toast.success('You have completely eliminated housing unaffordability!')
     }
+    if (
+      totalVolunteers >= 1 &&
+      !checkAchievement('Recruit a volunteer', 'achieved')
+    ) {
+      updateAchievement('Recruit a volunteer', 'achieved', true)
+      toast.success('You recruited your first volunteer!')
+    }
+    if (
+      checkAchievement('Recruit a volunteer', 'achieved') &&
+      !checkAchievement('Recruit 10 volunteers', 'visible')
+    ) {
+      updateAchievement('Recruit 10 volunteers', 'visible', true)
+    }
+    if (
+      totalVolunteers >= 10 &&
+      !checkAchievement('Recruit 10 volunteers', 'achieved')
+    ) {
+      updateAchievement('Recruit 10 volunteers', 'achieved', true)
+      toast.success('You recruited 10 volunteers!')
+    }
+    if (
+      checkAchievement('Recruit 10 volunteers', 'achieved') &&
+      !checkAchievement('Recruit 100 volunteers', 'visible')
+    ) {
+      updateAchievement('Recruit 100 volunteers', 'visible', true)
+    }
+    if (
+      totalVolunteers >= 100 &&
+      !checkAchievement('Recruit 100 volunteers', 'achieved')
+    ) {
+      updateAchievement('Recruit 100 volunteers', 'achieved', true)
+      toast.success('You recruited 100 volunteers!')
+    }
   }, [
     allTimePoints,
     updateAchievement,
     achievements,
     housingUnaffordabilityScore,
     electedToLocalOffice,
+    totalVolunteers,
   ])
 }
