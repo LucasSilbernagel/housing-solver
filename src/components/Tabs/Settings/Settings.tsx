@@ -49,7 +49,7 @@ const Settings = () => {
     } catch (error) {
       console.error('Failed to load backup:', error)
       if (error instanceof Error) {
-        toast.error(error.message)
+        toast.error(`Failed to load backup: ${error.message}`)
       }
     }
   }

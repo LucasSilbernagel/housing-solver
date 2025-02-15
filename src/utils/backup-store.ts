@@ -58,7 +58,7 @@ export const deserializeStore = (compressedData: string) => {
   }
   const jsonData = decompressFromEncodedURIComponent(compressedData)
   if (!jsonData) {
-    throw new Error('Invalid game backup data')
+    throw new Error('There was an error parsing the provided backup data')
   }
 
   try {
