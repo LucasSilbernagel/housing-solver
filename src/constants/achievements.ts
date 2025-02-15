@@ -5,7 +5,7 @@ export interface Achievement {
 }
 
 export const ACHIEVEMENTS: Achievement[] = [
-  { text: 'Generate 100 support points', visible: false, achieved: false },
+  { text: 'Generate 100 support points', visible: true, achieved: false },
   { text: 'Generate 1,000 support points', visible: false, achieved: false },
   { text: 'Generate 10,000 support points', visible: false, achieved: false },
   { text: 'Generate 100,000 support points', visible: false, achieved: false },
