@@ -131,6 +131,46 @@ export const ACHIEVEMENTS: Achievement[] = [
     achieved: false,
   },
   {
+    text: 'Run an ad campaign',
+    visible: false,
+    achieved: false,
+  },
+  {
+    text: 'Run 10 ad campaigns',
+    visible: false,
+    achieved: false,
+  },
+  {
+    text: 'Run 100 ad campaigns',
+    visible: false,
+    achieved: false,
+  },
+  {
+    text: 'Run 500 ad campaigns',
+    visible: false,
+    achieved: false,
+  },
+  {
+    text: 'Run 1,000 ad campaigns',
+    visible: false,
+    achieved: false,
+  },
+  {
+    text: 'Fund a job training program',
+    visible: false,
+    achieved: false,
+  },
+  {
+    text: 'Fund 5 job training programs',
+    visible: false,
+    achieved: false,
+  },
+  {
+    text: 'Fund 10 job training programs',
+    visible: false,
+    achieved: false,
+  },
+  {
     text: 'Get elected to local office',
     visible: false,
     achieved: false,
