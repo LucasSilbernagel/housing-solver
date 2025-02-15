@@ -1,11 +1,15 @@
+import { CopyIcon } from '@radix-ui/react-icons'
 import {
   AlertDialog,
   Button,
   Flex,
+  IconButton,
   Switch,
   Text,
   TextArea,
+  Tooltip,
 } from '@radix-ui/themes'
+import copy from 'clipboard-copy'
 import { useState } from 'react'
 import toast from 'react-hot-toast'
 import { useShallow } from 'zustand/shallow'
@@ -50,6 +54,27 @@ const Settings = () => {
     }
   }
 
+  const handleCopyBackup = async () => {
+    try {
+      await copy(backup).catch((error) => {
+        if (error instanceof Error) {
+          toast.error(
+            `There was an error copying the backup code: ${error.message}`
+          )
+        }
+        console.error(error)
+      })
+      toast.success('Backup code copied to clipboard!')
+    } catch (error) {
+      if (error instanceof Error) {
+        toast.error(
+          `There was an error copying the backup code: ${error.message}`
+        )
+      }
+      console.error(error)
+    }
+  }
+
   return (
     <div className="flex flex-col gap-10">
       <div className="flex flex-col gap-12 sm:flex-row">
@@ -91,12 +116,31 @@ const Settings = () => {
       </div>
       <div>
         <Text as="label" size="4">
-          <Flex gap="2" direction="column" className="max-w-[600px]">
+          <Flex
+            gap="2"
+            direction="column"
+            className="max-w-[600px]"
+            style={{ position: 'relative' }}
+          >
             Backup
+            {backup.length > 0 ? (
+              <Tooltip content="Copy backup code">
+                <IconButton
+                  onClick={() => {
+                    void handleCopyBackup()
+                  }}
+                  variant="ghost"
+                  style={{ position: 'absolute', top: 40, left: 7 }}
+                >
+                  <CopyIcon width="18" height="18" />
+                </IconButton>
+              </Tooltip>
+            ) : undefined}
             <TextArea
               placeholder="Backup code goes here..."
               onChange={(event) => setBackup(event.target.value)}
               value={backup}
+              style={{ paddingLeft: '30px' }}
             />
           </Flex>
         </Text>
