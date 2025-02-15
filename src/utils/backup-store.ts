@@ -38,9 +38,9 @@ function isGameState(object: unknown): object is GameState {
     Number.isFinite(candidate.totalTrainingProgramsFunded) &&
     !Number.isNaN(candidate.totalNimbyProtests) &&
     Number.isFinite(candidate.totalNimbyProtests) &&
-    typeof candidate.electToLocalOffice === 'boolean' &&
-    typeof candidate.electToRegionalOffice === 'boolean' &&
-    typeof candidate.electToNationalOffice === 'boolean' &&
+    typeof candidate.electedToLocalOffice === 'boolean' &&
+    typeof candidate.electedToRegionalOffice === 'boolean' &&
+    typeof candidate.electedToNationalOffice === 'boolean' &&
     typeof candidate.achievements === typeof ACHIEVEMENTS
   )
 }
@@ -53,7 +53,7 @@ export const serializeStore = () => {
 }
 
 export const deserializeStore = (compressedData: string) => {
-  if (compressedData.length > 50_000) {
+  if (compressedData.length > 10_000) {
     throw new Error('Backup data too large')
   }
   const jsonData = decompressFromEncodedURIComponent(compressedData)
