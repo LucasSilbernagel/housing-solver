@@ -11,9 +11,9 @@ function Index() {
   useAchievements()
 
   return (
-    <div className="mx-auto p-4 max-w-screen-2xl">
+    <div className="mx-auto max-w-screen-2xl p-4">
       <h1 className="sr-only">Housing Solver</h1>
-      <div className="flex md:flex-row flex-col md:justify-center items-center md:items-start gap-4">
+      <div className="flex flex-col items-center gap-4 md:flex-row md:items-start md:justify-center">
         <Stats />
         <TabsCard />
       </div>

@@ -52,7 +52,7 @@ const Settings = () => {
 
   return (
     <div className="flex flex-col gap-10">
-      <div className="flex sm:flex-row flex-col gap-12">
+      <div className="flex flex-col gap-12 sm:flex-row">
         <Text as="label" size="4">
           <Flex gap="2">
             <Switch
@@ -100,7 +100,7 @@ const Settings = () => {
             />
           </Flex>
         </Text>
-        <div className="flex gap-2 mt-2">
+        <div className="mt-2 flex gap-2">
           <Button onClick={createBackup}>Create backup</Button>
           <Button onClick={loadBackup} disabled={backup.length === 0}>
             Import backup
@@ -113,7 +113,7 @@ const Settings = () => {
           href="https://lucassilbernagel.com/"
           target="_blank"
           rel="noreferrer"
-          className="underline underline-offset-2 hover:underline-offset-0 focus-visible:underline-offset-0 transition-all duration-300 ease-in-out"
+          className="underline underline-offset-2 transition-all duration-300 ease-in-out hover:underline-offset-0 focus-visible:underline-offset-0"
         >
           Lucas Silbernagel
         </a>{' '}
