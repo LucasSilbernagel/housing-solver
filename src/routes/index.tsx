@@ -2,8 +2,20 @@ import { createFileRoute } from '@tanstack/react-router'
 import Stats from '../components/Stats/Stats'
 import TabsCard from '../components/Tabs/TabsCard/TabsCard'
 import { useAchievements } from '../hooks/use-achievements'
+import { SocialMetaTags, updateMetaTags } from '../utils/seo'
 
 export const Route = createFileRoute('/')({
+  beforeLoad: () => {
+    const metaTags: SocialMetaTags = {
+      title: 'Housing Solver',
+      description:
+        'Think you have what it takes to solve the affordable housing crisis? Prove it in this incremental clicker game!',
+      image: 'https://yourdomain.com/share-image.jpg',
+      url: globalThis.location.href,
+    }
+    // Update meta tags when route loads
+    updateMetaTags(metaTags)
+  },
   component: Index,
 })
 

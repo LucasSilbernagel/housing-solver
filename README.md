@@ -1,6 +1,6 @@
 # Housing Solver
 
-App description...
+Think you have what it takes to solve the affordable housing crisis? Prove it in this incremental clicker game!
 
 App screenshot...
 

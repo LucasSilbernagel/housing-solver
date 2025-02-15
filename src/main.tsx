@@ -1,25 +1,19 @@
 import { Theme } from '@radix-ui/themes'
-import { Link, RouterProvider, createRouter } from '@tanstack/react-router'
+import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import { Toaster } from 'react-hot-toast'
 import './global.css'
 
 // Import the generated route tree
+import NotFoundPage from './components/NotFoundPage/NotFoundPage'
 import { useGameStore } from './hooks/use-game-store'
 import { routeTree } from './routeTree.gen'
 
 // Create a new router instance
 const router = createRouter({
   routeTree,
-  defaultNotFoundComponent: () => {
-    return (
-      <div>
-        <p>Not found! Custom 404 page here.</p>
-        <Link to="/">Go home</Link>
-      </div>
-    )
-  },
+  defaultNotFoundComponent: NotFoundPage,
 })
 
 // Register the router instance for type safety
