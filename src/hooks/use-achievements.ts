@@ -499,7 +499,7 @@ export const useAchievements = () => {
     }
     if (
       checkAchievement(
-        'Run 600 ad campaigns about the affordable housing crisis',
+        'Run 500 ad campaigns about the affordable housing crisis',
         'achieved'
       ) &&
       !checkAchievement(
