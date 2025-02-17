@@ -14,7 +14,7 @@ export const useAchievements = () => {
     volunteerRecruitersRecruited,
     campaignManagersRecruited,
     totalAdCampaigns,
-    totalTrainingProgramsFunded,
+    totalTrainingPrograms,
     electedToRegionalOffice,
     electedToNationalOffice,
     nimbyProtestsPrevented,
@@ -30,7 +30,7 @@ export const useAchievements = () => {
       volunteerRecruitersRecruited: state.volunteerRecruitersRecruited,
       campaignManagersRecruited: state.campaignManagersRecruited,
       totalAdCampaigns: state.totalAdCampaigns,
-      totalTrainingProgramsFunded: state.totalTrainingProgramsFunded,
+      totalTrainingPrograms: state.totalTrainingPrograms,
       electedToRegionalOffice: state.electedToRegionalOffice,
       electedToNationalOffice: state.electedToNationalOffice,
       nimbyProtestsPrevented: state.nimbyProtestsPrevented,
@@ -57,133 +57,97 @@ export const useAchievements = () => {
       allTimePoints >= 100 &&
       !checkAchievement('Generate 100 support points', 'achieved')
     ) {
-      updateAchievement('Generate 100 support points', 'achieved', true)
+      updateAchievement('Generate 100 support points', 'achieved')
       toast.success('Generated 100 support points!')
-      updateAchievement('Generate 1,000 support points', 'visible', true)
+      updateAchievement('Generate 1,000 support points', 'visible')
     }
     if (
       allTimePoints >= 1000 &&
       !checkAchievement('Generate 1,000 support points', 'achieved')
     ) {
-      updateAchievement('Generate 1,000 support points', 'achieved', true)
+      updateAchievement('Generate 1,000 support points', 'achieved')
       toast.success('Generated 1,000 support points!')
-      updateAchievement('Generate 10,000 support points', 'visible', true)
+      updateAchievement('Generate 10,000 support points', 'visible')
     }
     if (
       allTimePoints >= 10_000 &&
       !checkAchievement('Generate 10,000 support points', 'achieved')
     ) {
-      updateAchievement('Generate 10,000 support points', 'achieved', true)
+      updateAchievement('Generate 10,000 support points', 'achieved')
       toast.success('Generated 10,000 support points!')
-      updateAchievement('Generate 100,000 support points', 'visible', true)
+      updateAchievement('Generate 100,000 support points', 'visible')
     }
     if (
       allTimePoints >= 100_000 &&
       !checkAchievement('Generate 100,000 support points', 'achieved')
     ) {
-      updateAchievement('Generate 100,000 support points', 'achieved', true)
+      updateAchievement('Generate 100,000 support points', 'achieved')
       toast.success('Generated 100,000 support points!')
-      updateAchievement('Generate 500,000 support points', 'visible', true)
+      updateAchievement('Generate 500,000 support points', 'visible')
     }
     if (
       allTimePoints >= 500_000 &&
       !checkAchievement('Generate 500,000 support points', 'achieved')
     ) {
-      updateAchievement('Generate 500,000 support points', 'achieved', true)
+      updateAchievement('Generate 500,000 support points', 'achieved')
       toast.success('Generated 500,000 support points!')
-      updateAchievement('Generate 1,000,000 support points', 'visible', true)
+      updateAchievement('Generate 1,000,000 support points', 'visible')
     }
     if (
       allTimePoints >= 1_000_000 &&
       !checkAchievement('Generate 1,000,000 support points', 'achieved')
     ) {
-      updateAchievement('Generate 1,000,000 support points', 'achieved', true)
+      updateAchievement('Generate 1,000,000 support points', 'achieved')
       toast.success('Generated 1,000,000 support points!')
-      updateAchievement('Generate 10,000,000 support points', 'visible', true)
+      updateAchievement('Generate 10,000,000 support points', 'visible')
     }
     if (
       allTimePoints >= 10_000_000 &&
       !checkAchievement('Generate 10,000,000 support points', 'achieved')
     ) {
-      updateAchievement('Generate 10,000,000 support points', 'achieved', true)
+      updateAchievement('Generate 10,000,000 support points', 'achieved')
       toast.success('Generated 10,000,000 support points!')
-      updateAchievement('Generate 100,000,000 support points', 'visible', true)
+      updateAchievement('Generate 100,000,000 support points', 'visible')
     }
     if (
       allTimePoints >= 100_000_000 &&
       !checkAchievement('Generate 100,000,000 support points', 'achieved')
     ) {
-      updateAchievement('Generate 100,000,000 support points', 'achieved', true)
+      updateAchievement('Generate 100,000,000 support points', 'achieved')
       toast.success('Generated 100,000,000 support points!')
-      updateAchievement(
-        'Generate 1,000,000,000 support points',
-        'visible',
-        true
-      )
+      updateAchievement('Generate 1,000,000,000 support points', 'visible')
     }
     if (
       allTimePoints >= 1_000_000_000 &&
       !checkAchievement('Generate 1,000,000,000 support points', 'achieved')
     ) {
-      updateAchievement(
-        'Generate 1,000,000,000 support points',
-        'achieved',
-        true
-      )
+      updateAchievement('Generate 1,000,000,000 support points', 'achieved')
       toast.success('Generated 1,000,000,000 support points!')
-      updateAchievement(
-        'Generate 10,000,000,000 support points',
-        'visible',
-        true
-      )
+      updateAchievement('Generate 10,000,000,000 support points', 'visible')
     }
     if (
       allTimePoints >= 10_000_000_000 &&
       !checkAchievement('Generate 10,000,000,000 support points', 'achieved')
     ) {
-      updateAchievement(
-        'Generate 10,000,000,000 support points',
-        'achieved',
-        true
-      )
+      updateAchievement('Generate 10,000,000,000 support points', 'achieved')
       toast.success('Generated 10,000,000,000 support points!')
-      updateAchievement(
-        'Generate 100,000,000,000 support points',
-        'visible',
-        true
-      )
+      updateAchievement('Generate 100,000,000,000 support points', 'visible')
     }
     if (
       allTimePoints >= 100_000_000_000 &&
       !checkAchievement('Generate 100,000,000,000 support points', 'achieved')
     ) {
-      updateAchievement(
-        'Generate 100,000,000,000 support points',
-        'achieved',
-        true
-      )
+      updateAchievement('Generate 100,000,000,000 support points', 'achieved')
       toast.success('Generated 100,000,000,000 support points!')
-      updateAchievement(
-        'Generate 1,000,000,000,000 support points',
-        'visible',
-        true
-      )
+      updateAchievement('Generate 1,000,000,000,000 support points', 'visible')
     }
     if (
       allTimePoints >= 1_000_000_000_000 &&
       !checkAchievement('Generate 1,000,000,000,000 support points', 'achieved')
     ) {
-      updateAchievement(
-        'Generate 1,000,000,000,000 support points',
-        'achieved',
-        true
-      )
+      updateAchievement('Generate 1,000,000,000,000 support points', 'achieved')
       toast.success('Generated 1,000,000,000,000 support points!')
-      updateAchievement(
-        'Generate 10,000,000,000,000 support points',
-        'visible',
-        true
-      )
+      updateAchievement('Generate 10,000,000,000,000 support points', 'visible')
     }
     if (
       allTimePoints >= 10_000_000_000_000 &&
@@ -194,14 +158,12 @@ export const useAchievements = () => {
     ) {
       updateAchievement(
         'Generate 10,000,000,000,000 support points',
-        'achieved',
-        true
+        'achieved'
       )
       toast.success('Generated 10,000,000,000,000 support points!')
       updateAchievement(
         'Generate 100,000,000,000,000 support points',
-        'visible',
-        true
+        'visible'
       )
     }
     if (
@@ -213,8 +175,7 @@ export const useAchievements = () => {
     ) {
       updateAchievement(
         'Generate 100,000,000,000,000 support points',
-        'achieved',
-        true
+        'achieved'
       )
       toast.success('Generated 100,000,000,000,000 support points!')
     }
@@ -222,57 +183,37 @@ export const useAchievements = () => {
       electedToLocalOffice &&
       !checkAchievement('Reduce housing unaffordability to 30%', 'visible')
     ) {
-      updateAchievement(
-        'Reduce housing unaffordability to 30%',
-        'visible',
-        true
-      )
+      updateAchievement('Reduce housing unaffordability to 30%', 'visible')
     }
     if (
       electedToLocalOffice &&
       !checkAchievement('Reduce housing unaffordability to 25%', 'visible')
     ) {
-      updateAchievement(
-        'Reduce housing unaffordability to 25%',
-        'visible',
-        true
-      )
+      updateAchievement('Reduce housing unaffordability to 25%', 'visible')
     }
     if (
       electedToLocalOffice &&
       !checkAchievement('Reduce housing unaffordability to 20%', 'visible')
     ) {
-      updateAchievement(
-        'Reduce housing unaffordability to 20%',
-        'visible',
-        true
-      )
+      updateAchievement('Reduce housing unaffordability to 20%', 'visible')
     }
     if (
       electedToLocalOffice &&
       !checkAchievement('Reduce housing unaffordability to 15%', 'visible')
     ) {
-      updateAchievement(
-        'Reduce housing unaffordability to 15%',
-        'visible',
-        true
-      )
+      updateAchievement('Reduce housing unaffordability to 15%', 'visible')
     }
     if (
       electedToLocalOffice &&
       !checkAchievement('Reduce housing unaffordability to 10%', 'visible')
     ) {
-      updateAchievement(
-        'Reduce housing unaffordability to 10%',
-        'visible',
-        true
-      )
+      updateAchievement('Reduce housing unaffordability to 10%', 'visible')
     }
     if (
       electedToLocalOffice &&
       !checkAchievement('Reduce housing unaffordability to 5%', 'visible')
     ) {
-      updateAchievement('Reduce housing unaffordability to 5%', 'visible', true)
+      updateAchievement('Reduce housing unaffordability to 5%', 'visible')
     }
     if (
       electedToLocalOffice &&
@@ -283,74 +224,49 @@ export const useAchievements = () => {
     ) {
       updateAchievement(
         'Completely eliminate housing unaffordability',
-        'visible',
-        true
+        'visible'
       )
     }
     if (
       housingUnaffordabilityScore <= 30 &&
       !checkAchievement('Reduce housing unaffordability to 30%', 'achieved')
     ) {
-      updateAchievement(
-        'Reduce housing unaffordability to 30%',
-        'achieved',
-        true
-      )
+      updateAchievement('Reduce housing unaffordability to 30%', 'achieved')
       toast.success('Reduced housing unaffordability to 30% or lower!')
     }
     if (
       housingUnaffordabilityScore <= 25 &&
       !checkAchievement('Reduce housing unaffordability to 25%', 'achieved')
     ) {
-      updateAchievement(
-        'Reduce housing unaffordability to 25%',
-        'achieved',
-        true
-      )
+      updateAchievement('Reduce housing unaffordability to 25%', 'achieved')
       toast.success('Reduced housing unaffordability to 25% or lower!')
     }
     if (
       housingUnaffordabilityScore <= 20 &&
       !checkAchievement('Reduce housing unaffordability to 20%', 'achieved')
     ) {
-      updateAchievement(
-        'Reduce housing unaffordability to 20%',
-        'achieved',
-        true
-      )
+      updateAchievement('Reduce housing unaffordability to 20%', 'achieved')
       toast.success('Reduced housing unaffordability to 20% or lower!')
     }
     if (
       housingUnaffordabilityScore <= 15 &&
       !checkAchievement('Reduce housing unaffordability to 15%', 'achieved')
     ) {
-      updateAchievement(
-        'Reduce housing unaffordability to 15%',
-        'achieved',
-        true
-      )
+      updateAchievement('Reduce housing unaffordability to 15%', 'achieved')
       toast.success('Reduced housing unaffordability to 15% or lower!')
     }
     if (
       housingUnaffordabilityScore <= 10 &&
       !checkAchievement('Reduce housing unaffordability to 10%', 'achieved')
     ) {
-      updateAchievement(
-        'Reduce housing unaffordability to 10%',
-        'achieved',
-        true
-      )
+      updateAchievement('Reduce housing unaffordability to 10%', 'achieved')
       toast.success('Reduced housing unaffordability to 10% or lower!')
     }
     if (
       housingUnaffordabilityScore <= 5 &&
       !checkAchievement('Reduce housing unaffordability to 5%', 'achieved')
     ) {
-      updateAchievement(
-        'Reduce housing unaffordability to 5%',
-        'achieved',
-        true
-      )
+      updateAchievement('Reduce housing unaffordability to 5%', 'achieved')
       toast.success('Reduced housing unaffordability to 5% or lower!')
     }
     if (
@@ -362,8 +278,7 @@ export const useAchievements = () => {
     ) {
       updateAchievement(
         'Completely eliminate housing unaffordability',
-        'achieved',
-        true
+        'achieved'
       )
       toast.success('You have completely eliminated housing unaffordability!')
     }
@@ -371,98 +286,98 @@ export const useAchievements = () => {
       totalVolunteers >= 1 &&
       !checkAchievement('Recruit a volunteer', 'achieved')
     ) {
-      updateAchievement('Recruit a volunteer', 'achieved', true)
+      updateAchievement('Recruit a volunteer', 'achieved')
       toast.success('You recruited your first volunteer!')
     }
     if (
       checkAchievement('Recruit a volunteer', 'achieved') &&
       !checkAchievement('Recruit 10 volunteers', 'visible')
     ) {
-      updateAchievement('Recruit 10 volunteers', 'visible', true)
+      updateAchievement('Recruit 10 volunteers', 'visible')
     }
     if (
       totalVolunteers >= 10 &&
       !checkAchievement('Recruit 10 volunteers', 'achieved')
     ) {
-      updateAchievement('Recruit 10 volunteers', 'achieved', true)
+      updateAchievement('Recruit 10 volunteers', 'achieved')
       toast.success('You recruited 10 volunteers!')
     }
     if (
       checkAchievement('Recruit 10 volunteers', 'achieved') &&
       !checkAchievement('Recruit 100 volunteers', 'visible')
     ) {
-      updateAchievement('Recruit 100 volunteers', 'visible', true)
+      updateAchievement('Recruit 100 volunteers', 'visible')
     }
     if (
       totalVolunteers >= 100 &&
       !checkAchievement('Recruit 100 volunteers', 'achieved')
     ) {
-      updateAchievement('Recruit 100 volunteers', 'achieved', true)
+      updateAchievement('Recruit 100 volunteers', 'achieved')
       toast.success('You recruited 100 volunteers!')
     }
     if (
       checkAchievement('Recruit 100 volunteers', 'achieved') &&
       !checkAchievement('Recruit 500 volunteers', 'visible')
     ) {
-      updateAchievement('Recruit 500 volunteers', 'visible', true)
+      updateAchievement('Recruit 500 volunteers', 'visible')
     }
     if (
       totalVolunteers >= 500 &&
       !checkAchievement('Recruit 500 volunteers', 'achieved')
     ) {
-      updateAchievement('Recruit 500 volunteers', 'achieved', true)
+      updateAchievement('Recruit 500 volunteers', 'achieved')
       toast.success('You recruited 500 volunteers!')
     }
     if (
       checkAchievement('Recruit 500 volunteers', 'achieved') &&
       !checkAchievement('Recruit 1,000 volunteers', 'visible')
     ) {
-      updateAchievement('Recruit 1,000 volunteers', 'visible', true)
+      updateAchievement('Recruit 1,000 volunteers', 'visible')
     }
     if (
       totalVolunteers >= 1000 &&
       !checkAchievement('Recruit 1,000 volunteers', 'achieved')
     ) {
-      updateAchievement('Recruit 1,000 volunteers', 'achieved', true)
+      updateAchievement('Recruit 1,000 volunteers', 'achieved')
       toast.success('You recruited 1,000 volunteers!')
     }
     if (
       checkAchievement('Recruit 1,000 volunteers', 'achieved') &&
       !checkAchievement('Recruit 10,000 volunteers', 'visible')
     ) {
-      updateAchievement('Recruit 10,000 volunteers', 'visible', true)
+      updateAchievement('Recruit 10,000 volunteers', 'visible')
     }
     if (
       totalVolunteers >= 10_000 &&
       !checkAchievement('Recruit 10,000 volunteers', 'achieved')
     ) {
-      updateAchievement('Recruit 10,000 volunteers', 'achieved', true)
+      updateAchievement('Recruit 10,000 volunteers', 'achieved')
       toast.success('You recruited 10,000 volunteers!')
     }
     if (
       checkAchievement('Recruit 10,000 volunteers', 'achieved') &&
       !checkAchievement('Recruit 100,000 volunteers', 'visible')
     ) {
-      updateAchievement('Recruit 100,000 volunteers', 'visible', true)
+      updateAchievement('Recruit 100,000 volunteers', 'visible')
     }
     if (
       totalVolunteers >= 100_000 &&
       !checkAchievement('Recruit 100,000 volunteers', 'achieved')
     ) {
-      updateAchievement('Recruit 100,000 volunteers', 'achieved', true)
+      updateAchievement('Recruit 100,000 volunteers', 'achieved')
       toast.success('You recruited 100,000 volunteers!')
     }
     if (
       checkAchievement('Recruit 100,000 volunteers', 'achieved') &&
       !checkAchievement('Recruit 1,000,000 volunteers', 'visible')
     ) {
-      updateAchievement('Recruit 1,000,000 volunteers', 'visible', true)
+      updateAchievement('Recruit 1,000,000 volunteers', 'visible')
     }
     if (
       totalVolunteers >= 1_000_000 &&
       !checkAchievement('Recruit 1,000,000 volunteers', 'achieved')
     ) {
-      updateAchievement('Recruit 1,000,000 volunteers', 'achieved', true)
+      updateAchievement('Recruit 1,000,000 volunteers', 'achieved')
       toast.success('You recruited 1,000,000 volunteers!')
     }
     if (
@@ -474,8 +389,7 @@ export const useAchievements = () => {
     ) {
       updateAchievement(
         'Run an ad campaign about the affordable housing crisis',
-        'visible',
-        true
+        'visible'
       )
     }
     if (
@@ -487,8 +401,7 @@ export const useAchievements = () => {
     ) {
       updateAchievement(
         'Run an ad campaign about the affordable housing crisis',
-        'achieved',
-        true
+        'achieved'
       )
       toast.success(
         'You ran your first ad campaign about the affordable housing crisis!'
@@ -506,8 +419,7 @@ export const useAchievements = () => {
     ) {
       updateAchievement(
         'Run 10 ad campaigns about the affordable housing crisis',
-        'visible',
-        true
+        'visible'
       )
     }
     if (
@@ -519,8 +431,7 @@ export const useAchievements = () => {
     ) {
       updateAchievement(
         'Run 10 ad campaigns about the affordable housing crisis',
-        'achieved',
-        true
+        'achieved'
       )
       toast.success(
         'You ran 10 ad campaigns about the affordable housing crisis!'
@@ -538,8 +449,7 @@ export const useAchievements = () => {
     ) {
       updateAchievement(
         'Run 100 ad campaigns about the affordable housing crisis',
-        'visible',
-        true
+        'visible'
       )
     }
     if (
@@ -551,8 +461,7 @@ export const useAchievements = () => {
     ) {
       updateAchievement(
         'Run 100 ad campaigns about the affordable housing crisis',
-        'achieved',
-        true
+        'achieved'
       )
       toast.success(
         'You ran 100 ad campaigns about the affordable housing crisis!'
@@ -570,8 +479,7 @@ export const useAchievements = () => {
     ) {
       updateAchievement(
         'Run 500 ad campaigns about the affordable housing crisis',
-        'visible',
-        true
+        'visible'
       )
     }
     if (
@@ -583,8 +491,7 @@ export const useAchievements = () => {
     ) {
       updateAchievement(
         'Run 500 ad campaigns about the affordable housing crisis',
-        'achieved',
-        true
+        'achieved'
       )
       toast.success(
         'You ran 500 ad campaigns about the affordable housing crisis!'
@@ -602,8 +509,7 @@ export const useAchievements = () => {
     ) {
       updateAchievement(
         'Run 1,000 ad campaigns about the affordable housing crisis',
-        'visible',
-        true
+        'visible'
       )
     }
     if (
@@ -615,8 +521,7 @@ export const useAchievements = () => {
     ) {
       updateAchievement(
         'Run 1,000 ad campaigns about the affordable housing crisis',
-        'achieved',
-        true
+        'achieved'
       )
       toast.success(
         'You ran 1,000 ad campaigns about the affordable housing crisis!'
@@ -626,195 +531,195 @@ export const useAchievements = () => {
       electedToLocalOffice &&
       !checkAchievement('Fund a job training program', 'visible')
     ) {
-      updateAchievement('Fund a job training program', 'visible', true)
+      updateAchievement('Fund a job training program', 'visible')
     }
     if (
-      totalTrainingProgramsFunded >= 1 &&
+      totalTrainingPrograms >= 1 &&
       !checkAchievement('Fund a job training program', 'achieved')
     ) {
-      updateAchievement('Fund a job training program', 'achieved', true)
+      updateAchievement('Fund a job training program', 'achieved')
       toast.success('You successfully funded a job training program!')
     }
     if (
       checkAchievement('Fund a job training program', 'achieved') &&
       !checkAchievement('Fund 5 job training programs', 'visible')
     ) {
-      updateAchievement('Fund 5 job training programs', 'visible', true)
+      updateAchievement('Fund 5 job training programs', 'visible')
     }
     if (
-      totalTrainingProgramsFunded >= 5 &&
+      totalTrainingPrograms >= 5 &&
       !checkAchievement('Fund 5 job training programs', 'achieved')
     ) {
-      updateAchievement('Fund 5 job training programs', 'achieved', true)
+      updateAchievement('Fund 5 job training programs', 'achieved')
       toast.success('You funded 5 job training programs!')
     }
     if (
       checkAchievement('Fund 5 job training programs', 'achieved') &&
       !checkAchievement('Fund 10 job training programs', 'visible')
     ) {
-      updateAchievement('Fund 10 job training programs', 'visible', true)
+      updateAchievement('Fund 10 job training programs', 'visible')
     }
     if (
-      totalTrainingProgramsFunded >= 10 &&
+      totalTrainingPrograms >= 10 &&
       !checkAchievement('Fund 10 job training programs', 'achieved')
     ) {
-      updateAchievement('Fund 10 job training programs', 'achieved', true)
+      updateAchievement('Fund 10 job training programs', 'achieved')
       toast.success('You funded 10 job training programs!')
     }
     if (
       totalAdCampaigns >= 1 &&
       !checkAchievement('Get elected to local office', 'visible')
     ) {
-      updateAchievement('Get elected to local office', 'visible', true)
+      updateAchievement('Get elected to local office', 'visible')
     }
     if (
       electedToLocalOffice &&
       !checkAchievement('Get elected to local office', 'achieved')
     ) {
-      updateAchievement('Get elected to local office', 'achieved', true)
+      updateAchievement('Get elected to local office', 'achieved')
       toast.success('You were elected to local office!')
     }
     if (
       checkAchievement('Get elected to local office', 'achieved') &&
       !checkAchievement('Get elected to regional office', 'visible')
     ) {
-      updateAchievement('Get elected to regional office', 'visible', true)
+      updateAchievement('Get elected to regional office', 'visible')
     }
     if (
       electedToRegionalOffice &&
       !checkAchievement('Get elected to regional office', 'achieved')
     ) {
-      updateAchievement('Get elected to regional office', 'achieved', true)
+      updateAchievement('Get elected to regional office', 'achieved')
       toast.success('You were elected to regional office!')
     }
     if (
       checkAchievement('Get elected to regional office', 'achieved') &&
       !checkAchievement('Get elected to national office', 'visible')
     ) {
-      updateAchievement('Get elected to national office', 'visible', true)
+      updateAchievement('Get elected to national office', 'visible')
     }
     if (
       electedToNationalOffice &&
       !checkAchievement('Get elected to national office', 'achieved')
     ) {
-      updateAchievement('Get elected to national office', 'achieved', true)
+      updateAchievement('Get elected to national office', 'achieved')
       toast.success('You were elected to national office!')
     }
     if (
       totalNimbyProtests >= 1 &&
       !checkAchievement('Prevent a NIMBY protest', 'visible')
     ) {
-      updateAchievement('Prevent a NIMBY protest', 'visible', true)
+      updateAchievement('Prevent a NIMBY protest', 'visible')
     }
     if (
       nimbyProtestsPrevented >= 1 &&
       !checkAchievement('Prevent a NIMBY protest', 'achieved')
     ) {
-      updateAchievement('Prevent a NIMBY protest', 'achieved', true)
+      updateAchievement('Prevent a NIMBY protest', 'achieved')
       toast.success('You were able to prevent a NIMBY protest!')
     }
     if (
       checkAchievement('Prevent a NIMBY protest', 'achieved') &&
       !checkAchievement('Prevent 2 NIMBY protests', 'visible')
     ) {
-      updateAchievement('Prevent 2 NIMBY protests', 'visible', true)
+      updateAchievement('Prevent 2 NIMBY protests', 'visible')
     }
     if (
       nimbyProtestsPrevented >= 2 &&
       !checkAchievement('Prevent 2 NIMBY protests', 'achieved')
     ) {
-      updateAchievement('Prevent 2 NIMBY protests', 'achieved', true)
+      updateAchievement('Prevent 2 NIMBY protests', 'achieved')
       toast.success('You prevented 2 NIMBY protests!')
     }
     if (
       checkAchievement('Prevent 2 NIMBY protests', 'achieved') &&
       !checkAchievement('Prevent 5 NIMBY protests', 'visible')
     ) {
-      updateAchievement('Prevent 5 NIMBY protests', 'visible', true)
+      updateAchievement('Prevent 5 NIMBY protests', 'visible')
     }
     if (
       nimbyProtestsPrevented >= 5 &&
       !checkAchievement('Prevent 5 NIMBY protests', 'achieved')
     ) {
-      updateAchievement('Prevent 5 NIMBY protests', 'achieved', true)
+      updateAchievement('Prevent 5 NIMBY protests', 'achieved')
       toast.success('You prevented 5 NIMBY protests!')
     }
     if (
       checkAchievement('Prevent 5 NIMBY protests', 'achieved') &&
       !checkAchievement('Prevent 10 NIMBY protests', 'visible')
     ) {
-      updateAchievement('Prevent 10 NIMBY protests', 'visible', true)
+      updateAchievement('Prevent 10 NIMBY protests', 'visible')
     }
     if (
       nimbyProtestsPrevented >= 10 &&
       !checkAchievement('Prevent 10 NIMBY protests', 'achieved')
     ) {
-      updateAchievement('Prevent 10 NIMBY protests', 'achieved', true)
+      updateAchievement('Prevent 10 NIMBY protests', 'achieved')
       toast.success('You prevented 10 NIMBY protests!')
     }
     if (
       checkAchievement('Prevent 10 NIMBY protests', 'achieved') &&
       !checkAchievement('Prevent 20 NIMBY protests', 'visible')
     ) {
-      updateAchievement('Prevent 20 NIMBY protests', 'visible', true)
+      updateAchievement('Prevent 20 NIMBY protests', 'visible')
     }
     if (
       nimbyProtestsPrevented >= 20 &&
       !checkAchievement('Prevent 20 NIMBY protests', 'achieved')
     ) {
-      updateAchievement('Prevent 20 NIMBY protests', 'achieved', true)
+      updateAchievement('Prevent 20 NIMBY protests', 'achieved')
       toast.success('You prevented 20 NIMBY protests!')
     }
     if (
       checkAchievement('Prevent 20 NIMBY protests', 'achieved') &&
       !checkAchievement('Prevent 50 NIMBY protests', 'visible')
     ) {
-      updateAchievement('Prevent 50 NIMBY protests', 'visible', true)
+      updateAchievement('Prevent 50 NIMBY protests', 'visible')
     }
     if (
       nimbyProtestsPrevented >= 50 &&
       !checkAchievement('Prevent 50 NIMBY protests', 'achieved')
     ) {
-      updateAchievement('Prevent 50 NIMBY protests', 'achieved', true)
+      updateAchievement('Prevent 50 NIMBY protests', 'achieved')
       toast.success('You prevented 50 NIMBY protests!')
     }
     if (
       checkAchievement('Prevent 50 NIMBY protests', 'achieved') &&
       !checkAchievement('Prevent 100 NIMBY protests', 'visible')
     ) {
-      updateAchievement('Prevent 100 NIMBY protests', 'visible', true)
+      updateAchievement('Prevent 100 NIMBY protests', 'visible')
     }
     if (
       nimbyProtestsPrevented >= 100 &&
       !checkAchievement('Prevent 100 NIMBY protests', 'achieved')
     ) {
-      updateAchievement('Prevent 100 NIMBY protests', 'achieved', true)
+      updateAchievement('Prevent 100 NIMBY protests', 'achieved')
       toast.success('You prevented 100 NIMBY protests!')
     }
     if (
       checkAchievement('Prevent 100 NIMBY protests', 'achieved') &&
       !checkAchievement('Prevent 500 NIMBY protests', 'visible')
     ) {
-      updateAchievement('Prevent 500 NIMBY protests', 'visible', true)
+      updateAchievement('Prevent 500 NIMBY protests', 'visible')
     }
     if (
       nimbyProtestsPrevented >= 500 &&
       !checkAchievement('Prevent 500 NIMBY protests', 'achieved')
     ) {
-      updateAchievement('Prevent 500 NIMBY protests', 'achieved', true)
+      updateAchievement('Prevent 500 NIMBY protests', 'achieved')
       toast.success('You prevented 500 NIMBY protests!')
     }
     if (
       checkAchievement('Prevent 500 NIMBY protests', 'achieved') &&
       !checkAchievement('Prevent 1,000 NIMBY protests', 'visible')
     ) {
-      updateAchievement('Prevent 1,000 NIMBY protests', 'visible', true)
+      updateAchievement('Prevent 1,000 NIMBY protests', 'visible')
     }
     if (
       nimbyProtestsPrevented >= 1000 &&
       !checkAchievement('Prevent 1,000 NIMBY protests', 'achieved')
     ) {
-      updateAchievement('Prevent 1,000 NIMBY protests', 'achieved', true)
+      updateAchievement('Prevent 1,000 NIMBY protests', 'achieved')
       toast.success('You prevented 1,000 NIMBY protests!')
     }
   }, [
@@ -826,7 +731,7 @@ export const useAchievements = () => {
     totalVolunteers,
     campaignManagersRecruited,
     totalAdCampaigns,
-    totalTrainingProgramsFunded,
+    totalTrainingPrograms,
     electedToRegionalOffice,
     electedToNationalOffice,
     totalNimbyProtests,

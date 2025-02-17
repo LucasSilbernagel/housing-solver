@@ -34,8 +34,8 @@ function isGameState(object: unknown): object is GameState {
     Number.isFinite(candidate.campaignManagersRecruited) &&
     !Number.isNaN(candidate.totalAdCampaigns) &&
     Number.isFinite(candidate.totalAdCampaigns) &&
-    !Number.isNaN(candidate.totalTrainingProgramsFunded) &&
-    Number.isFinite(candidate.totalTrainingProgramsFunded) &&
+    !Number.isNaN(candidate.totalTrainingPrograms) &&
+    Number.isFinite(candidate.totalTrainingPrograms) &&
     !Number.isNaN(candidate.totalNimbyProtests) &&
     Number.isFinite(candidate.totalNimbyProtests) &&
     typeof candidate.electedToLocalOffice === 'boolean' &&

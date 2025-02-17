@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
 import { Achievement, ACHIEVEMENTS } from '../constants/achievements'
+import { DEFAULT_SCORE } from './defaults'
 
 export interface GameState {
   shouldUseDarkTheme: boolean
@@ -35,13 +36,12 @@ export interface GameState {
   achievements: Achievement[]
   updateAchievement: (
     achievementText: string,
-    property: 'visible' | 'achieved',
-    value: boolean
+    property: 'visible' | 'achieved'
   ) => void
   totalAdCampaigns: number
   incrementTotalAdCampaigns: () => void
-  totalTrainingProgramsFunded: number
-  incrementTotalTrainingProgramsFunded: () => void
+  totalTrainingPrograms: number
+  incrementTotalTrainingPrograms: () => void
   resetGame: () => void
 }
 
@@ -52,7 +52,7 @@ export const useGameStore = create<GameState>()(
         shouldUseDarkTheme: false,
         toggleTheme: () =>
           set((state) => ({ shouldUseDarkTheme: !state.shouldUseDarkTheme })),
-        housingUnaffordabilityScore: 35,
+        housingUnaffordabilityScore: DEFAULT_SCORE,
         updateHousingUnaffordabilityScore: (score) =>
           set(() => ({ housingUnaffordabilityScore: score })),
         manualIncrementAmount: 1,
@@ -70,8 +70,8 @@ export const useGameStore = create<GameState>()(
           })),
         availablePoints: 0,
         updateAvailablePoints: (amount) =>
-          set((state) => ({
-            availablePoints: state.availablePoints + amount,
+          set(() => ({
+            availablePoints: amount,
           })),
         automaticallyIncrementPoints: () =>
           set((state) => ({
@@ -123,13 +123,12 @@ export const useGameStore = create<GameState>()(
         achievements: ACHIEVEMENTS,
         updateAchievement: (
           achievementText: string,
-          property: 'visible' | 'achieved',
-          value: boolean
+          property: 'visible' | 'achieved'
         ) =>
           set((state) => ({
             achievements: state.achievements.map((achievement) =>
               achievement.text === achievementText
-                ? { ...achievement, [property]: value }
+                ? { ...achievement, [property]: true }
                 : achievement
             ),
           })),
@@ -138,16 +137,16 @@ export const useGameStore = create<GameState>()(
           set((state) => ({
             totalAdCampaigns: state.totalAdCampaigns + 1,
           })),
-        totalTrainingProgramsFunded: 0,
-        incrementTotalTrainingProgramsFunded: () =>
+        totalTrainingPrograms: 0,
+        incrementTotalTrainingPrograms: () =>
           set((state) => ({
-            totalTrainingProgramsFunded: state.totalTrainingProgramsFunded + 1,
+            totalTrainingPrograms: state.totalTrainingPrograms + 1,
           })),
         resetGame: () =>
           set(() => ({
             allTimePoints: 0,
             availablePoints: 0,
-            housingUnaffordabilityScore: 35,
+            housingUnaffordabilityScore: DEFAULT_SCORE,
             manualIncrementAmount: 1,
             automaticIncrementAmount: 0,
             nimbyProtestsPrevented: 0,
@@ -160,7 +159,7 @@ export const useGameStore = create<GameState>()(
             electedToNationalOffice: false,
             achievements: ACHIEVEMENTS,
             totalAdCampaigns: 0,
-            totalTrainingProgramsFunded: 0,
+            totalTrainingPrograms: 0,
           })),
       }),
       {
