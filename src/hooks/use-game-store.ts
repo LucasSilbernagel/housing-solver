@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
 import { Achievement, ACHIEVEMENTS } from '../constants/achievements'
-import { DEFAULT_SCORE } from './defaults'
+import { DEFAULT_SCORE } from '../constants/defaults'
 
 export interface GameState {
   shouldUseDarkTheme: boolean
