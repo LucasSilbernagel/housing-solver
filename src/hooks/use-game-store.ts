@@ -1,7 +1,10 @@
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
-import { Achievement, ACHIEVEMENTS } from '../constants/achievements'
 import { DEFAULT_SCORE } from '../constants/defaults'
+import {
+  Achievement,
+  getInitialAchievements,
+} from '../utils/get-initial-achievements'
 
 export interface GameState {
   shouldUseDarkTheme: boolean
@@ -120,7 +123,7 @@ export const useGameStore = create<GameState>()(
           set(() => ({
             electedToNationalOffice: true,
           })),
-        achievements: ACHIEVEMENTS,
+        achievements: getInitialAchievements(),
         updateAchievement: (
           achievementText: string,
           property: 'visible' | 'achieved'
@@ -157,7 +160,7 @@ export const useGameStore = create<GameState>()(
             electedToLocalOffice: false,
             electedToRegionalOffice: false,
             electedToNationalOffice: false,
-            achievements: ACHIEVEMENTS,
+            achievements: getInitialAchievements(),
             totalAdCampaigns: 0,
             totalTrainingPrograms: 0,
           })),
