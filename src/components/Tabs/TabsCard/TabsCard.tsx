@@ -1,6 +1,7 @@
 import { Box, Card, Tabs } from '@radix-ui/themes'
 import Achievements from '../Achievements/Achievements'
 import Settings from '../Settings/Settings'
+import Stats from '../Stats/Stats'
 import Upgrades from '../Upgrades/Upgrades'
 
 const TabsCard = () => {
@@ -10,6 +11,7 @@ const TabsCard = () => {
         <Tabs.List wrap="wrap">
           <Tabs.Trigger value="upgrades">Upgrades</Tabs.Trigger>
           <Tabs.Trigger value="achievements">Achievements</Tabs.Trigger>
+          <Tabs.Trigger value="stats">Stats</Tabs.Trigger>
           <Tabs.Trigger value="settings">Settings</Tabs.Trigger>
         </Tabs.List>
         <Box pt="3">
@@ -18,6 +20,9 @@ const TabsCard = () => {
           </Tabs.Content>
           <Tabs.Content value="achievements" className="pt-4">
             <Achievements />
+          </Tabs.Content>
+          <Tabs.Content value="stats" className="pt-4">
+            <Stats />
           </Tabs.Content>
           <Tabs.Content value="settings" className="pt-4">
             <Settings />
