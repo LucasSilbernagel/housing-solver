@@ -5,28 +5,20 @@ import toast from 'react-hot-toast'
 import { useShallow } from 'zustand/shallow'
 import { Upgrade } from '../../../constants/upgrades'
 import { useGameStore } from '../../../hooks/use-game-store'
-import { processUpgrade } from '../../../utils/process-upgrade'
+import { useProcessUpgrade } from '../../../hooks/use-process-upgrade'
 
 const Upgrades = () => {
-  const {
-    upgrades,
-    updateUpgrade,
-    availablePoints,
-    updateAvailablePoints,
-    automaticIncrementAmount,
-    updateAutomaticIncrementAmount,
-    incrementVolunteersRecruited,
-  } = useGameStore(
-    useShallow((state) => ({
-      upgrades: state.upgrades,
-      updateUpgrade: state.updateUpgrade,
-      availablePoints: state.availablePoints,
-      updateAvailablePoints: state.updateAvailablePoints,
-      automaticIncrementAmount: state.automaticIncrementAmount,
-      updateAutomaticIncrementAmount: state.updateAutomaticIncrementAmount,
-      incrementVolunteersRecruited: state.incrementVolunteersRecruited,
-    }))
-  )
+  const { upgrades, updateUpgrade, availablePoints, updateAvailablePoints } =
+    useGameStore(
+      useShallow((state) => ({
+        upgrades: state.upgrades,
+        updateUpgrade: state.updateUpgrade,
+        availablePoints: state.availablePoints,
+        updateAvailablePoints: state.updateAvailablePoints,
+      }))
+    )
+
+  const processUpgrade = useProcessUpgrade()
 
   const handlePurchase = (upgrade: Upgrade) => {
     const clonedUpgrade = { ...upgrade }
@@ -49,12 +41,7 @@ const Upgrades = () => {
 
     updateAvailablePoints(availablePoints - clonedUpgrade.cost)
     toast.success(`Purchased ${clonedUpgrade.title}`)
-    processUpgrade(clonedUpgrade.title, upgrades, {
-      automaticIncrementAmount,
-      updateAutomaticIncrementAmount,
-      incrementVolunteersRecruited,
-      updateUpgrade,
-    })
+    processUpgrade(clonedUpgrade.title)
   }
 
   return (

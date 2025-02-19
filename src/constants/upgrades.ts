@@ -13,7 +13,7 @@ export const UPGRADES: Upgrade[] = [
   {
     title: 'Recruit a volunteer',
     description: 'Automatically accumulate 1 support point every 2 seconds',
-    cost: 5,
+    cost: 50,
     quantity: 0,
     visible: true,
   },
