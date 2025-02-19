@@ -20,7 +20,7 @@ export interface GameState {
   manuallyIncrementPoints: (manualIncrementAmount: number) => void
   availablePoints: number
   updateAvailablePoints: (amount: number) => void
-  automaticallyIncrementPoints: (manualIncrementAmount: number) => void
+  automaticallyIncrementPoints: () => void
   nimbyProtestsPrevented: number
   incrementNimbyProtestsPrevented: () => void
   totalNimbyProtests: number

@@ -71,7 +71,7 @@ const Stats = () => {
         <h2 className="text-center text-2xl">Support Points:</h2>
         <div className="my-4">
           <h3 className="text-center text-xl font-bold">
-            {availablePoints.toLocaleString()}
+            {Math.floor(availablePoints).toLocaleString()}
           </h3>
         </div>
         <div className="flex w-full justify-center">

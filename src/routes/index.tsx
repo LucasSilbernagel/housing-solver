@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import Stats from '../components/Stats/Stats'
 import TabsCard from '../components/Tabs/TabsCard/TabsCard'
 import { useAchievements } from '../hooks/use-achievements'
+import { useAutomaticIncrement } from '../hooks/use-automatic-increment'
 import { SocialMetaTags, updateMetaTags } from '../utils/seo'
 
 export const Route = createFileRoute('/')({
@@ -21,6 +22,7 @@ export const Route = createFileRoute('/')({
 
 function Index() {
   useAchievements()
+  useAutomaticIncrement()
 
   return (
     <div className="mx-auto max-w-screen-2xl p-4">
