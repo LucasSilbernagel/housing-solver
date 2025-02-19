@@ -1,3 +1,4 @@
+import { UPGRADES } from '../constants/upgrades'
 import { getInitialAchievements } from '../utils/get-initial-achievements'
 import { GameState } from './use-game-store'
 
@@ -39,7 +40,8 @@ const useIsGameState = () => {
       typeof candidate.electedToLocalOffice === 'boolean' &&
       typeof candidate.electedToRegionalOffice === 'boolean' &&
       typeof candidate.electedToNationalOffice === 'boolean' &&
-      typeof candidate.achievements === typeof initialAchievements
+      typeof candidate.achievements === typeof initialAchievements &&
+      typeof candidate.upgrades === typeof UPGRADES
     )
   }
   return isGameState

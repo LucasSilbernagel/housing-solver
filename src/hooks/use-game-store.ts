@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
 import { DEFAULT_SCORE } from '../constants/defaults'
+import { Upgrade, UPGRADES } from '../constants/upgrades'
 import {
   Achievement,
   getInitialAchievements,
@@ -41,6 +42,8 @@ export interface GameState {
     achievementText: string,
     property: 'visible' | 'achieved'
   ) => void
+  upgrades: Upgrade[]
+  updateUpgrade: (title: string, updatedUpgrade: Upgrade) => void
   totalAdCampaigns: number
   incrementTotalAdCampaigns: () => void
   totalTrainingPrograms: number
@@ -135,6 +138,13 @@ export const useGameStore = create<GameState>()(
                 : achievement
             ),
           })),
+        upgrades: UPGRADES,
+        updateUpgrade: (title: string, updatedUpgrade: Upgrade) =>
+          set((state) => ({
+            upgrades: state.upgrades.map((upgrade) =>
+              upgrade.title === title ? updatedUpgrade : upgrade
+            ),
+          })),
         totalAdCampaigns: 0,
         incrementTotalAdCampaigns: () =>
           set((state) => ({
@@ -161,6 +171,7 @@ export const useGameStore = create<GameState>()(
             electedToRegionalOffice: false,
             electedToNationalOffice: false,
             achievements: getInitialAchievements(),
+            upgrades: UPGRADES,
             totalAdCampaigns: 0,
             totalTrainingPrograms: 0,
           })),
