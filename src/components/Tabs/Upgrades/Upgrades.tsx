@@ -1,16 +1,44 @@
 import { CheckIcon } from '@radix-ui/react-icons'
 import { Button, Card, Text, Tooltip } from '@radix-ui/themes'
 import clsx from 'clsx'
+import toast from 'react-hot-toast'
 import { useShallow } from 'zustand/shallow'
+import { Upgrade } from '../../../constants/upgrades'
 import { useGameStore } from '../../../hooks/use-game-store'
 
 const Upgrades = () => {
-  const { upgrades, availablePoints } = useGameStore(
-    useShallow((state) => ({
-      upgrades: state.upgrades,
-      availablePoints: state.availablePoints,
-    }))
-  )
+  const { upgrades, updateUpgrade, availablePoints, updateAvailablePoints } =
+    useGameStore(
+      useShallow((state) => ({
+        upgrades: state.upgrades,
+        updateUpgrade: state.updateUpgrade,
+        availablePoints: state.availablePoints,
+        updateAvailablePoints: state.updateAvailablePoints,
+      }))
+    )
+
+  const handlePurchase = (upgrade: Upgrade) => {
+    const clonedUpgrade = { ...upgrade }
+
+    if (clonedUpgrade.cost > availablePoints) return
+
+    if (clonedUpgrade.oneTimePurchase) {
+      updateUpgrade(clonedUpgrade.title, {
+        ...clonedUpgrade,
+        quantity: clonedUpgrade.quantity + 1,
+        oneTimePurchase: { purchased: true },
+      })
+    } else {
+      updateUpgrade(clonedUpgrade.title, {
+        ...clonedUpgrade,
+        quantity: clonedUpgrade.quantity + 1,
+        cost: clonedUpgrade.cost * 2,
+      })
+    }
+
+    updateAvailablePoints(availablePoints - clonedUpgrade.cost)
+    toast.success(`Purchased ${clonedUpgrade.title}`)
+  }
 
   return (
     <ul className="max-w-[600px] space-y-4">
@@ -80,7 +108,10 @@ const Upgrades = () => {
                               : 'Not enough points'
                           }
                         >
-                          <Button disabled={upgrade.cost > availablePoints}>
+                          <Button
+                            disabled={upgrade.cost > availablePoints}
+                            onClick={() => handlePurchase(upgrade)}
+                          >
                             Purchase
                           </Button>
                         </Tooltip>
