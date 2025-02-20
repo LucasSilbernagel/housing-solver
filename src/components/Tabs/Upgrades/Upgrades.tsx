@@ -35,7 +35,7 @@ const Upgrades = () => {
       updateUpgrade(clonedUpgrade.title, {
         ...clonedUpgrade,
         quantity: clonedUpgrade.quantity + 1,
-        cost: clonedUpgrade.cost * 2,
+        cost: Math.round(clonedUpgrade.cost * 1.1),
       })
     }
 
