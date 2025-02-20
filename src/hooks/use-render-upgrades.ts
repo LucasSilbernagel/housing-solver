@@ -23,14 +23,14 @@ export const useRenderUpgrades = () => {
   const { makeNextUpgradeVisible } = useProcessUpgrade()
 
   useEffect(() => {
-    const checkIfUpgradeIsIsVisible = (upgradeTitle: string) => {
+    const isUpgradeVisible = (upgradeTitle: string) => {
       const upgrade = upgrades.find((upgrade) => upgrade.title === upgradeTitle)
       return upgrade?.visible
     }
 
     if (
       electedToLocalOffice &&
-      checkIfUpgradeIsIsVisible(
+      isUpgradeVisible(
         'Run a regional ad campaign about the affordable housing crisis'
       )
     ) {
@@ -39,7 +39,7 @@ export const useRenderUpgrades = () => {
 
     if (
       electedToRegionalOffice &&
-      checkIfUpgradeIsIsVisible(
+      isUpgradeVisible(
         'Run a national ad campaign about the affordable housing crisis'
       )
     ) {
@@ -48,21 +48,21 @@ export const useRenderUpgrades = () => {
 
     if (
       electedToRegionalOffice &&
-      checkIfUpgradeIsIsVisible('Fund a local research project')
+      isUpgradeVisible('Fund a local research project')
     ) {
       makeNextUpgradeVisible('Fund a regional research project')
     }
 
     if (
       electedToNationalOffice &&
-      checkIfUpgradeIsIsVisible('Fund a regional research project')
+      isUpgradeVisible('Fund a regional research project')
     ) {
       makeNextUpgradeVisible('Fund a national research project')
     }
 
     if (
       totalNimbyProtests > 0 &&
-      !checkIfUpgradeIsIsVisible(
+      !isUpgradeVisible(
         'Run a community festival to promote affordable housing discussions'
       )
     ) {
@@ -71,7 +71,7 @@ export const useRenderUpgrades = () => {
       )
     }
 
-    if (checkIfUpgradeIsIsVisible('Increase taxes on billionaires')) {
+    if (isUpgradeVisible('Increase taxes on billionaires')) {
       makeNextUpgradeVisible(
         'Make it illegal for individuals to own more than two homes'
       )
