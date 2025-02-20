@@ -18,7 +18,7 @@ const Upgrades = () => {
       }))
     )
 
-  const processUpgrade = useProcessUpgrade()
+  const { processUpgrade } = useProcessUpgrade()
 
   const handlePurchase = (upgrade: Upgrade) => {
     const clonedUpgrade = { ...upgrade }
@@ -45,7 +45,7 @@ const Upgrades = () => {
   }
 
   return (
-    <ul className="max-w-[600px] space-y-4">
+    <ul className="space-y-4 max-w-[600px]">
       {upgrades
         .sort(
           (a, b) =>
@@ -59,7 +59,7 @@ const Upgrades = () => {
               className={clsx(upgrade.visible ? 'visible' : 'hidden')}
             >
               <Card className="shadow-sm">
-                <div className="flex items-center justify-between gap-4">
+                <div className="flex justify-between items-center gap-4">
                   <div>
                     <div>
                       <Text
@@ -85,7 +85,7 @@ const Upgrades = () => {
                       </Text>
                     </div>
                   </div>
-                  <div className="flex flex-col items-center justify-center gap-1">
+                  <div className="flex flex-col justify-center items-center gap-1">
                     {upgrade.oneTimePurchase ||
                     upgrade.quantity === 0 ? undefined : (
                       <Text className="font-semibold">

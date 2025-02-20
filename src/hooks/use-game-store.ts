@@ -48,6 +48,7 @@ export interface GameState {
   incrementTotalAdCampaigns: () => void
   totalTrainingPrograms: number
   incrementTotalTrainingPrograms: () => void
+  reduceUpgradeCosts: (percentage: number) => void
   resetGame: () => void
 }
 
@@ -155,6 +156,16 @@ export const useGameStore = create<GameState>()(
           set((state) => ({
             totalTrainingPrograms: state.totalTrainingPrograms + 1,
           })),
+        reduceUpgradeCosts: (percentage) => {
+          set((state) => ({
+            upgrades: state.upgrades
+              .filter((upgrade) => upgrade.visible && !upgrade.oneTimePurchase)
+              .map((upgrade) => ({
+                ...upgrade,
+                cost: Math.round(upgrade.cost * (1 - percentage / 100)),
+              })),
+          }))
+        },
         resetGame: () =>
           set(() => ({
             allTimePoints: 0,

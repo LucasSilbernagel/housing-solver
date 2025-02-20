@@ -12,42 +12,48 @@ export interface Upgrade {
 export const UPGRADES: Upgrade[] = [
   {
     title: 'Recruit a volunteer',
-    description: 'Automatically accumulate 1 support point every 2 seconds',
+    description:
+      'Automatically accumulate 1 additional support point every 2 seconds',
     cost: 50,
     quantity: 0,
     visible: true,
   },
   {
     title: 'Recruit a volunteer recruiter',
-    description: 'Automatically accumulate 1 support point every second',
+    description:
+      'Automatically accumulate 1 additional support point every second',
     cost: 500,
     quantity: 0,
     visible: false,
   },
   {
     title: 'Recruit a campaign manager',
-    description: 'Automatically accumulate 2 support points every second',
+    description:
+      'Automatically accumulate 2 additional support points every second',
     cost: 1000,
     quantity: 0,
     visible: false,
   },
   {
     title: 'Run a local ad campaign about the affordable housing crisis',
-    description: 'Automatically accumulate 4 support points every second',
+    description:
+      'Automatically accumulate 4 additional support points every second',
     cost: 5000,
     quantity: 0,
     visible: false,
   },
   {
     title: 'Run a regional ad campaign about the affordable housing crisis',
-    description: 'Automatically accumulate 8 support points every second',
+    description:
+      'Automatically accumulate 8 additional support points every second',
     cost: 50_000,
     quantity: 0,
     visible: false,
   },
   {
     title: 'Run a national ad campaign about the affordable housing crisis',
-    description: 'Automatically accumulate 20 support points every second',
+    description:
+      'Automatically accumulate 20 additional support points every second',
     cost: 1_000_000,
     quantity: 0,
     visible: false,
@@ -85,7 +91,7 @@ export const UPGRADES: Upgrade[] = [
   {
     title: 'Fund a local research project',
     description:
-      'Learn how to make housing more affordable; each click generates 5 support points',
+      'Learn how to make housing more affordable; each click generates 5 additional support points',
     cost: 10_000,
     quantity: 0,
     visible: false,
@@ -93,7 +99,7 @@ export const UPGRADES: Upgrade[] = [
   {
     title: 'Fund a regional research project',
     description:
-      'Learn how to make housing more affordable; each click generates 10 support points',
+      'Learn how to make housing more affordable; each click generates 10 additional support points',
     cost: 100_000,
     quantity: 0,
     visible: false,
@@ -101,7 +107,7 @@ export const UPGRADES: Upgrade[] = [
   {
     title: 'Fund a national research project',
     description:
-      'Learn how to make housing more affordable; each click generates 25 support points',
+      'Learn how to make housing more affordable; each click generates 25 additional support points',
     cost: 2_000_000,
     quantity: 0,
     visible: false,
@@ -160,6 +166,9 @@ export const UPGRADES: Upgrade[] = [
     cost: 3_000_000,
     quantity: 0,
     visible: false,
+    oneTimePurchase: {
+      purchased: false,
+    },
   },
   {
     title: 'Tax breaks for developers who build affordable housing',
@@ -202,6 +211,9 @@ export const UPGRADES: Upgrade[] = [
     cost: 20_000_000,
     quantity: 0,
     visible: false,
+    oneTimePurchase: {
+      purchased: false,
+    },
   },
   {
     title: 'Increase the minimum wage',
@@ -217,6 +229,9 @@ export const UPGRADES: Upgrade[] = [
     cost: 80_000_000,
     quantity: 0,
     visible: false,
+    oneTimePurchase: {
+      purchased: false,
+    },
   },
   {
     title: 'Increase taxes on large corporations',
@@ -233,10 +248,13 @@ export const UPGRADES: Upgrade[] = [
     visible: false,
   },
   {
-    title: 'Make it illegal to own more than two homes',
+    title: 'Make it illegal for individuals to own more than two homes',
     description: 'Reduce housing unaffordability by 4%',
     cost: 500_000_000,
     quantity: 0,
     visible: false,
+    oneTimePurchase: {
+      purchased: false,
+    },
   },
 ]
