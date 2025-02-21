@@ -151,7 +151,9 @@ const Settings = () => {
           </Flex>
         </Text>
         <div className="flex gap-2 mt-2">
-          <Button onClick={createBackup}>Create backup</Button>
+          <Button onClick={createBackup} disabled={allTimePoints === 0}>
+            Create backup
+          </Button>
           <Button onClick={loadBackup} disabled={backup.length === 0}>
             Import backup
           </Button>
