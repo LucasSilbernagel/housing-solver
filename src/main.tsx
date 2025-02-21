@@ -38,7 +38,7 @@ function AppRoot() {
   return (
     <Theme appearance={shouldUseDarkTheme ? 'dark' : 'light'}>
       <RouterProvider router={router} />
-      <Toaster />
+      <Toaster toastOptions={{ duration: 5000 }} />
     </Theme>
   )
 }

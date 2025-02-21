@@ -3,6 +3,7 @@ import Stats from '../components/Stats/Stats'
 import TabsCard from '../components/Tabs/TabsCard/TabsCard'
 import { useAchievements } from '../hooks/use-achievements'
 import { useAutomaticIncrement } from '../hooks/use-automatic-increment'
+import { useRandomEvents } from '../hooks/use-random-events'
 import { useRenderUpgrades } from '../hooks/use-render-upgrades'
 import { SocialMetaTags, updateMetaTags } from '../utils/seo'
 
@@ -25,6 +26,7 @@ function Index() {
   useAchievements()
   useAutomaticIncrement()
   useRenderUpgrades()
+  useRandomEvents()
 
   return (
     <div className="mx-auto p-4 max-w-screen-2xl">
