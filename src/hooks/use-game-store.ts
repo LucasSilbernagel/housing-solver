@@ -17,6 +17,7 @@ export interface GameState {
   automaticIncrementAmount: number
   updateAutomaticIncrementAmount: (amount: number) => void
   allTimePoints: number
+  updateAllPoints: (amount: number) => void
   manuallyIncrementPoints: (manualIncrementAmount: number) => void
   availablePoints: number
   updateAvailablePoints: (amount: number) => void
@@ -69,6 +70,11 @@ export const useGameStore = create<GameState>()(
         updateAutomaticIncrementAmount: (amount) =>
           set(() => ({ automaticIncrementAmount: amount })),
         allTimePoints: 0,
+        updateAllPoints: (amount) =>
+          set(() => ({
+            allTimePoints: amount,
+            availablePoints: amount,
+          })),
         manuallyIncrementPoints: () =>
           set((state) => ({
             allTimePoints: state.allTimePoints + state.manualIncrementAmount,

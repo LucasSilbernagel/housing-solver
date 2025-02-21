@@ -10,12 +10,12 @@ interface RandomEvent {
 }
 
 export const useRandomEvents = (): void => {
-  const { electedToLocalOffice, availablePoints, updateAvailablePoints } =
+  const { electedToLocalOffice, availablePoints, updateAllPoints } =
     useGameStore(
       useShallow((state) => ({
         electedToLocalOffice: state.electedToLocalOffice,
         availablePoints: state.availablePoints,
-        updateAvailablePoints: state.updateAvailablePoints,
+        updateAllPoints: state.updateAllPoints,
       }))
     )
 
@@ -45,11 +45,9 @@ export const useRandomEvents = (): void => {
       return Math.max(1000, intervalMs) // Ensure interval is at least 1 second
     }
 
-    let timerId: number | undefined
-
     const scheduleNext = () => {
       const intervalMs = getRandomInterval()
-      timerId = setTimeout(() => {
+      setTimeout(() => {
         setSelectedEvent(getRandomEvent(RANDOM_EVENTS))
         scheduleNext()
       }, intervalMs)
@@ -57,19 +55,13 @@ export const useRandomEvents = (): void => {
 
     // Start the first interval
     scheduleNext()
-
-    return () => {
-      if (timerId) {
-        clearTimeout(timerId)
-      }
-    }
   }, [baseMinutes, electedToLocalOffice, varianceMinutes])
 
   useEffect(() => {
     if (!selectedEvent) return
 
     if (selectedEvent.title === 'Grassroots community rally') {
-      updateAvailablePoints(availablePoints + 50_000)
+      updateAllPoints(availablePoints + 50_000)
       toast.success(
         <div>
           <div>
@@ -83,5 +75,5 @@ export const useRandomEvents = (): void => {
     }
 
     setSelectedEvent(undefined)
-  }, [availablePoints, selectedEvent, updateAvailablePoints])
+  }, [availablePoints, selectedEvent, updateAllPoints])
 }
