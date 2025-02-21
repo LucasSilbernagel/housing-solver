@@ -70,10 +70,10 @@ export const useRandomEvents = (): void => {
 
     if (selectedEvent.title === 'Grassroots community rally') {
       updateAvailablePoints(availablePoints + 50_000)
-      toast.custom(
+      toast.success(
         <div>
           <div>
-            <span>{selectedEvent.title}</span>
+            <span className="font-bold text-lg">{selectedEvent.title}</span>
           </div>
           <div>
             <span>{selectedEvent.description}</span>
