@@ -4,7 +4,12 @@ import { useShallow } from 'zustand/shallow'
 import { RANDOM_EVENTS } from '../constants/random-events'
 import { useGameStore } from './use-game-store'
 
-export const useRandomEvents = () => {
+interface RandomEvent {
+  title: string
+  description: string
+}
+
+export const useRandomEvents = (): void => {
   const { electedToLocalOffice, availablePoints, updateAvailablePoints } =
     useGameStore(
       useShallow((state) => ({
@@ -14,9 +19,7 @@ export const useRandomEvents = () => {
       }))
     )
 
-  const [selectedEvent, setSelectedEvent] = useState<
-    { title: string; description: string } | undefined
-  >()
+  const [selectedEvent, setSelectedEvent] = useState<RandomEvent | undefined>()
 
   function getRandomEvent<T>(randomEvents: T[]): T | undefined {
     if (randomEvents.length === 0) {
@@ -42,7 +45,7 @@ export const useRandomEvents = () => {
       return Math.max(1000, intervalMs) // Ensure interval is at least 1 second
     }
 
-    let timerId: number
+    let timerId: number | undefined
 
     const scheduleNext = () => {
       const intervalMs = getRandomInterval()
