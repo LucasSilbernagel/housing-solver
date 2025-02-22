@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
-import toast from 'react-hot-toast'
 import { useShallow } from 'zustand/shallow'
 import { RANDOM_EVENTS } from '../constants/random-events'
+import { useCustomToast } from './use-custom-toast'
 import { useGameStore } from './use-game-store'
 
 interface RandomEvent {
@@ -18,6 +18,8 @@ export const useRandomEvents = (): void => {
         updateAllPoints: state.updateAllPoints,
       }))
     )
+
+  const customToast = useCustomToast()
 
   const [selectedEvent, setSelectedEvent] = useState<RandomEvent | undefined>()
 
@@ -62,18 +64,9 @@ export const useRandomEvents = (): void => {
 
     if (selectedEvent.title === 'Grassroots community rally') {
       updateAllPoints(availablePoints + 50_000)
-      toast.success(
-        <div>
-          <div>
-            <span className="font-bold text-lg">{selectedEvent.title}</span>
-          </div>
-          <div>
-            <span>{selectedEvent.description}</span>
-          </div>
-        </div>
-      )
+      customToast({ type: 'success', content: selectedEvent })
     }
 
     setSelectedEvent(undefined)
-  }, [availablePoints, selectedEvent, updateAllPoints])
+  }, [availablePoints, customToast, selectedEvent, updateAllPoints])
 }

@@ -1,9 +1,9 @@
 import { CheckIcon } from '@radix-ui/react-icons'
 import { Button, Card, Text, Tooltip } from '@radix-ui/themes'
 import clsx from 'clsx'
-import toast from 'react-hot-toast'
 import { useShallow } from 'zustand/shallow'
 import { Upgrade } from '../../../constants/upgrades'
+import { useCustomToast } from '../../../hooks/use-custom-toast'
 import { useGameStore } from '../../../hooks/use-game-store'
 import { useProcessUpgrade } from '../../../hooks/use-process-upgrade'
 
@@ -17,6 +17,8 @@ const Upgrades = () => {
         updateAvailablePoints: state.updateAvailablePoints,
       }))
     )
+
+  const customToast = useCustomToast()
 
   const { processUpgrade } = useProcessUpgrade()
 
@@ -40,7 +42,10 @@ const Upgrades = () => {
     }
 
     updateAvailablePoints(availablePoints - clonedUpgrade.cost)
-    toast.success(`Purchased ${clonedUpgrade.title}`)
+    customToast({
+      type: 'success',
+      content: `Purchased ${clonedUpgrade.title}`,
+    })
     processUpgrade(clonedUpgrade.title)
   }
 

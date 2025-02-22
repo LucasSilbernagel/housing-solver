@@ -3,6 +3,7 @@ import toast from 'react-hot-toast'
 import { useShallow } from 'zustand/shallow'
 import { AchievementConfig } from '../utils/create-achievement-configs'
 import { useAchievementConfigs } from './use-achievement-configs'
+import { useCustomToast } from './use-custom-toast'
 import { useGameStore } from './use-game-store'
 
 export const useAchievements = () => {
@@ -42,6 +43,8 @@ export const useAchievements = () => {
 
   const achievementConfigs = useAchievementConfigs()
 
+  const customToast = useCustomToast()
+
   const totalVolunteers =
     volunteersRecruited +
     volunteerRecruitersRecruited +
@@ -65,6 +68,7 @@ export const useAchievements = () => {
         updateAchievement(achievement.text, 'achieved')
         if (achievement.message) {
           toast.success(achievement.message)
+          customToast({ type: 'success', content: achievement.message })
         }
         if (achievement.next) {
           updateAchievement(achievement.next, 'visible')
