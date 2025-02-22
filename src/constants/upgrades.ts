@@ -46,7 +46,7 @@ export const UPGRADES: Upgrade[] = [
     title: 'Run a regional ad campaign about the affordable housing crisis',
     description:
       'Automatically accumulate 8 additional support points every second',
-    cost: 12_000,
+    cost: 8000,
     quantity: 0,
     visible: false,
   },
@@ -61,7 +61,7 @@ export const UPGRADES: Upgrade[] = [
   {
     title: 'Run for local office',
     description: 'Reduce upgrade costs by 20%',
-    cost: 10_000,
+    cost: 6000,
     quantity: 0,
     visible: false,
     oneTimePurchase: {

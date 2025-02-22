@@ -1,6 +1,14 @@
 import toast from 'react-hot-toast'
+import { useShallow } from 'zustand/shallow'
+import { useGameStore } from './use-game-store'
 
 export const useCustomToast = () => {
+  const { addToAnnouncements } = useGameStore(
+    useShallow((state) => ({
+      addToAnnouncements: state.addToAnnouncements,
+    }))
+  )
+
   const customToastContent = ({
     title,
     description,
@@ -41,6 +49,13 @@ export const useCustomToast = () => {
         toast.error(customToastContent({ title, description }))
       }
     }
+
+    addToAnnouncements({
+      title: typeof content === 'string' ? content : content.title,
+      description:
+        typeof content === 'string' ? undefined : content.description,
+      timestamp: Date.now(),
+    })
   }
   return customToast
 }

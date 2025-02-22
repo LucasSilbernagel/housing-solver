@@ -17,6 +17,10 @@ export const useProcessUpgrade = () => {
     housingUnaffordabilityScore,
     updateHousingUnaffordabilityScore,
     incrementCommunityFestivals,
+    incrementTotalAdCampaigns,
+    electToLocalOffice,
+    electToRegionalOffice,
+    electToNationalOffice,
   } = useGameStore(
     useShallow((state) => ({
       upgrades: state.upgrades,
@@ -35,6 +39,10 @@ export const useProcessUpgrade = () => {
       updateHousingUnaffordabilityScore:
         state.updateHousingUnaffordabilityScore,
       incrementCommunityFestivals: state.incrementCommunityFestivals,
+      incrementTotalAdCampaigns: state.incrementTotalAdCampaigns,
+      electToLocalOffice: state.electToLocalOffice,
+      electToRegionalOffice: state.electToRegionalOffice,
+      electToNationalOffice: state.electToNationalOffice,
     }))
   )
 
@@ -77,6 +85,7 @@ export const useProcessUpgrade = () => {
       if (
         title === 'Run a local ad campaign about the affordable housing crisis'
       ) {
+        incrementTotalAdCampaigns()
         updateAutomaticIncrementAmount(automaticIncrementAmount + 4)
         makeNextUpgradeVisible(
           'Run a regional ad campaign about the affordable housing crisis'
@@ -88,6 +97,7 @@ export const useProcessUpgrade = () => {
         title ===
         'Run a regional ad campaign about the affordable housing crisis'
       ) {
+        incrementTotalAdCampaigns()
         updateAutomaticIncrementAmount(automaticIncrementAmount + 8)
         makeNextUpgradeVisible(
           'Run a national ad campaign about the affordable housing crisis'
@@ -98,10 +108,12 @@ export const useProcessUpgrade = () => {
         title ===
         'Run a national ad campaign about the affordable housing crisis'
       ) {
+        incrementTotalAdCampaigns()
         updateAutomaticIncrementAmount(automaticIncrementAmount + 20)
       }
 
       if (title === 'Run for local office') {
+        electToLocalOffice()
         reduceUpgradeCosts(20)
         makeNextUpgradeVisible('Fund a local research project')
         makeNextUpgradeVisible('Fund a job training program')
@@ -115,6 +127,7 @@ export const useProcessUpgrade = () => {
       }
 
       if (title === 'Run for regional office') {
+        electToRegionalOffice()
         reduceUpgradeCosts(30)
         makeNextUpgradeVisible('Fund new home construction subsidies')
         makeNextUpgradeVisible('Legislate rent control')
@@ -129,6 +142,7 @@ export const useProcessUpgrade = () => {
       }
 
       if (title === 'Run for national office') {
+        electToNationalOffice()
         reduceUpgradeCosts(50)
         makeNextUpgradeVisible(
           'Legislate a government-funded affordable daycare plan'
@@ -234,8 +248,13 @@ export const useProcessUpgrade = () => {
     },
     [
       automaticIncrementAmount,
+      electToLocalOffice,
+      electToNationalOffice,
+      electToRegionalOffice,
       housingUnaffordabilityScore,
       incrementCampaignManagersRecruited,
+      incrementCommunityFestivals,
+      incrementTotalAdCampaigns,
       incrementVolunteerRecruitersRecruited,
       incrementVolunteersRecruited,
       makeNextUpgradeVisible,

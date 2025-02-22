@@ -200,7 +200,7 @@ export const useGameStore = create<GameState>()(
         announcements: [],
         addToAnnouncements: (announcement) =>
           set((state) => ({
-            announcements: [...state.announcements, announcement],
+            announcements: [...state.announcements, announcement].slice(-20),
           })),
         resetGame: () =>
           set(() => ({

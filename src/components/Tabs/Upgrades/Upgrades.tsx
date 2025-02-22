@@ -52,11 +52,48 @@ const Upgrades = () => {
   return (
     <ul className="space-y-4 max-h-none md:max-h-[450px] overflow-y-auto">
       {upgrades
-        .sort(
-          (a, b) =>
-            Number(a.oneTimePurchase?.purchased) -
-            Number(b.oneTimePurchase?.purchased)
-        )
+        .sort((a, b) => {
+          const getQuantity = (upgrade: Upgrade) => upgrade.quantity ?? 0
+          const getCost = (upgrade: Upgrade) => upgrade.cost ?? 0
+
+          const aQuantity = getQuantity(a)
+          const bQuantity = getQuantity(b)
+          const aCost = getCost(a)
+          const bCost = getCost(b)
+
+          // Un-purchased upgrades appear first
+          if (aQuantity === 0 && bQuantity > 0) return -1
+          if (bQuantity === 0 && aQuantity > 0) return 1
+          // Sort by cost (higher first)
+          if (aQuantity === 0 && bQuantity === 0) {
+            return bCost - aCost
+          }
+
+          // Upgrades without oneTimePurchase appear next
+          if (
+            !a.oneTimePurchase &&
+            !b.oneTimePurchase && // If costs are different, sort by cost
+            aCost !== bCost
+          ) {
+            return bCost - aCost // Higher quantity first
+          }
+
+          // Purchased oneTimePurchase items should come last
+          if (a.oneTimePurchase && !b.oneTimePurchase) return 1
+          if (!a.oneTimePurchase && b.oneTimePurchase) return -1
+          // If both have oneTimePurchase, sort by cost
+          if (a.oneTimePurchase && b.oneTimePurchase) {
+            if (a.oneTimePurchase.purchased === b.oneTimePurchase.purchased) {
+              return bCost - aCost
+            }
+            return (
+              Number(a.oneTimePurchase.purchased) -
+              Number(b.oneTimePurchase.purchased)
+            )
+          }
+
+          return 0
+        })
         .map((upgrade) => {
           return (
             <li
