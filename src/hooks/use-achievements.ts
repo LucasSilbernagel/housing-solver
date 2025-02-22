@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import toast from 'react-hot-toast'
 import { useShallow } from 'zustand/shallow'
 import { AchievementConfig } from '../utils/create-achievement-configs'
 import { useAchievementConfigs } from './use-achievement-configs'
@@ -67,7 +66,6 @@ export const useAchievements = () => {
       ) {
         updateAchievement(achievement.text, 'achieved')
         if (achievement.message) {
-          toast.success(achievement.message)
           customToast({ type: 'success', content: achievement.message })
         }
         if (achievement.next) {
