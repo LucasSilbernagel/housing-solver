@@ -17,6 +17,8 @@ export const useRandomEvents = (): void => {
     housingUnaffordabilityScore,
     updateHousingUnaffordabilityScore,
     updateAvailablePoints,
+    communityFestivals,
+    decrementCommunityFestivals,
   } = useGameStore(
     useShallow((state) => ({
       electedToLocalOffice: state.electedToLocalOffice,
@@ -26,6 +28,8 @@ export const useRandomEvents = (): void => {
       updateHousingUnaffordabilityScore:
         state.updateHousingUnaffordabilityScore,
       updateAvailablePoints: state.updateAvailablePoints,
+      communityFestivals: state.communityFestivals,
+      decrementCommunityFestivals: state.decrementCommunityFestivals,
     }))
   )
 
@@ -82,9 +86,21 @@ export const useRandomEvents = (): void => {
       customToast({ type: 'success', content: selectedEvent })
     }
 
-    if (selectedEvent.title === 'NIMBY protest') {
+    if (selectedEvent.title === 'NIMBY protest' && communityFestivals === 0) {
       updateAvailablePoints(Math.floor(availablePoints / 2))
       customToast({ type: 'error', content: selectedEvent })
+    }
+
+    if (selectedEvent.title === 'NIMBY protest' && communityFestivals > 0) {
+      decrementCommunityFestivals()
+      customToast({
+        type: 'success',
+        content: {
+          title: 'Community outreach',
+          description:
+            'You were able to prevent a NIMBY protest from gaining traction!',
+        },
+      })
     }
 
     if (selectedEvent.title === 'Government corruption scandal') {

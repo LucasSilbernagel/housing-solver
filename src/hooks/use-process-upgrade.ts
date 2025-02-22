@@ -16,6 +16,7 @@ export const useProcessUpgrade = () => {
     manualIncrementAmount,
     housingUnaffordabilityScore,
     updateHousingUnaffordabilityScore,
+    incrementCommunityFestivals,
   } = useGameStore(
     useShallow((state) => ({
       upgrades: state.upgrades,
@@ -33,6 +34,7 @@ export const useProcessUpgrade = () => {
       housingUnaffordabilityScore: state.housingUnaffordabilityScore,
       updateHousingUnaffordabilityScore:
         state.updateHousingUnaffordabilityScore,
+      incrementCommunityFestivals: state.incrementCommunityFestivals,
     }))
   )
 
@@ -157,6 +159,13 @@ export const useProcessUpgrade = () => {
 
       if (title === 'Implement a vacant home tax') {
         updateHousingUnaffordabilityScore(housingUnaffordabilityScore - 0.05)
+      }
+
+      if (
+        title ===
+        'Run a community festival to promote affordable housing discussions'
+      ) {
+        incrementCommunityFestivals()
       }
 
       if (

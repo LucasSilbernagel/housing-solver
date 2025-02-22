@@ -50,6 +50,9 @@ export interface GameState {
   totalTrainingPrograms: number
   incrementTotalTrainingPrograms: () => void
   reduceUpgradeCosts: (percentage: number) => void
+  communityFestivals: number
+  incrementCommunityFestivals: () => void
+  decrementCommunityFestivals: () => void
   resetGame: () => void
 }
 
@@ -172,6 +175,15 @@ export const useGameStore = create<GameState>()(
               })),
           }))
         },
+        communityFestivals: 0,
+        incrementCommunityFestivals: () =>
+          set((state) => ({
+            communityFestivals: state.communityFestivals + 1,
+          })),
+        decrementCommunityFestivals: () =>
+          set((state) => ({
+            communityFestivals: state.communityFestivals - 1,
+          })),
         resetGame: () =>
           set(() => ({
             allTimePoints: 0,
@@ -191,6 +203,7 @@ export const useGameStore = create<GameState>()(
             upgrades: UPGRADES,
             totalAdCampaigns: 0,
             totalTrainingPrograms: 0,
+            communityFestivals: 0,
           })),
       }),
       {

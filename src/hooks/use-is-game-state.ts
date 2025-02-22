@@ -41,7 +41,9 @@ const useIsGameState = () => {
       typeof candidate.electedToRegionalOffice === 'boolean' &&
       typeof candidate.electedToNationalOffice === 'boolean' &&
       typeof candidate.achievements === typeof initialAchievements &&
-      typeof candidate.upgrades === typeof UPGRADES
+      typeof candidate.upgrades === typeof UPGRADES &&
+      !Number.isNaN(candidate.communityFestivals) &&
+      Number.isFinite(candidate.communityFestivals)
     )
   }
   return isGameState
