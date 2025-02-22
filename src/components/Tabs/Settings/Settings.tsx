@@ -122,12 +122,7 @@ const Settings = () => {
       </div>
       <div>
         <Text as="label" size="4">
-          <Flex
-            gap="2"
-            direction="column"
-            className="max-w-[600px]"
-            style={{ position: 'relative' }}
-          >
+          <Flex gap="2" direction="column" style={{ position: 'relative' }}>
             Backup
             {backup.length > 0 ? (
               <Tooltip content="Copy backup code">

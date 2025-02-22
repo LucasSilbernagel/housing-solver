@@ -22,7 +22,7 @@ export const UPGRADES: Upgrade[] = [
     title: 'Recruit a volunteer recruiter',
     description:
       'Automatically accumulate 1 additional support point every second',
-    cost: 500,
+    cost: 150,
     quantity: 0,
     visible: false,
   },
@@ -30,7 +30,7 @@ export const UPGRADES: Upgrade[] = [
     title: 'Recruit a campaign manager',
     description:
       'Automatically accumulate 2 additional support points every second',
-    cost: 1000,
+    cost: 500,
     quantity: 0,
     visible: false,
   },
@@ -38,7 +38,7 @@ export const UPGRADES: Upgrade[] = [
     title: 'Run a local ad campaign about the affordable housing crisis',
     description:
       'Automatically accumulate 4 additional support points every second',
-    cost: 5000,
+    cost: 2000,
     quantity: 0,
     visible: false,
   },
@@ -46,7 +46,7 @@ export const UPGRADES: Upgrade[] = [
     title: 'Run a regional ad campaign about the affordable housing crisis',
     description:
       'Automatically accumulate 8 additional support points every second',
-    cost: 50_000,
+    cost: 12_000,
     quantity: 0,
     visible: false,
   },
@@ -54,14 +54,14 @@ export const UPGRADES: Upgrade[] = [
     title: 'Run a national ad campaign about the affordable housing crisis',
     description:
       'Automatically accumulate 20 additional support points every second',
-    cost: 1_000_000,
+    cost: 100_000,
     quantity: 0,
     visible: false,
   },
   {
     title: 'Run for local office',
     description: 'Reduce upgrade costs by 20%',
-    cost: 50_000,
+    cost: 10_000,
     quantity: 0,
     visible: false,
     oneTimePurchase: {
@@ -71,7 +71,7 @@ export const UPGRADES: Upgrade[] = [
   {
     title: 'Run for regional office',
     description: 'Reduce upgrade costs by 30%',
-    cost: 1_000_000,
+    cost: 100_000,
     quantity: 0,
     visible: false,
     oneTimePurchase: {
@@ -81,7 +81,7 @@ export const UPGRADES: Upgrade[] = [
   {
     title: 'Run for national office',
     description: 'Reduce upgrade costs by 50%',
-    cost: 10_000_000,
+    cost: 1_000_000,
     quantity: 0,
     visible: false,
     oneTimePurchase: {
@@ -92,7 +92,7 @@ export const UPGRADES: Upgrade[] = [
     title: 'Fund a local research project',
     description:
       'Learn how to make housing more affordable; each click generates 5 additional support points',
-    cost: 10_000,
+    cost: 5000,
     quantity: 0,
     visible: false,
   },
@@ -100,7 +100,7 @@ export const UPGRADES: Upgrade[] = [
     title: 'Fund a regional research project',
     description:
       'Learn how to make housing more affordable; each click generates 10 additional support points',
-    cost: 100_000,
+    cost: 50_000,
     quantity: 0,
     visible: false,
   },
@@ -108,7 +108,7 @@ export const UPGRADES: Upgrade[] = [
     title: 'Fund a national research project',
     description:
       'Learn how to make housing more affordable; each click generates 25 additional support points',
-    cost: 2_000_000,
+    cost: 1_000_000,
     quantity: 0,
     visible: false,
   },
@@ -187,7 +187,7 @@ export const UPGRADES: Upgrade[] = [
   {
     title: 'Run a community festival to promote affordable housing discussions',
     description: 'Prevent one NIMBY protest per festival purchased',
-    cost: 100_000,
+    cost: 50_000,
     quantity: 0,
     visible: false,
   },
