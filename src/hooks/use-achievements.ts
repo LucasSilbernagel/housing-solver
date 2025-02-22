@@ -111,6 +111,7 @@ export const useAchievements = () => {
     achievements,
     allTimePoints,
     campaignManagersRecruited,
+    customToast,
     electedToLocalOffice,
     electedToNationalOffice,
     electedToRegionalOffice,
