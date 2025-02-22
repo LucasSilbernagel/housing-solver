@@ -10,14 +10,24 @@ interface RandomEvent {
 }
 
 export const useRandomEvents = (): void => {
-  const { electedToLocalOffice, availablePoints, updateAllPoints } =
-    useGameStore(
-      useShallow((state) => ({
-        electedToLocalOffice: state.electedToLocalOffice,
-        availablePoints: state.availablePoints,
-        updateAllPoints: state.updateAllPoints,
-      }))
-    )
+  const {
+    electedToLocalOffice,
+    availablePoints,
+    updateAllPoints,
+    housingUnaffordabilityScore,
+    updateHousingUnaffordabilityScore,
+    updateAvailablePoints,
+  } = useGameStore(
+    useShallow((state) => ({
+      electedToLocalOffice: state.electedToLocalOffice,
+      availablePoints: state.availablePoints,
+      updateAllPoints: state.updateAllPoints,
+      housingUnaffordabilityScore: state.housingUnaffordabilityScore,
+      updateHousingUnaffordabilityScore:
+        state.updateHousingUnaffordabilityScore,
+      updateAvailablePoints: state.updateAvailablePoints,
+    }))
+  )
 
   const customToast = useCustomToast()
 
@@ -67,6 +77,56 @@ export const useRandomEvents = (): void => {
       customToast({ type: 'success', content: selectedEvent })
     }
 
+    if (selectedEvent.title === 'Breakthrough in construction technology') {
+      updateHousingUnaffordabilityScore(housingUnaffordabilityScore - 0.1)
+      customToast({ type: 'success', content: selectedEvent })
+    }
+
+    if (selectedEvent.title === 'NIMBY protest') {
+      updateAvailablePoints(Math.floor(availablePoints / 2))
+      customToast({ type: 'error', content: selectedEvent })
+    }
+
+    if (selectedEvent.title === 'Government corruption scandal') {
+      updateAvailablePoints(Math.floor(availablePoints * 0.66))
+      customToast({ type: 'error', content: selectedEvent })
+    }
+
+    if (selectedEvent.title === 'Construction costs increased') {
+      updateHousingUnaffordabilityScore(housingUnaffordabilityScore + 0.1)
+      customToast({ type: 'error', content: selectedEvent })
+    }
+
+    if (selectedEvent.title === 'Economic recession') {
+      updateHousingUnaffordabilityScore(housingUnaffordabilityScore + 1)
+      customToast({ type: 'error', content: selectedEvent })
+    }
+
+    if (selectedEvent.title === 'Wave of unfettered immigration') {
+      updateHousingUnaffordabilityScore(housingUnaffordabilityScore + 0.5)
+      customToast({ type: 'error', content: selectedEvent })
+    }
+
+    if (selectedEvent.title === 'Neighbourhood gentrification') {
+      updateHousingUnaffordabilityScore(housingUnaffordabilityScore + 0.1)
+      customToast({ type: 'error', content: selectedEvent })
+    }
+
+    if (
+      selectedEvent.title === 'An international trade partner enacted tariffs'
+    ) {
+      updateHousingUnaffordabilityScore(housingUnaffordabilityScore + 0.5)
+      customToast({ type: 'error', content: selectedEvent })
+    }
+
     setSelectedEvent(undefined)
-  }, [availablePoints, customToast, selectedEvent, updateAllPoints])
+  }, [
+    availablePoints,
+    customToast,
+    housingUnaffordabilityScore,
+    selectedEvent,
+    updateAllPoints,
+    updateAvailablePoints,
+    updateHousingUnaffordabilityScore,
+  ])
 }
