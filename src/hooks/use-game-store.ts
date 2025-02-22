@@ -167,12 +167,13 @@ export const useGameStore = create<GameState>()(
           })),
         reduceUpgradeCosts: (percentage) => {
           set((state) => ({
-            upgrades: state.upgrades
-              .filter((upgrade) => upgrade.visible && !upgrade.oneTimePurchase)
-              .map((upgrade) => ({
-                ...upgrade,
-                cost: Math.round(upgrade.cost * (1 - percentage / 100)),
-              })),
+            upgrades: state.upgrades.map((upgrade) => ({
+              ...upgrade,
+              cost:
+                upgrade.visible && !upgrade.oneTimePurchase
+                  ? Math.round(upgrade.cost * (1 - percentage / 100))
+                  : upgrade.cost,
+            })),
           }))
         },
         communityFestivals: 0,
