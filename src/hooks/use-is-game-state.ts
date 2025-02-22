@@ -1,6 +1,6 @@
 import { UPGRADES } from '../constants/upgrades'
 import { getInitialAchievements } from '../utils/get-initial-achievements'
-import { GameState } from './use-game-store'
+import { Announcement, GameState } from './use-game-store'
 
 const useIsGameState = () => {
   const initialAchievements = getInitialAchievements()
@@ -43,7 +43,12 @@ const useIsGameState = () => {
       typeof candidate.achievements === typeof initialAchievements &&
       typeof candidate.upgrades === typeof UPGRADES &&
       !Number.isNaN(candidate.communityFestivals) &&
-      Number.isFinite(candidate.communityFestivals)
+      Number.isFinite(candidate.communityFestivals) &&
+      Array.isArray(candidate.announcements) &&
+      candidate.announcements.every(
+        (announcement): announcement is Announcement =>
+          typeof announcement === 'object'
+      )
     )
   }
   return isGameState

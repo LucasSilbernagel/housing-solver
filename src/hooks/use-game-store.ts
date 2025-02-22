@@ -7,6 +7,12 @@ import {
   getInitialAchievements,
 } from '../utils/get-initial-achievements'
 
+export interface Announcement {
+  title: string
+  description?: string
+  timestamp: number
+}
+
 export interface GameState {
   shouldUseDarkTheme: boolean
   toggleTheme: () => void
@@ -53,6 +59,12 @@ export interface GameState {
   communityFestivals: number
   incrementCommunityFestivals: () => void
   decrementCommunityFestivals: () => void
+  announcements: Announcement[]
+  addToAnnouncements: (announcement: {
+    title: string
+    description?: string
+    timestamp: number
+  }) => void
   resetGame: () => void
 }
 
@@ -185,6 +197,11 @@ export const useGameStore = create<GameState>()(
           set((state) => ({
             communityFestivals: state.communityFestivals - 1,
           })),
+        announcements: [],
+        addToAnnouncements: (announcement) =>
+          set((state) => ({
+            announcements: [...state.announcements, announcement],
+          })),
         resetGame: () =>
           set(() => ({
             allTimePoints: 0,
@@ -205,6 +222,7 @@ export const useGameStore = create<GameState>()(
             totalAdCampaigns: 0,
             totalTrainingPrograms: 0,
             communityFestivals: 0,
+            announcements: [],
           })),
       }),
       {

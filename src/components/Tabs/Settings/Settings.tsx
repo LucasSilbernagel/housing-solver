@@ -81,7 +81,7 @@ const Settings = () => {
 
   return (
     <div className="flex flex-col gap-10">
-      <div className="flex sm:flex-row flex-col gap-12">
+      <div className="flex flex-row-reverse w-full">
         <Text as="label" size="4">
           <Flex gap="2">
             <Switch
@@ -92,33 +92,6 @@ const Settings = () => {
             Dark theme
           </Flex>
         </Text>
-        <div>
-          <AlertDialog.Root>
-            <AlertDialog.Trigger>
-              <Button disabled={allTimePoints === 0} color="red">
-                Reset game
-              </Button>
-            </AlertDialog.Trigger>
-            <AlertDialog.Content maxWidth="450px">
-              <AlertDialog.Title>Reset game</AlertDialog.Title>
-              <AlertDialog.Description size="3">
-                Are you sure? You will lose all saved progress.
-              </AlertDialog.Description>
-              <Flex gap="3" mt="4" justify="end">
-                <AlertDialog.Cancel>
-                  <Button variant="soft" color="gray">
-                    Cancel
-                  </Button>
-                </AlertDialog.Cancel>
-                <AlertDialog.Action>
-                  <Button variant="solid" color="red" onClick={handleResetGame}>
-                    Reset game
-                  </Button>
-                </AlertDialog.Action>
-              </Flex>
-            </AlertDialog.Content>
-          </AlertDialog.Root>
-        </div>
       </div>
       <div>
         <Text as="label" size="4">
@@ -153,6 +126,33 @@ const Settings = () => {
             Import backup
           </Button>
         </div>
+      </div>
+      <div>
+        <AlertDialog.Root>
+          <AlertDialog.Trigger>
+            <Button disabled={allTimePoints === 0} color="red">
+              Reset game
+            </Button>
+          </AlertDialog.Trigger>
+          <AlertDialog.Content maxWidth="450px">
+            <AlertDialog.Title>Reset game</AlertDialog.Title>
+            <AlertDialog.Description size="3">
+              Are you sure? You will lose all saved progress.
+            </AlertDialog.Description>
+            <Flex gap="3" mt="4" justify="end">
+              <AlertDialog.Cancel>
+                <Button variant="soft" color="gray">
+                  Cancel
+                </Button>
+              </AlertDialog.Cancel>
+              <AlertDialog.Action>
+                <Button variant="solid" color="red" onClick={handleResetGame}>
+                  Reset game
+                </Button>
+              </AlertDialog.Action>
+            </Flex>
+          </AlertDialog.Content>
+        </AlertDialog.Root>
       </div>
       <p>
         Developer:{' '}
