@@ -21,6 +21,7 @@ export const useProcessUpgrade = () => {
     electToLocalOffice,
     electToRegionalOffice,
     electToNationalOffice,
+    incrementTotalTrainingPrograms,
   } = useGameStore(
     useShallow((state) => ({
       upgrades: state.upgrades,
@@ -43,6 +44,7 @@ export const useProcessUpgrade = () => {
       electToLocalOffice: state.electToLocalOffice,
       electToRegionalOffice: state.electToRegionalOffice,
       electToNationalOffice: state.electToNationalOffice,
+      incrementTotalTrainingPrograms: state.incrementTotalTrainingPrograms,
     }))
   )
 
@@ -168,6 +170,7 @@ export const useProcessUpgrade = () => {
       }
 
       if (title === 'Fund a job training program') {
+        incrementTotalTrainingPrograms()
         updateHousingUnaffordabilityScore(housingUnaffordabilityScore - 0.05)
       }
 

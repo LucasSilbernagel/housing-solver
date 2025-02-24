@@ -19,6 +19,8 @@ export const useRandomEvents = (): void => {
     updateAvailablePoints,
     communityFestivals,
     decrementCommunityFestivals,
+    incrementNimbyProtestsPrevented,
+    incrementTotalNimbyProtests,
   } = useGameStore(
     useShallow((state) => ({
       electedToLocalOffice: state.electedToLocalOffice,
@@ -30,6 +32,8 @@ export const useRandomEvents = (): void => {
       updateAvailablePoints: state.updateAvailablePoints,
       communityFestivals: state.communityFestivals,
       decrementCommunityFestivals: state.decrementCommunityFestivals,
+      incrementNimbyProtestsPrevented: state.incrementNimbyProtestsPrevented,
+      incrementTotalNimbyProtests: state.incrementTotalNimbyProtests,
     }))
   )
 
@@ -87,11 +91,14 @@ export const useRandomEvents = (): void => {
     }
 
     if (selectedEvent.title === 'NIMBY protest' && communityFestivals === 0) {
+      incrementTotalNimbyProtests()
       updateAvailablePoints(Math.floor(availablePoints / 2))
       customToast({ type: 'error', content: selectedEvent })
     }
 
     if (selectedEvent.title === 'NIMBY protest' && communityFestivals > 0) {
+      incrementTotalNimbyProtests()
+      incrementNimbyProtestsPrevented()
       decrementCommunityFestivals()
       customToast({
         type: 'success',
