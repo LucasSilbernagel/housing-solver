@@ -1,7 +1,6 @@
-import { Card, Text } from '@radix-ui/themes'
-import { formatDuration, intervalToDuration } from 'date-fns'
 import { useShallow } from 'zustand/shallow'
 import { useGameStore } from '../../../hooks/use-game-store'
+import StatCard from './StatCard/StatCard'
 
 const Stats = () => {
   const {
@@ -25,146 +24,68 @@ const Stats = () => {
   )
 
   const formatLiveDuration = (seconds: number) => {
-    const duration = intervalToDuration({ start: 0, end: seconds * 1000 }) // Convert seconds to milliseconds for date-fns
-    if ((duration.years ?? 0) > 0) {
-      return formatDuration(duration, {
-        format: [
-          'years',
-          'months',
-          'weeks',
-          'days',
-          'hours',
-          'minutes',
-          'seconds',
-        ],
-        delimiter: ', ',
-      })
-    } else if ((duration.months ?? 0) > 0) {
-      return formatDuration(duration, {
-        format: ['months', 'weeks', 'days', 'hours', 'minutes', 'seconds'],
-        delimiter: ', ',
-      })
-    } else if ((duration.weeks ?? 0) > 0) {
-      return formatDuration(duration, {
-        format: ['weeks', 'days', 'hours', 'minutes', 'seconds'],
-        delimiter: ', ',
-      })
-    } else if ((duration.days ?? 0) > 0) {
-      return formatDuration(duration, {
-        format: ['days', 'hours', 'minutes', 'seconds'],
-        delimiter: ', ',
-      })
-    } else if ((duration.hours ?? 0) > 0) {
-      return formatDuration(duration, {
-        format: ['hours', 'minutes', 'seconds'],
-        delimiter: ', ',
-      })
-    } else if ((duration.minutes ?? 0) > 0) {
-      return formatDuration(duration, {
-        format: ['minutes', 'seconds'],
-        delimiter: ', ',
-      })
-    } else {
-      return formatDuration(duration, {
-        format: ['seconds'],
-      })
+    if (seconds === 0) return '0 seconds'
+
+    const units = [
+      { name: 'year', seconds: 31_536_000 },
+      { name: 'month', seconds: 2_592_000 },
+      { name: 'week', seconds: 604_800 },
+      { name: 'day', seconds: 86_400 },
+      { name: 'hour', seconds: 3600 },
+      { name: 'minute', seconds: 60 },
+      { name: 'second', seconds: 1 },
+    ]
+
+    let remainingSeconds = seconds
+    const parts = []
+
+    for (const unit of units) {
+      const value = Math.floor(remainingSeconds / unit.seconds)
+      if (value > 0) {
+        parts.push(`${value} ${unit.name}${value === 1 ? '' : 's'}`)
+        remainingSeconds %= unit.seconds
+      }
     }
+
+    return parts.join(', ')
   }
+
+  const stats = [
+    {
+      label: 'Total support points generated:',
+      value: Math.floor(allTimePoints).toLocaleString(),
+    },
+    {
+      label: 'Total support points spent:',
+      value: totalPointsSpent.toLocaleString(),
+    },
+    {
+      label: 'Support points earned per click:',
+      value: manualIncrementAmount.toLocaleString(),
+    },
+    {
+      label: 'Support points automatically earned per second:',
+      value: automaticIncrementAmount.toLocaleString(),
+    },
+    {
+      label: 'Total upgrades purchased:',
+      value: totalUpgradesPurchased.toLocaleString(),
+    },
+    {
+      label: 'Total achievements earned:',
+      value: totalAchievementsEarned.toLocaleString(),
+    },
+    {
+      label: 'Total play time:',
+      value: formatLiveDuration(totalPlayTime),
+    },
+  ]
 
   return (
     <ul className="space-y-4 max-h-none md:max-h-[450px] overflow-y-auto">
-      <li>
-        <Card className="shadow-sm">
-          <div className="mb-2">
-            <Text size="4" wrap="pretty" className="font-bold">
-              Total support points generated:{' '}
-            </Text>
-          </div>
-          <div>
-            <Text wrap="pretty">{allTimePoints.toLocaleString()}</Text>
-          </div>
-        </Card>
-      </li>
-      <li>
-        <Card className="shadow-sm">
-          <div className="mb-2">
-            <Text size="4" wrap="pretty" className="font-bold">
-              Total support points spent:{' '}
-            </Text>
-          </div>
-          <div>
-            <Text wrap="pretty">{totalPointsSpent.toLocaleString()}</Text>
-          </div>
-        </Card>
-      </li>
-      <li>
-        <Card className="shadow-sm">
-          <div className="mb-2">
-            <Text size="4" wrap="pretty" className="font-bold">
-              Support points earned per click:{' '}
-            </Text>
-          </div>
-          <div>
-            <Text wrap="pretty">{manualIncrementAmount.toLocaleString()}</Text>
-          </div>
-        </Card>
-      </li>
-      <li>
-        <Card className="shadow-sm">
-          <div className="mb-2">
-            <Text size="4" wrap="pretty" className="font-bold">
-              Support points automatically earned per second:{' '}
-            </Text>
-          </div>
-          <div>
-            <Text wrap="pretty">
-              {automaticIncrementAmount.toLocaleString()}
-            </Text>
-          </div>
-        </Card>
-      </li>
-      <li>
-        <Card className="shadow-sm">
-          <div className="mb-2">
-            <Text size="4" wrap="pretty" className="font-bold">
-              Total upgrades purchased:{' '}
-            </Text>
-          </div>
-          <div>
-            <Text wrap="pretty">{totalUpgradesPurchased.toLocaleString()}</Text>
-          </div>
-        </Card>
-      </li>
-      <li>
-        <Card className="shadow-sm">
-          <div className="mb-2">
-            <Text size="4" wrap="pretty" className="font-bold">
-              Total achievements earned:{' '}
-            </Text>
-          </div>
-          <div>
-            <Text wrap="pretty">
-              {totalAchievementsEarned.toLocaleString()}
-            </Text>
-          </div>
-        </Card>
-      </li>
-      <li>
-        <Card className="shadow-sm">
-          <div className="mb-2">
-            <Text size="4" wrap="pretty" className="font-bold">
-              Total play time:{' '}
-            </Text>
-          </div>
-          <div>
-            <Text wrap="pretty">
-              {totalPlayTime === 0
-                ? '0 seconds'
-                : formatLiveDuration(totalPlayTime)}
-            </Text>
-          </div>
-        </Card>
-      </li>
+      {stats.map((stat) => {
+        return <StatCard key={stat.label} {...stat} />
+      })}
     </ul>
   )
 }
