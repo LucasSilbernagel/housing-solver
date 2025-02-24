@@ -81,7 +81,7 @@ const Stats = () => {
             </Text>
           </div>
           <div>
-            <Text>{allTimePoints.toLocaleString()}</Text>
+            <Text wrap="pretty">{allTimePoints.toLocaleString()}</Text>
           </div>
         </Card>
       </li>
@@ -93,7 +93,7 @@ const Stats = () => {
             </Text>
           </div>
           <div>
-            <Text>{totalPointsSpent.toLocaleString()}</Text>
+            <Text wrap="pretty">{totalPointsSpent.toLocaleString()}</Text>
           </div>
         </Card>
       </li>
@@ -105,7 +105,7 @@ const Stats = () => {
             </Text>
           </div>
           <div>
-            <Text>{manualIncrementAmount.toLocaleString()}</Text>
+            <Text wrap="pretty">{manualIncrementAmount.toLocaleString()}</Text>
           </div>
         </Card>
       </li>
@@ -117,7 +117,9 @@ const Stats = () => {
             </Text>
           </div>
           <div>
-            <Text>{automaticIncrementAmount.toLocaleString()}</Text>
+            <Text wrap="pretty">
+              {automaticIncrementAmount.toLocaleString()}
+            </Text>
           </div>
         </Card>
       </li>
@@ -129,7 +131,7 @@ const Stats = () => {
             </Text>
           </div>
           <div>
-            <Text>{totalUpgradesPurchased.toLocaleString()}</Text>
+            <Text wrap="pretty">{totalUpgradesPurchased.toLocaleString()}</Text>
           </div>
         </Card>
       </li>
@@ -141,7 +143,9 @@ const Stats = () => {
             </Text>
           </div>
           <div>
-            <Text>{totalAchievementsEarned.toLocaleString()}</Text>
+            <Text wrap="pretty">
+              {totalAchievementsEarned.toLocaleString()}
+            </Text>
           </div>
         </Card>
       </li>
