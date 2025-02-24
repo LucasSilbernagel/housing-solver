@@ -27,6 +27,8 @@ export interface GameState {
   manuallyIncrementPoints: (manualIncrementAmount: number) => void
   availablePoints: number
   updateAvailablePoints: (amount: number) => void
+  totalPointsSpent: number
+  updateTotalPointsSpent: (amount: number) => void
   automaticallyIncrementPoints: () => void
   nimbyProtestsPrevented: number
   incrementNimbyProtestsPrevented: () => void
@@ -100,6 +102,11 @@ export const useGameStore = create<GameState>()(
         updateAvailablePoints: (amount) =>
           set(() => ({
             availablePoints: amount,
+          })),
+        totalPointsSpent: 0,
+        updateTotalPointsSpent: (amount) =>
+          set(() => ({
+            totalPointsSpent: amount,
           })),
         automaticallyIncrementPoints: () =>
           set((state) => ({
@@ -223,6 +230,7 @@ export const useGameStore = create<GameState>()(
             totalTrainingPrograms: 0,
             communityFestivals: 0,
             announcements: [],
+            totalPointsSpent: 0,
           })),
       }),
       {

@@ -8,15 +8,23 @@ import { useGameStore } from '../../../hooks/use-game-store'
 import { useProcessUpgrade } from '../../../hooks/use-process-upgrade'
 
 const Upgrades = () => {
-  const { upgrades, updateUpgrade, availablePoints, updateAvailablePoints } =
-    useGameStore(
-      useShallow((state) => ({
-        upgrades: state.upgrades,
-        updateUpgrade: state.updateUpgrade,
-        availablePoints: state.availablePoints,
-        updateAvailablePoints: state.updateAvailablePoints,
-      }))
-    )
+  const {
+    upgrades,
+    updateUpgrade,
+    availablePoints,
+    updateAvailablePoints,
+    totalPointsSpent,
+    updateTotalPointsSpent,
+  } = useGameStore(
+    useShallow((state) => ({
+      upgrades: state.upgrades,
+      updateUpgrade: state.updateUpgrade,
+      availablePoints: state.availablePoints,
+      updateAvailablePoints: state.updateAvailablePoints,
+      totalPointsSpent: state.totalPointsSpent,
+      updateTotalPointsSpent: state.updateTotalPointsSpent,
+    }))
+  )
 
   const customToast = useCustomToast()
 
@@ -42,6 +50,7 @@ const Upgrades = () => {
     }
 
     updateAvailablePoints(availablePoints - clonedUpgrade.cost)
+    updateTotalPointsSpent(totalPointsSpent + clonedUpgrade.cost)
     customToast({
       type: 'success',
       content: `Purchased ${clonedUpgrade.title}`,
