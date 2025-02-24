@@ -1,8 +1,11 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { useEffect } from 'react'
+import { useShallow } from 'zustand/shallow'
 import Stats from '../components/Stats/Stats'
 import TabsCard from '../components/Tabs/TabsCard/TabsCard'
 import { useAchievements } from '../hooks/use-achievements'
 import { useAutomaticIncrement } from '../hooks/use-automatic-increment'
+import { useGameStore } from '../hooks/use-game-store'
 import { useRandomEvents } from '../hooks/use-random-events'
 import { useRenderUpgrades } from '../hooks/use-render-upgrades'
 import { SocialMetaTags, updateMetaTags } from '../utils/seo'
@@ -23,10 +26,25 @@ export const Route = createFileRoute('/')({
 })
 
 function Index() {
+  const { incrementPlayTime, allTimePoints } = useGameStore(
+    useShallow((state) => ({
+      incrementPlayTime: state.incrementPlayTime,
+      allTimePoints: state.allTimePoints,
+    }))
+  )
+
   useAchievements()
   useAutomaticIncrement()
   useRenderUpgrades()
   useRandomEvents()
+
+  useEffect(() => {
+    if (allTimePoints === 0) return
+    const interval = setInterval(() => {
+      incrementPlayTime()
+    }, 1000)
+    return () => clearInterval(interval)
+  }, [incrementPlayTime, allTimePoints])
 
   return (
     <div className="mx-auto p-4 max-w-screen-2xl">

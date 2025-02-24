@@ -71,6 +71,8 @@ export interface GameState {
   incrementTotalUpgradesPurchased: () => void
   totalAchievementsEarned: number
   calculateTotalAchievements: () => number
+  totalPlayTime: number
+  incrementPlayTime: () => void
   resetGame: () => void
 }
 
@@ -233,6 +235,12 @@ export const useGameStore = create<GameState>()(
             (achievement) => achievement.achieved
           ).length
         },
+        totalPlayTime: 0,
+        incrementPlayTime: () => {
+          set((state) => ({
+            totalPlayTime: state.totalPlayTime + 1,
+          }))
+        },
         resetGame: () =>
           set(() => ({
             allTimePoints: 0,
@@ -257,6 +265,7 @@ export const useGameStore = create<GameState>()(
             totalPointsSpent: 0,
             totalUpgradesPurchased: 0,
             totalAchievementsEarned: 0,
+            totalPlayTime: 0,
           })),
       }),
       {

@@ -19,6 +19,8 @@ const useIsGameState = () => {
       Number.isFinite(candidate.totalUpgradesPurchased) &&
       !Number.isNaN(candidate.totalAchievementsEarned) &&
       Number.isFinite(candidate.totalAchievementsEarned) &&
+      !Number.isNaN(candidate.totalPlayTime) &&
+      Number.isFinite(candidate.totalPlayTime) &&
       typeof candidate.manualIncrementAmount === 'number' &&
       !Number.isNaN(candidate.manualIncrementAmount) &&
       typeof candidate.automaticIncrementAmount === 'number' &&
