@@ -67,13 +67,17 @@ export interface GameState {
     description?: string
     timestamp: number
   }) => void
+  totalUpgradesPurchased: number
+  incrementTotalUpgradesPurchased: () => void
+  totalAchievementsEarned: number
+  calculateTotalAchievements: () => number
   resetGame: () => void
 }
 
 export const useGameStore = create<GameState>()(
   devtools(
     persist(
-      (set) => ({
+      (set, get) => ({
         shouldUseDarkTheme: false,
         toggleTheme: () =>
           set((state) => ({ shouldUseDarkTheme: !state.shouldUseDarkTheme })),
@@ -156,17 +160,25 @@ export const useGameStore = create<GameState>()(
             electedToNationalOffice: true,
           })),
         achievements: getInitialAchievements(),
+
         updateAchievement: (
           achievementText: string,
           property: 'visible' | 'achieved'
         ) =>
-          set((state) => ({
-            achievements: state.achievements.map((achievement) =>
+          set((state) => {
+            const updatedAchievements = state.achievements.map((achievement) =>
               achievement.text === achievementText
                 ? { ...achievement, [property]: true }
                 : achievement
-            ),
-          })),
+            )
+            const updatedTotal = updatedAchievements.filter(
+              (achievement) => achievement.achieved
+            ).length
+            return {
+              achievements: updatedAchievements,
+              totalAchievementsEarned: updatedTotal,
+            }
+          }),
         upgrades: UPGRADES,
         updateUpgrade: (title: string, updatedUpgrade: Upgrade) =>
           set((state) => ({
@@ -209,6 +221,18 @@ export const useGameStore = create<GameState>()(
           set((state) => ({
             announcements: [...state.announcements, announcement].slice(-20),
           })),
+        totalUpgradesPurchased: 0,
+        incrementTotalUpgradesPurchased: () =>
+          set((state) => ({
+            totalUpgradesPurchased: state.totalUpgradesPurchased + 1,
+          })),
+        totalAchievementsEarned: 0,
+        calculateTotalAchievements: () => {
+          const state = get()
+          return state.achievements.filter(
+            (achievement) => achievement.achieved
+          ).length
+        },
         resetGame: () =>
           set(() => ({
             allTimePoints: 0,
@@ -231,6 +255,8 @@ export const useGameStore = create<GameState>()(
             communityFestivals: 0,
             announcements: [],
             totalPointsSpent: 0,
+            totalUpgradesPurchased: 0,
+            totalAchievementsEarned: 0,
           })),
       }),
       {

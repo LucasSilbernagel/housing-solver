@@ -15,6 +15,7 @@ const Upgrades = () => {
     updateAvailablePoints,
     totalPointsSpent,
     updateTotalPointsSpent,
+    incrementTotalUpgradesPurchased,
   } = useGameStore(
     useShallow((state) => ({
       upgrades: state.upgrades,
@@ -23,6 +24,7 @@ const Upgrades = () => {
       updateAvailablePoints: state.updateAvailablePoints,
       totalPointsSpent: state.totalPointsSpent,
       updateTotalPointsSpent: state.updateTotalPointsSpent,
+      incrementTotalUpgradesPurchased: state.incrementTotalUpgradesPurchased,
     }))
   )
 
@@ -51,6 +53,7 @@ const Upgrades = () => {
 
     updateAvailablePoints(availablePoints - clonedUpgrade.cost)
     updateTotalPointsSpent(totalPointsSpent + clonedUpgrade.cost)
+    incrementTotalUpgradesPurchased()
     customToast({
       type: 'success',
       content: `Purchased ${clonedUpgrade.title}`,

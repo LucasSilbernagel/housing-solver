@@ -15,6 +15,10 @@ const useIsGameState = () => {
       Number.isFinite(candidate.housingUnaffordabilityScore) &&
       !Number.isNaN(candidate.totalPointsSpent) &&
       Number.isFinite(candidate.totalPointsSpent) &&
+      !Number.isNaN(candidate.totalUpgradesPurchased) &&
+      Number.isFinite(candidate.totalUpgradesPurchased) &&
+      !Number.isNaN(candidate.totalAchievementsEarned) &&
+      Number.isFinite(candidate.totalAchievementsEarned) &&
       typeof candidate.manualIncrementAmount === 'number' &&
       !Number.isNaN(candidate.manualIncrementAmount) &&
       typeof candidate.automaticIncrementAmount === 'number' &&

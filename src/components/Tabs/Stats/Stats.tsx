@@ -8,12 +8,16 @@ const Stats = () => {
     automaticIncrementAmount,
     manualIncrementAmount,
     totalPointsSpent,
+    totalUpgradesPurchased,
+    totalAchievementsEarned,
   } = useGameStore(
     useShallow((state) => ({
       allTimePoints: state.allTimePoints,
       automaticIncrementAmount: state.automaticIncrementAmount,
       manualIncrementAmount: state.manualIncrementAmount,
       totalPointsSpent: state.totalPointsSpent,
+      totalUpgradesPurchased: state.totalUpgradesPurchased,
+      totalAchievementsEarned: state.totalAchievementsEarned,
     }))
   )
 
@@ -64,6 +68,30 @@ const Stats = () => {
           </div>
           <div>
             <Text>{automaticIncrementAmount.toLocaleString()}</Text>
+          </div>
+        </Card>
+      </li>
+      <li>
+        <Card className="shadow-sm">
+          <div className="mb-2">
+            <Text size="4" wrap="pretty" className="font-bold">
+              Total upgrades purchased:{' '}
+            </Text>
+          </div>
+          <div>
+            <Text>{totalUpgradesPurchased.toLocaleString()}</Text>
+          </div>
+        </Card>
+      </li>
+      <li>
+        <Card className="shadow-sm">
+          <div className="mb-2">
+            <Text size="4" wrap="pretty" className="font-bold">
+              Total achievements earned:{' '}
+            </Text>
+          </div>
+          <div>
+            <Text>{totalAchievementsEarned.toLocaleString()}</Text>
           </div>
         </Card>
       </li>
