@@ -8,6 +8,7 @@ import { useAutomaticIncrement } from '../hooks/use-automatic-increment'
 import { useGameStore } from '../hooks/use-game-store'
 import { useRandomEvents } from '../hooks/use-random-events'
 import { useRenderUpgrades } from '../hooks/use-render-upgrades'
+import { useWinGame } from '../hooks/use-win-game'
 import { SocialMetaTags, updateMetaTags } from '../utils/seo'
 
 export const Route = createFileRoute('/')({
@@ -37,6 +38,7 @@ function Index() {
   useAutomaticIncrement()
   useRenderUpgrades()
   useRandomEvents()
+  useWinGame()
 
   useEffect(() => {
     if (allTimePoints === 0) return
