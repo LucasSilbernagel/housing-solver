@@ -81,7 +81,7 @@ const Settings = () => {
 
   return (
     <div className="flex flex-col gap-10">
-      <div className="flex flex-row-reverse w-full">
+      <div>
         <Text as="label" size="4">
           <Flex gap="2">
             <Switch
