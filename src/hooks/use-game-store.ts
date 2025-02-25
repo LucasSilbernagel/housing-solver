@@ -75,6 +75,8 @@ export interface GameState {
   incrementPlayTime: () => void
   hasWonGame: boolean
   winGame: () => void
+  hasCompletedWinFlow: boolean
+  completeWinFlow: () => void
   resetGame: () => void
 }
 
@@ -249,6 +251,12 @@ export const useGameStore = create<GameState>()(
             hasWonGame: true,
           }))
         },
+        hasCompletedWinFlow: false,
+        completeWinFlow: () => {
+          set(() => ({
+            hasCompletedWinFlow: true,
+          }))
+        },
         resetGame: () =>
           set(() => ({
             allTimePoints: 0,
@@ -275,6 +283,7 @@ export const useGameStore = create<GameState>()(
             totalAchievementsEarned: 0,
             totalPlayTime: 0,
             hasWonGame: false,
+            hasCompletedWinFlow: false,
           })),
       }),
       {

@@ -11,6 +11,7 @@ const useIsGameState = () => {
       candidate !== null &&
       typeof candidate.shouldUseDarkTheme === 'boolean' &&
       typeof candidate.hasWonGame === 'boolean' &&
+      typeof candidate.hasCompletedWinFlow === 'boolean' &&
       typeof candidate.housingUnaffordabilityScore === 'number' &&
       !Number.isNaN(candidate.housingUnaffordabilityScore) &&
       Number.isFinite(candidate.housingUnaffordabilityScore) &&

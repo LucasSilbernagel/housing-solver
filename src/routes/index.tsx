@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { useShallow } from 'zustand/shallow'
 import Stats from '../components/Stats/Stats'
 import TabsCard from '../components/Tabs/TabsCard/TabsCard'
+import WinDialog from '../components/WinDialog/WinDialog'
 import { useAchievements } from '../hooks/use-achievements'
 import { useAutomaticIncrement } from '../hooks/use-automatic-increment'
 import { useGameStore } from '../hooks/use-game-store'
@@ -55,6 +56,7 @@ function Index() {
         <Stats />
         <TabsCard />
       </div>
+      <WinDialog />
     </div>
   )
 }
