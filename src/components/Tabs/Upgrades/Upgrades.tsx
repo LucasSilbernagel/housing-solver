@@ -118,12 +118,9 @@ const Upgrades = () => {
                     <div>
                       <Text
                         wrap="pretty"
-                        className={clsx(
-                          'font-bold',
-                          upgrade.oneTimePurchase?.purchased
-                            ? 'line-through'
-                            : 'line-none'
-                        )}
+                        className={clsx('font-bold', {
+                          'line-through': upgrade.oneTimePurchase?.purchased,
+                        })}
                       >
                         {upgrade.title}{' '}
                         {upgrade.oneTimePurchase?.purchased ? undefined : (

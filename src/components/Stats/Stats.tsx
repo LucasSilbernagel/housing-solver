@@ -25,8 +25,14 @@ const Stats = () => {
         <h2 className="mb-1 text-2xl text-center">Housing Unaffordability:</h2>
         <div
           className={clsx(
-            'flex justify-center items-center mx-auto border-12 border-red-500 rounded-[50%] w-36 h-36 font-bold text-3xl',
-            unaffordabilityScore >= 40 ? 'animate-pulse' : 'animate-none'
+            'flex justify-center items-center mx-auto border-12 rounded-[50%] w-36 h-36 font-bold text-3xl',
+            {
+              'animate-pulse': unaffordabilityScore >= 40,
+              'border-green-500': unaffordabilityScore <= 15,
+              'border-yellow-500':
+                unaffordabilityScore < 25 && unaffordabilityScore > 15,
+              'border-red-500': unaffordabilityScore >= 25,
+            }
           )}
         >
           <div>

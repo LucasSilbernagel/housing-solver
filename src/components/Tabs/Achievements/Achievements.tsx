@@ -25,9 +25,7 @@ const Achievements = () => {
                   <div>
                     <Text
                       wrap="pretty"
-                      className={clsx(
-                        achievement.achieved ? 'line-through' : 'line-none'
-                      )}
+                      className={clsx({ 'line-through': achievement.achieved })}
                     >
                       {achievement.text}
                     </Text>
