@@ -79,6 +79,8 @@ export interface GameState {
   completeWinFlow: () => void
   hasLostGame: boolean
   loseGame: () => void
+  isGameOver: boolean
+  endGame: () => void
   resetGame: () => void
 }
 
@@ -167,7 +169,6 @@ export const useGameStore = create<GameState>()(
             electedToNationalOffice: true,
           })),
         achievements: getInitialAchievements(),
-
         updateAchievement: (
           achievementText: string,
           property: 'visible' | 'achieved'
@@ -264,6 +265,12 @@ export const useGameStore = create<GameState>()(
             hasLostGame: true,
           }))
         },
+        isGameOver: false,
+        endGame: () => {
+          set(() => ({
+            isGameOver: true,
+          }))
+        },
         resetGame: () =>
           set(() => ({
             allTimePoints: 0,
@@ -292,6 +299,7 @@ export const useGameStore = create<GameState>()(
             hasWonGame: false,
             hasCompletedWinFlow: false,
             hasLostGame: false,
+            isGameOver: false,
           })),
       }),
       {

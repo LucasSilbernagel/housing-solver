@@ -13,6 +13,7 @@ const useIsGameState = () => {
       typeof candidate.hasWonGame === 'boolean' &&
       typeof candidate.hasCompletedWinFlow === 'boolean' &&
       typeof candidate.hasLostGame === 'boolean' &&
+      typeof candidate.isGameOver === 'boolean' &&
       typeof candidate.score === 'number' &&
       !Number.isNaN(candidate.score) &&
       Number.isFinite(candidate.score) &&

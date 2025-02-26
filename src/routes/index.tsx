@@ -1,6 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useEffect } from 'react'
 import { useShallow } from 'zustand/shallow'
+import EndGameDialog from '../components/EndGameDialog/EndGameDialog'
 import LoseDialog from '../components/LoseDialog/LoseDialog'
 import Stats from '../components/Stats/Stats'
 import TabsCard from '../components/Tabs/TabsCard/TabsCard'
@@ -59,6 +60,7 @@ function Index() {
       </div>
       <WinDialog />
       <LoseDialog />
+      <EndGameDialog />
     </div>
   )
 }
