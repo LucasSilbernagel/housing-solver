@@ -1,15 +1,16 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useEffect } from 'react'
 import { useShallow } from 'zustand/shallow'
+import LoseDialog from '../components/LoseDialog/LoseDialog'
 import Stats from '../components/Stats/Stats'
 import TabsCard from '../components/Tabs/TabsCard/TabsCard'
 import WinDialog from '../components/WinDialog/WinDialog'
 import { useAchievements } from '../hooks/use-achievements'
 import { useAutomaticIncrement } from '../hooks/use-automatic-increment'
+import { useEndGame } from '../hooks/use-end-game'
 import { useGameStore } from '../hooks/use-game-store'
 import { useRandomEvents } from '../hooks/use-random-events'
 import { useRenderUpgrades } from '../hooks/use-render-upgrades'
-import { useWinGame } from '../hooks/use-win-game'
 import { SocialMetaTags, updateMetaTags } from '../utils/seo'
 
 export const Route = createFileRoute('/')({
@@ -39,7 +40,7 @@ function Index() {
   useAutomaticIncrement()
   useRenderUpgrades()
   useRandomEvents()
-  useWinGame()
+  useEndGame()
 
   useEffect(() => {
     if (allTimePoints === 0) return
@@ -57,6 +58,7 @@ function Index() {
         <TabsCard />
       </div>
       <WinDialog />
+      <LoseDialog />
     </div>
   )
 }

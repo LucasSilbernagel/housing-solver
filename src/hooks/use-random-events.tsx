@@ -14,8 +14,8 @@ export const useRandomEvents = (): void => {
     electedToLocalOffice,
     availablePoints,
     updateAllPoints,
-    housingUnaffordabilityScore,
-    updateHousingUnaffordabilityScore,
+    score,
+    updateScore,
     updateAvailablePoints,
     communityFestivals,
     decrementCommunityFestivals,
@@ -26,9 +26,8 @@ export const useRandomEvents = (): void => {
       electedToLocalOffice: state.electedToLocalOffice,
       availablePoints: state.availablePoints,
       updateAllPoints: state.updateAllPoints,
-      housingUnaffordabilityScore: state.housingUnaffordabilityScore,
-      updateHousingUnaffordabilityScore:
-        state.updateHousingUnaffordabilityScore,
+      score: state.score,
+      updateScore: state.updateScore,
       updateAvailablePoints: state.updateAvailablePoints,
       communityFestivals: state.communityFestivals,
       decrementCommunityFestivals: state.decrementCommunityFestivals,
@@ -86,7 +85,7 @@ export const useRandomEvents = (): void => {
     }
 
     if (selectedEvent.title === 'Breakthrough in construction technology') {
-      updateHousingUnaffordabilityScore(housingUnaffordabilityScore - 0.1)
+      updateScore(score - 0.1)
       customToast({ type: 'success', content: selectedEvent })
     }
 
@@ -116,29 +115,29 @@ export const useRandomEvents = (): void => {
     }
 
     if (selectedEvent.title === 'Construction costs increased') {
-      updateHousingUnaffordabilityScore(housingUnaffordabilityScore + 0.1)
+      updateScore(score + 0.1)
       customToast({ type: 'error', content: selectedEvent })
     }
 
     if (selectedEvent.title === 'Economic recession') {
-      updateHousingUnaffordabilityScore(housingUnaffordabilityScore + 1)
+      updateScore(score + 1)
       customToast({ type: 'error', content: selectedEvent })
     }
 
     if (selectedEvent.title === 'Wave of unfettered immigration') {
-      updateHousingUnaffordabilityScore(housingUnaffordabilityScore + 0.5)
+      updateScore(score + 0.5)
       customToast({ type: 'error', content: selectedEvent })
     }
 
     if (selectedEvent.title === 'Neighbourhood gentrification') {
-      updateHousingUnaffordabilityScore(housingUnaffordabilityScore + 0.1)
+      updateScore(score + 0.1)
       customToast({ type: 'error', content: selectedEvent })
     }
 
     if (
       selectedEvent.title === 'An international trade partner enacted tariffs'
     ) {
-      updateHousingUnaffordabilityScore(housingUnaffordabilityScore + 0.5)
+      updateScore(score + 0.5)
       customToast({ type: 'error', content: selectedEvent })
     }
 
@@ -146,10 +145,10 @@ export const useRandomEvents = (): void => {
   }, [
     availablePoints,
     customToast,
-    housingUnaffordabilityScore,
+    score,
     selectedEvent,
     updateAllPoints,
     updateAvailablePoints,
-    updateHousingUnaffordabilityScore,
+    updateScore,
   ])
 }

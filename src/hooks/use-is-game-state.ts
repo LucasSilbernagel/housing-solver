@@ -12,9 +12,10 @@ const useIsGameState = () => {
       typeof candidate.shouldUseDarkTheme === 'boolean' &&
       typeof candidate.hasWonGame === 'boolean' &&
       typeof candidate.hasCompletedWinFlow === 'boolean' &&
-      typeof candidate.housingUnaffordabilityScore === 'number' &&
-      !Number.isNaN(candidate.housingUnaffordabilityScore) &&
-      Number.isFinite(candidate.housingUnaffordabilityScore) &&
+      typeof candidate.hasLostGame === 'boolean' &&
+      typeof candidate.score === 'number' &&
+      !Number.isNaN(candidate.score) &&
+      Number.isFinite(candidate.score) &&
       !Number.isNaN(candidate.totalPointsSpent) &&
       Number.isFinite(candidate.totalPointsSpent) &&
       !Number.isNaN(candidate.totalUpgradesPurchased) &&

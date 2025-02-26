@@ -14,8 +14,8 @@ export const useProcessUpgrade = () => {
     reduceUpgradeCosts,
     updateManualIncrementAmount,
     manualIncrementAmount,
-    housingUnaffordabilityScore,
-    updateHousingUnaffordabilityScore,
+    score,
+    updateScore,
     incrementCommunityFestivals,
     incrementTotalAdCampaigns,
     electToLocalOffice,
@@ -36,9 +36,8 @@ export const useProcessUpgrade = () => {
       reduceUpgradeCosts: state.reduceUpgradeCosts,
       updateManualIncrementAmount: state.updateManualIncrementAmount,
       manualIncrementAmount: state.manualIncrementAmount,
-      housingUnaffordabilityScore: state.housingUnaffordabilityScore,
-      updateHousingUnaffordabilityScore:
-        state.updateHousingUnaffordabilityScore,
+      score: state.score,
+      updateScore: state.updateScore,
       incrementCommunityFestivals: state.incrementCommunityFestivals,
       incrementTotalAdCampaigns: state.incrementTotalAdCampaigns,
       electToLocalOffice: state.electToLocalOffice,
@@ -171,11 +170,11 @@ export const useProcessUpgrade = () => {
 
       if (title === 'Fund a job training program') {
         incrementTotalTrainingPrograms()
-        updateHousingUnaffordabilityScore(housingUnaffordabilityScore - 0.05)
+        updateScore(score - 0.05)
       }
 
       if (title === 'Implement a vacant home tax') {
-        updateHousingUnaffordabilityScore(housingUnaffordabilityScore - 0.05)
+        updateScore(score - 0.05)
       }
 
       if (
@@ -189,64 +188,64 @@ export const useProcessUpgrade = () => {
         title ===
         'Encourage remote work to reduce demand for housing in expensive city centers'
       ) {
-        updateHousingUnaffordabilityScore(housingUnaffordabilityScore - 0.1)
+        updateScore(score - 0.1)
       }
 
       if (title === 'Implement zoning reforms to increase housing density') {
-        updateHousingUnaffordabilityScore(housingUnaffordabilityScore - 0.1)
+        updateScore(score - 0.1)
       }
 
       if (title === 'Fund new home construction subsidies') {
-        updateHousingUnaffordabilityScore(housingUnaffordabilityScore - 0.1)
+        updateScore(score - 0.1)
       }
 
       if (title === 'Legislate rent control') {
-        updateHousingUnaffordabilityScore(housingUnaffordabilityScore - 0.2)
+        updateScore(score - 0.2)
       }
 
       if (title === 'Tax breaks for developers who build affordable housing') {
-        updateHousingUnaffordabilityScore(housingUnaffordabilityScore - 0.2)
+        updateScore(score - 0.2)
       }
 
       if (title === 'Invest in public transportation') {
-        updateHousingUnaffordabilityScore(housingUnaffordabilityScore - 0.2)
+        updateScore(score - 0.2)
       }
 
       if (title === 'Legislate rent subsidies for low-income residents') {
-        updateHousingUnaffordabilityScore(housingUnaffordabilityScore - 0.5)
+        updateScore(score - 0.5)
       }
 
       if (title === 'Build a public housing project') {
-        updateHousingUnaffordabilityScore(housingUnaffordabilityScore - 0.5)
+        updateScore(score - 0.5)
       }
 
       if (title === 'Legislate a government-funded affordable daycare plan') {
-        updateHousingUnaffordabilityScore(housingUnaffordabilityScore - 0.2)
+        updateScore(score - 0.2)
       }
 
       if (title === 'Increase the minimum wage') {
-        updateHousingUnaffordabilityScore(housingUnaffordabilityScore - 1)
+        updateScore(score - 1)
       }
 
       if (
         title ===
         'Restrict corporation ownership of residential properties to specific types'
       ) {
-        updateHousingUnaffordabilityScore(housingUnaffordabilityScore - 1)
+        updateScore(score - 1)
       }
 
       if (title === 'Increase taxes on large corporations') {
-        updateHousingUnaffordabilityScore(housingUnaffordabilityScore - 1)
+        updateScore(score - 1)
       }
 
       if (title === 'Increase taxes on billionaires') {
-        updateHousingUnaffordabilityScore(housingUnaffordabilityScore - 2)
+        updateScore(score - 2)
       }
 
       if (
         title === 'Make it illegal for individuals to own more than two homes'
       ) {
-        updateHousingUnaffordabilityScore(housingUnaffordabilityScore - 4)
+        updateScore(score - 4)
       }
     },
     [
@@ -254,7 +253,7 @@ export const useProcessUpgrade = () => {
       electToLocalOffice,
       electToNationalOffice,
       electToRegionalOffice,
-      housingUnaffordabilityScore,
+      score,
       incrementCampaignManagersRecruited,
       incrementCommunityFestivals,
       incrementTotalAdCampaigns,
@@ -264,7 +263,7 @@ export const useProcessUpgrade = () => {
       manualIncrementAmount,
       reduceUpgradeCosts,
       updateAutomaticIncrementAmount,
-      updateHousingUnaffordabilityScore,
+      updateScore,
       updateManualIncrementAmount,
     ]
   )

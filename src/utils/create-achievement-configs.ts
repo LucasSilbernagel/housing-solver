@@ -2,7 +2,7 @@ import { ACHIEVEMENT_DEFINITIONS } from '../constants/achievement-definitions'
 
 export interface GameStateValues {
   allTimePoints: number
-  housingUnaffordabilityScore: number
+  score: number
   electedToLocalOffice: boolean
   electedToRegionalOffice: boolean
   electedToNationalOffice: boolean
@@ -27,7 +27,7 @@ export const createAchievementConfigs = ({
   volunteerRecruitersRecruited,
   campaignManagersRecruited,
   allTimePoints,
-  housingUnaffordabilityScore,
+  score,
   totalAdCampaigns,
   totalTrainingPrograms,
   nimbyProtestsPrevented,
@@ -53,7 +53,7 @@ export const createAchievementConfigs = ({
     housingAffordability: ACHIEVEMENT_DEFINITIONS.housingAffordability.map(
       (definition) => ({
         ...definition,
-        customCheck: () => housingUnaffordabilityScore <= definition.threshold,
+        customCheck: () => score <= definition.threshold,
         message:
           definition.threshold === 0
             ? 'You have completely eliminated housing unaffordability!'

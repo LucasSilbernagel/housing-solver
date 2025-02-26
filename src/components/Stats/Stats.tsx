@@ -13,7 +13,7 @@ const Stats = () => {
     manuallyIncrementPoints,
   } = useGameStore(
     useShallow((state) => ({
-      unaffordabilityScore: state.housingUnaffordabilityScore,
+      unaffordabilityScore: state.score,
       manualIncrementAmount: state.manualIncrementAmount,
       availablePoints: state.availablePoints,
       manuallyIncrementPoints: state.manuallyIncrementPoints,

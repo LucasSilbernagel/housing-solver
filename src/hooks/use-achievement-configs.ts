@@ -6,7 +6,7 @@ export const useAchievementConfigs = () => {
   const state = useGameStore(
     useShallow((state) => ({
       allTimePoints: state.allTimePoints,
-      housingUnaffordabilityScore: state.housingUnaffordabilityScore,
+      score: state.score,
       electedToLocalOffice: state.electedToLocalOffice,
       electedToRegionalOffice: state.electedToRegionalOffice,
       electedToNationalOffice: state.electedToNationalOffice,

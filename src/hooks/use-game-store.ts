@@ -16,8 +16,8 @@ export interface Announcement {
 export interface GameState {
   shouldUseDarkTheme: boolean
   toggleTheme: () => void
-  housingUnaffordabilityScore: number
-  updateHousingUnaffordabilityScore: (score: number) => void
+  score: number
+  updateScore: (score: number) => void
   manualIncrementAmount: number
   updateManualIncrementAmount: (amount: number) => void
   automaticIncrementAmount: number
@@ -77,6 +77,8 @@ export interface GameState {
   winGame: () => void
   hasCompletedWinFlow: boolean
   completeWinFlow: () => void
+  hasLostGame: boolean
+  loseGame: () => void
   resetGame: () => void
 }
 
@@ -87,9 +89,8 @@ export const useGameStore = create<GameState>()(
         shouldUseDarkTheme: false,
         toggleTheme: () =>
           set((state) => ({ shouldUseDarkTheme: !state.shouldUseDarkTheme })),
-        housingUnaffordabilityScore: DEFAULT_SCORE,
-        updateHousingUnaffordabilityScore: (score) =>
-          set(() => ({ housingUnaffordabilityScore: score })),
+        score: DEFAULT_SCORE,
+        updateScore: (score) => set(() => ({ score: score })),
         manualIncrementAmount: 1,
         updateManualIncrementAmount: (amount) =>
           set(() => ({ manualIncrementAmount: amount })),
@@ -257,11 +258,17 @@ export const useGameStore = create<GameState>()(
             hasCompletedWinFlow: true,
           }))
         },
+        hasLostGame: false,
+        loseGame: () => {
+          set(() => ({
+            hasLostGame: true,
+          }))
+        },
         resetGame: () =>
           set(() => ({
             allTimePoints: 0,
             availablePoints: 0,
-            housingUnaffordabilityScore: DEFAULT_SCORE,
+            score: DEFAULT_SCORE,
             manualIncrementAmount: 1,
             automaticIncrementAmount: 0,
             nimbyProtestsPrevented: 0,
@@ -284,6 +291,7 @@ export const useGameStore = create<GameState>()(
             totalPlayTime: 0,
             hasWonGame: false,
             hasCompletedWinFlow: false,
+            hasLostGame: false,
           })),
       }),
       {
