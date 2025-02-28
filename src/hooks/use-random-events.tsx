@@ -110,7 +110,7 @@ export const useRandomEvents = (): void => {
     }
 
     if (selectedEvent.title === 'Government corruption scandal') {
-      updateAvailablePoints(Math.floor(availablePoints * 0.66))
+      updateAvailablePoints(Math.floor(availablePoints / 2))
       customToast({ type: 'error', content: selectedEvent })
     }
 

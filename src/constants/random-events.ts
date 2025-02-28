@@ -13,7 +13,7 @@ export const RANDOM_EVENTS = [
   },
   {
     title: 'Government corruption scandal',
-    description: 'You lost a third of your support points!',
+    description: 'You lost half of your support points!',
   },
   {
     title: 'Construction costs increased',
