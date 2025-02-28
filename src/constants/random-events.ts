@@ -25,7 +25,8 @@ export const RANDOM_EVENTS = [
   },
   {
     title: 'Wave of unfettered immigration',
-    description: 'Housing unaffordability increased by 0.5%',
+    description:
+      'Housing unaffordability increased by 0.5% and you lost half of your support points!',
   },
   {
     title: 'Neighbourhood gentrification',

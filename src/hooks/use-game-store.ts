@@ -38,6 +38,10 @@ export interface GameState {
   incrementCorruptionScandalsPrevented: () => void
   totalCorruptionScandals: number
   incrementTotalCorruptionScandals: () => void
+  immigrationWavesPrevented: number
+  incrementImmigrationWavesPrevented: () => void
+  totalImmigrationWaves: number
+  incrementTotalImmigrationWaves: () => void
   volunteersRecruited: number
   incrementVolunteersRecruited: () => void
   volunteerRecruitersRecruited: number
@@ -68,6 +72,9 @@ export interface GameState {
   antiCorruptionLaws: number
   incrementAntiCorruptionLaws: () => void
   decrementAntiCorruptionLaws: () => void
+  immigrationCaps: number
+  incrementImmigrationCaps: () => void
+  decrementImmigrationCaps: () => void
   announcements: Announcement[]
   addToAnnouncements: (announcement: {
     title: string
@@ -153,6 +160,16 @@ export const useGameStore = create<GameState>()(
         incrementTotalCorruptionScandals: () =>
           set((state) => ({
             totalCorruptionScandals: state.totalCorruptionScandals + 1,
+          })),
+        immigrationWavesPrevented: 0,
+        incrementImmigrationWavesPrevented: () =>
+          set((state) => ({
+            immigrationWavesPrevented: state.immigrationWavesPrevented + 1,
+          })),
+        totalImmigrationWaves: 0,
+        incrementTotalImmigrationWaves: () =>
+          set((state) => ({
+            totalImmigrationWaves: state.totalImmigrationWaves + 1,
           })),
         volunteersRecruited: 0,
         incrementVolunteersRecruited: () =>
@@ -250,6 +267,15 @@ export const useGameStore = create<GameState>()(
           set((state) => ({
             antiCorruptionLaws: state.antiCorruptionLaws - 1,
           })),
+        immigrationCaps: 0,
+        incrementImmigrationCaps: () =>
+          set((state) => ({
+            immigrationCaps: state.immigrationCaps + 1,
+          })),
+        decrementImmigrationCaps: () =>
+          set((state) => ({
+            immigrationCaps: state.immigrationCaps - 1,
+          })),
         announcements: [],
         addToAnnouncements: (announcement) =>
           set((state) => ({
@@ -329,6 +355,9 @@ export const useGameStore = create<GameState>()(
             corruptionScandalsPrevented: 0,
             totalCorruptionScandals: 0,
             antiCorruptionLaws: 0,
+            immigrationWavesPrevented: 0,
+            totalImmmigrationWaves: 0,
+            immigrationCaps: 0,
           })),
       }),
       {

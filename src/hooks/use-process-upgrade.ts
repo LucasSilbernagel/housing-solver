@@ -23,6 +23,7 @@ export const useProcessUpgrade = () => {
     electToNationalOffice,
     incrementTotalTrainingPrograms,
     incrementAntiCorruptionLaws,
+    incrementImmigrationCaps,
   } = useGameStore(
     useShallow((state) => ({
       upgrades: state.upgrades,
@@ -46,6 +47,7 @@ export const useProcessUpgrade = () => {
       electToNationalOffice: state.electToNationalOffice,
       incrementTotalTrainingPrograms: state.incrementTotalTrainingPrograms,
       incrementAntiCorruptionLaws: state.incrementAntiCorruptionLaws,
+      incrementImmigrationCaps: state.incrementImmigrationCaps,
     }))
   )
 
@@ -190,6 +192,10 @@ export const useProcessUpgrade = () => {
         incrementAntiCorruptionLaws()
       }
 
+      if (title === 'Put an annual cap on immigration') {
+        incrementImmigrationCaps()
+      }
+
       if (
         title ===
         'Encourage remote work to reduce demand for housing in expensive city centers'
@@ -272,6 +278,8 @@ export const useProcessUpgrade = () => {
       updateScore,
       score,
       incrementCommunityFestivals,
+      incrementAntiCorruptionLaws,
+      incrementImmigrationCaps,
     ]
   )
 

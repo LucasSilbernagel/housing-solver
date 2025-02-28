@@ -199,6 +199,13 @@ export const UPGRADES: Upgrade[] = [
     visible: false,
   },
   {
+    title: 'Put an annual cap on immigration',
+    description: 'Prevent one wave of unfettered immigration per cap',
+    cost: 50_000,
+    quantity: 0,
+    visible: false,
+  },
+  {
     title: 'Legislate rent subsidies for low-income residents',
     description: 'Reduce housing unaffordability by 0.5%',
     cost: 8_000_000,
