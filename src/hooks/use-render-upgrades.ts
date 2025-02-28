@@ -10,6 +10,7 @@ export const useRenderUpgrades = () => {
     electedToRegionalOffice,
     electedToNationalOffice,
     totalNimbyProtests,
+    totalCorruptionScandals,
   } = useGameStore(
     useShallow((state) => ({
       upgrades: state.upgrades,
@@ -17,6 +18,7 @@ export const useRenderUpgrades = () => {
       electedToRegionalOffice: state.electedToRegionalOffice,
       electedToNationalOffice: state.electedToNationalOffice,
       totalNimbyProtests: state.totalNimbyProtests,
+      totalCorruptionScandals: state.totalCorruptionScandals,
     }))
   )
 
@@ -69,6 +71,13 @@ export const useRenderUpgrades = () => {
       makeNextUpgradeVisible(
         'Run a community festival to promote affordable housing discussions'
       )
+    }
+
+    if (
+      totalCorruptionScandals > 0 &&
+      !isUpgradeVisible('Pass an anti-corruption law')
+    ) {
+      makeNextUpgradeVisible('Pass an anti-corruption law')
     }
 
     if (isUpgradeVisible('Increase taxes on billionaires')) {

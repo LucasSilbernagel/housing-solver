@@ -17,6 +17,12 @@ const useIsGameState = () => {
       typeof candidate.score === 'number' &&
       !Number.isNaN(candidate.score) &&
       Number.isFinite(candidate.score) &&
+      !Number.isNaN(candidate.corruptionScandalsPrevented) &&
+      Number.isFinite(candidate.corruptionScandalsPrevented) &&
+      !Number.isNaN(candidate.totalCorruptionScandals) &&
+      Number.isFinite(candidate.totalCorruptionScandals) &&
+      !Number.isNaN(candidate.antiCorruptionLaws) &&
+      Number.isFinite(candidate.antiCorruptionLaws) &&
       !Number.isNaN(candidate.totalPointsSpent) &&
       Number.isFinite(candidate.totalPointsSpent) &&
       !Number.isNaN(candidate.totalUpgradesPurchased) &&
