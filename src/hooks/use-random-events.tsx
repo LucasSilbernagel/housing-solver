@@ -21,6 +21,14 @@ export const useRandomEvents = (): void => {
     decrementCommunityFestivals,
     incrementNimbyProtestsPrevented,
     incrementTotalNimbyProtests,
+    antiCorruptionLaws,
+    decrementAntiCorruptionLaws,
+    incrementCorruptionScandalsPrevented,
+    incrementTotalCorruptionScandals,
+    immigrationCaps,
+    decrementImmigrationCaps,
+    incrementImmigrationWavesPrevented,
+    incrementTotalImmigrationWaves,
   } = useGameStore(
     useShallow((state) => ({
       electedToLocalOffice: state.electedToLocalOffice,
@@ -33,6 +41,16 @@ export const useRandomEvents = (): void => {
       decrementCommunityFestivals: state.decrementCommunityFestivals,
       incrementNimbyProtestsPrevented: state.incrementNimbyProtestsPrevented,
       incrementTotalNimbyProtests: state.incrementTotalNimbyProtests,
+      antiCorruptionLaws: state.antiCorruptionLaws,
+      decrementAntiCorruptionLaws: state.decrementAntiCorruptionLaws,
+      incrementCorruptionScandalsPrevented:
+        state.incrementCorruptionScandalsPrevented,
+      incrementTotalCorruptionScandals: state.incrementTotalCorruptionScandals,
+      immigrationCaps: state.immigrationCaps,
+      decrementImmigrationCaps: state.decrementImmigrationCaps,
+      incrementImmigrationWavesPrevented:
+        state.incrementImmigrationWavesPrevented,
+      incrementTotalImmigrationWaves: state.incrementTotalImmigrationWaves,
     }))
   )
 
@@ -109,9 +127,30 @@ export const useRandomEvents = (): void => {
       })
     }
 
-    if (selectedEvent.title === 'Government corruption scandal') {
-      updateAvailablePoints(Math.floor(availablePoints * 0.66))
+    if (
+      selectedEvent.title === 'Government corruption scandal' &&
+      antiCorruptionLaws === 0
+    ) {
+      incrementTotalCorruptionScandals()
+      updateAvailablePoints(Math.floor(availablePoints / 2))
       customToast({ type: 'error', content: selectedEvent })
+    }
+
+    if (
+      selectedEvent.title === 'Government corruption scandal' &&
+      antiCorruptionLaws > 0
+    ) {
+      incrementTotalCorruptionScandals()
+      incrementCorruptionScandalsPrevented()
+      decrementAntiCorruptionLaws()
+      customToast({
+        type: 'success',
+        content: {
+          title: 'Anti-corruption government',
+          description:
+            'You were able to prevent a government corruption scandal!',
+        },
+      })
     }
 
     if (selectedEvent.title === 'Construction costs increased') {
@@ -124,9 +163,31 @@ export const useRandomEvents = (): void => {
       customToast({ type: 'error', content: selectedEvent })
     }
 
-    if (selectedEvent.title === 'Wave of unfettered immigration') {
+    if (
+      selectedEvent.title === 'Wave of unfettered immigration' &&
+      immigrationCaps === 0
+    ) {
       updateScore(score + 0.5)
+      updateAvailablePoints(Math.floor(availablePoints / 2))
+      incrementTotalImmigrationWaves()
       customToast({ type: 'error', content: selectedEvent })
+    }
+
+    if (
+      selectedEvent.title === 'Wave of unfettered immigration' &&
+      immigrationCaps > 0
+    ) {
+      incrementTotalImmigrationWaves()
+      incrementImmigrationWavesPrevented()
+      decrementImmigrationCaps()
+      customToast({
+        type: 'success',
+        content: {
+          title: 'Well-managed immigration policies',
+          description:
+            'You were able to prevent an unfettered wave of immigration!',
+        },
+      })
     }
 
     if (selectedEvent.title === 'Neighbourhood gentrification') {

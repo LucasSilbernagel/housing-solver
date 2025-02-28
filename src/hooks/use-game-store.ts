@@ -34,6 +34,14 @@ export interface GameState {
   incrementNimbyProtestsPrevented: () => void
   totalNimbyProtests: number
   incrementTotalNimbyProtests: () => void
+  corruptionScandalsPrevented: number
+  incrementCorruptionScandalsPrevented: () => void
+  totalCorruptionScandals: number
+  incrementTotalCorruptionScandals: () => void
+  immigrationWavesPrevented: number
+  incrementImmigrationWavesPrevented: () => void
+  totalImmigrationWaves: number
+  incrementTotalImmigrationWaves: () => void
   volunteersRecruited: number
   incrementVolunteersRecruited: () => void
   volunteerRecruitersRecruited: number
@@ -61,6 +69,12 @@ export interface GameState {
   communityFestivals: number
   incrementCommunityFestivals: () => void
   decrementCommunityFestivals: () => void
+  antiCorruptionLaws: number
+  incrementAntiCorruptionLaws: () => void
+  decrementAntiCorruptionLaws: () => void
+  immigrationCaps: number
+  incrementImmigrationCaps: () => void
+  decrementImmigrationCaps: () => void
   announcements: Announcement[]
   addToAnnouncements: (announcement: {
     title: string
@@ -136,6 +150,26 @@ export const useGameStore = create<GameState>()(
         incrementTotalNimbyProtests: () =>
           set((state) => ({
             totalNimbyProtests: state.totalNimbyProtests + 1,
+          })),
+        corruptionScandalsPrevented: 0,
+        incrementCorruptionScandalsPrevented: () =>
+          set((state) => ({
+            corruptionScandalsPrevented: state.corruptionScandalsPrevented + 1,
+          })),
+        totalCorruptionScandals: 0,
+        incrementTotalCorruptionScandals: () =>
+          set((state) => ({
+            totalCorruptionScandals: state.totalCorruptionScandals + 1,
+          })),
+        immigrationWavesPrevented: 0,
+        incrementImmigrationWavesPrevented: () =>
+          set((state) => ({
+            immigrationWavesPrevented: state.immigrationWavesPrevented + 1,
+          })),
+        totalImmigrationWaves: 0,
+        incrementTotalImmigrationWaves: () =>
+          set((state) => ({
+            totalImmigrationWaves: state.totalImmigrationWaves + 1,
           })),
         volunteersRecruited: 0,
         incrementVolunteersRecruited: () =>
@@ -224,6 +258,24 @@ export const useGameStore = create<GameState>()(
           set((state) => ({
             communityFestivals: state.communityFestivals - 1,
           })),
+        antiCorruptionLaws: 0,
+        incrementAntiCorruptionLaws: () =>
+          set((state) => ({
+            antiCorruptionLaws: state.antiCorruptionLaws + 1,
+          })),
+        decrementAntiCorruptionLaws: () =>
+          set((state) => ({
+            antiCorruptionLaws: state.antiCorruptionLaws - 1,
+          })),
+        immigrationCaps: 0,
+        incrementImmigrationCaps: () =>
+          set((state) => ({
+            immigrationCaps: state.immigrationCaps + 1,
+          })),
+        decrementImmigrationCaps: () =>
+          set((state) => ({
+            immigrationCaps: state.immigrationCaps - 1,
+          })),
         announcements: [],
         addToAnnouncements: (announcement) =>
           set((state) => ({
@@ -300,6 +352,12 @@ export const useGameStore = create<GameState>()(
             hasCompletedWinFlow: false,
             hasLostGame: false,
             isGameOver: false,
+            corruptionScandalsPrevented: 0,
+            totalCorruptionScandals: 0,
+            antiCorruptionLaws: 0,
+            immigrationWavesPrevented: 0,
+            totalImmmigrationWaves: 0,
+            immigrationCaps: 0,
           })),
       }),
       {

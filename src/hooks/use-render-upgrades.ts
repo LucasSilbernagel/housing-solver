@@ -10,6 +10,8 @@ export const useRenderUpgrades = () => {
     electedToRegionalOffice,
     electedToNationalOffice,
     totalNimbyProtests,
+    totalCorruptionScandals,
+    totalImmigrationWaves,
   } = useGameStore(
     useShallow((state) => ({
       upgrades: state.upgrades,
@@ -17,6 +19,8 @@ export const useRenderUpgrades = () => {
       electedToRegionalOffice: state.electedToRegionalOffice,
       electedToNationalOffice: state.electedToNationalOffice,
       totalNimbyProtests: state.totalNimbyProtests,
+      totalCorruptionScandals: state.totalCorruptionScandals,
+      totalImmigrationWaves: state.totalImmigrationWaves,
     }))
   )
 
@@ -71,6 +75,20 @@ export const useRenderUpgrades = () => {
       )
     }
 
+    if (
+      totalCorruptionScandals > 0 &&
+      !isUpgradeVisible('Pass an anti-corruption law')
+    ) {
+      makeNextUpgradeVisible('Pass an anti-corruption law')
+    }
+
+    if (
+      totalImmigrationWaves > 0 &&
+      !isUpgradeVisible('Put an annual cap on immigration')
+    ) {
+      makeNextUpgradeVisible('Put an annual cap on immigration')
+    }
+
     if (isUpgradeVisible('Increase taxes on billionaires')) {
       makeNextUpgradeVisible(
         'Make it illegal for individuals to own more than two homes'
@@ -81,6 +99,8 @@ export const useRenderUpgrades = () => {
     electedToNationalOffice,
     electedToRegionalOffice,
     makeNextUpgradeVisible,
+    totalCorruptionScandals,
+    totalImmigrationWaves,
     totalNimbyProtests,
     upgrades,
   ])

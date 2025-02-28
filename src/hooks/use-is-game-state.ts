@@ -17,6 +17,18 @@ const useIsGameState = () => {
       typeof candidate.score === 'number' &&
       !Number.isNaN(candidate.score) &&
       Number.isFinite(candidate.score) &&
+      !Number.isNaN(candidate.corruptionScandalsPrevented) &&
+      Number.isFinite(candidate.corruptionScandalsPrevented) &&
+      !Number.isNaN(candidate.totalCorruptionScandals) &&
+      Number.isFinite(candidate.totalCorruptionScandals) &&
+      !Number.isNaN(candidate.antiCorruptionLaws) &&
+      Number.isFinite(candidate.antiCorruptionLaws) &&
+      !Number.isNaN(candidate.immigrationWavesPrevented) &&
+      Number.isFinite(candidate.immigrationWavesPrevented) &&
+      !Number.isNaN(candidate.totalImmigrationWaves) &&
+      Number.isFinite(candidate.totalImmigrationWaves) &&
+      !Number.isNaN(candidate.immigrationCaps) &&
+      Number.isFinite(candidate.immigrationCaps) &&
       !Number.isNaN(candidate.totalPointsSpent) &&
       Number.isFinite(candidate.totalPointsSpent) &&
       !Number.isNaN(candidate.totalUpgradesPurchased) &&

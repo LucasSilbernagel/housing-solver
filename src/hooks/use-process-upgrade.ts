@@ -22,6 +22,8 @@ export const useProcessUpgrade = () => {
     electToRegionalOffice,
     electToNationalOffice,
     incrementTotalTrainingPrograms,
+    incrementAntiCorruptionLaws,
+    incrementImmigrationCaps,
   } = useGameStore(
     useShallow((state) => ({
       upgrades: state.upgrades,
@@ -44,6 +46,8 @@ export const useProcessUpgrade = () => {
       electToRegionalOffice: state.electToRegionalOffice,
       electToNationalOffice: state.electToNationalOffice,
       incrementTotalTrainingPrograms: state.incrementTotalTrainingPrograms,
+      incrementAntiCorruptionLaws: state.incrementAntiCorruptionLaws,
+      incrementImmigrationCaps: state.incrementImmigrationCaps,
     }))
   )
 
@@ -184,6 +188,14 @@ export const useProcessUpgrade = () => {
         incrementCommunityFestivals()
       }
 
+      if (title === 'Pass an anti-corruption law') {
+        incrementAntiCorruptionLaws()
+      }
+
+      if (title === 'Put an annual cap on immigration') {
+        incrementImmigrationCaps()
+      }
+
       if (
         title ===
         'Encourage remote work to reduce demand for housing in expensive city centers'
@@ -249,22 +261,25 @@ export const useProcessUpgrade = () => {
       }
     },
     [
-      automaticIncrementAmount,
-      electToLocalOffice,
-      electToNationalOffice,
-      electToRegionalOffice,
-      score,
-      incrementCampaignManagersRecruited,
-      incrementCommunityFestivals,
-      incrementTotalAdCampaigns,
-      incrementVolunteerRecruitersRecruited,
       incrementVolunteersRecruited,
-      makeNextUpgradeVisible,
-      manualIncrementAmount,
-      reduceUpgradeCosts,
       updateAutomaticIncrementAmount,
-      updateScore,
+      automaticIncrementAmount,
+      makeNextUpgradeVisible,
+      incrementVolunteerRecruitersRecruited,
+      incrementCampaignManagersRecruited,
+      incrementTotalAdCampaigns,
+      electToLocalOffice,
+      reduceUpgradeCosts,
+      electToRegionalOffice,
+      electToNationalOffice,
       updateManualIncrementAmount,
+      manualIncrementAmount,
+      incrementTotalTrainingPrograms,
+      updateScore,
+      score,
+      incrementCommunityFestivals,
+      incrementAntiCorruptionLaws,
+      incrementImmigrationCaps,
     ]
   )
 
