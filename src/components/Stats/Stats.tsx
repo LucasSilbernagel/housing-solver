@@ -1,6 +1,7 @@
 import { InfoCircledIcon } from '@radix-ui/react-icons'
 import { Button, Card, IconButton, Popover, Separator } from '@radix-ui/themes'
 import clsx from 'clsx'
+import SlotCounter from 'react-slot-counter'
 import { useShallow } from 'zustand/shallow'
 import { MAXIMUM_SUPPORT_POINTS } from '../../constants/stats'
 import { useGameStore } from '../../hooks/use-game-store'
@@ -81,7 +82,13 @@ const Stats = () => {
         <h2 className="text-2xl text-center">Support Points:</h2>
         <div className="my-4">
           <h3 className="font-bold text-xl text-center">
-            {Math.floor(availablePoints).toLocaleString()}
+            <SlotCounter
+              value={Math.floor(availablePoints)}
+              autoAnimationStart={false}
+              sequentialAnimationMode={true}
+              useMonospaceWidth={true}
+            />
+            {/* {Math.floor(availablePoints).toLocaleString()} */}
           </h3>
         </div>
         <div className="flex justify-center w-full">

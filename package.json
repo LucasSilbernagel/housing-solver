@@ -25,6 +25,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hot-toast": "^2.5.1",
+    "react-slot-counter": "^3.2.0",
     "react-time-ago": "^7.3.3",
     "tailwindcss": "^4.0.5",
     "zustand": "^5.0.3"
