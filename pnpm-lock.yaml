@@ -44,6 +44,9 @@ importers:
       react-hot-toast:
         specifier: ^2.5.1
         version: 2.5.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      react-slot-counter:
+        specifier: ^3.2.0
+        version: 3.2.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       react-time-ago:
         specifier: ^7.3.3
         version: 7.3.3(javascript-time-ago@2.5.11)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -2665,6 +2668,13 @@ packages:
     peerDependenciesMeta:
       '@types/react':
         optional: true
+
+  react-slot-counter@3.2.0:
+    resolution: {integrity: sha512-QsT2l/cfVUVul4Fh5TsK8AAwz7GkoAyjDNzwsToqxjjjUwqZC2ZojzEi5KyuSDu4SWpfe9AB4oIbN8BkGRXc7A==}
+    engines: {node: '>=16.0.0'}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
 
   react-style-singleton@2.2.3:
     resolution: {integrity: sha512-b6jSvxvVnyptAiLjbkWLE/lOnR4lfTtDAl+eUC7RZy+QQWc6wRzIV2CE6xBuMmDxc2qIihtDCZD5NPOFl7fRBQ==}
@@ -5712,6 +5722,11 @@ snapshots:
       use-sidecar: 1.1.3(@types/react@19.0.8)(react@19.0.0)
     optionalDependencies:
       '@types/react': 19.0.8
+
+  react-slot-counter@3.2.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+    dependencies:
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
 
   react-style-singleton@2.2.3(@types/react@19.0.8)(react@19.0.0):
     dependencies:

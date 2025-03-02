@@ -17,15 +17,29 @@ import { useBackupStore } from '../../../hooks/use-backup-store'
 import { useGameStore } from '../../../hooks/use-game-store'
 
 const Settings = () => {
-  const { shouldUseDarkTheme, toggleDarkTheme, resetGame, allTimePoints } =
-    useGameStore(
-      useShallow((state) => ({
-        shouldUseDarkTheme: state.shouldUseDarkTheme,
-        toggleDarkTheme: state.toggleTheme,
-        resetGame: state.resetGame,
-        allTimePoints: state.allTimePoints,
-      }))
-    )
+  const {
+    shouldUseDarkTheme,
+    toggleDarkTheme,
+    resetGame,
+    allTimePoints,
+    showAnimations,
+    toggleShowAnimations,
+    shouldOverrideBrowserReducedMotion,
+    updateShouldOverrideBrowserReducedMotion,
+  } = useGameStore(
+    useShallow((state) => ({
+      shouldUseDarkTheme: state.shouldUseDarkTheme,
+      toggleDarkTheme: state.toggleTheme,
+      resetGame: state.resetGame,
+      allTimePoints: state.allTimePoints,
+      showAnimations: state.showAnimations,
+      toggleShowAnimations: state.toggleShowAnimations,
+      shouldOverrideBrowserReducedMotion:
+        state.shouldOverrideBrowserReducedMotion,
+      updateShouldOverrideBrowserReducedMotion:
+        state.updateShouldOverrideBrowserReducedMotion,
+    }))
+  )
 
   const { serializeStore, deserializeStore } = useBackupStore()
 
@@ -33,6 +47,13 @@ const Settings = () => {
 
   const handleDarkThemeToggle = () => {
     toggleDarkTheme()
+  }
+
+  const handleAnimationsToggle = () => {
+    toggleShowAnimations()
+    if (!shouldOverrideBrowserReducedMotion) {
+      updateShouldOverrideBrowserReducedMotion()
+    }
   }
 
   const handleResetGame = () => {
@@ -81,7 +102,7 @@ const Settings = () => {
 
   return (
     <div className="flex flex-col gap-10">
-      <div>
+      <div className="flex flex-wrap gap-12">
         <Text as="label" size="4">
           <Flex gap="2">
             <Switch
@@ -90,6 +111,16 @@ const Settings = () => {
               onClick={handleDarkThemeToggle}
             />{' '}
             Dark theme
+          </Flex>
+        </Text>
+        <Text as="label" size="4">
+          <Flex gap="2">
+            <Switch
+              size="3"
+              checked={showAnimations}
+              onClick={handleAnimationsToggle}
+            />{' '}
+            Animations
           </Flex>
         </Text>
       </div>
@@ -118,7 +149,7 @@ const Settings = () => {
             />
           </Flex>
         </Text>
-        <div className="flex gap-2 mt-2">
+        <div className="mt-2 flex gap-2">
           <Button onClick={createBackup} disabled={allTimePoints === 0}>
             Create backup
           </Button>
@@ -160,7 +191,7 @@ const Settings = () => {
           href="https://lucassilbernagel.com/"
           target="_blank"
           rel="noreferrer"
-          className="underline underline-offset-2 hover:underline-offset-4 focus-visible:underline-offset-4 transition-all duration-300 ease-in-out"
+          className="underline underline-offset-2 transition-all duration-300 ease-in-out hover:underline-offset-4 focus-visible:underline-offset-4"
         >
           Lucas Silbernagel
         </a>{' '}
