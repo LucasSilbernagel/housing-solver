@@ -87,7 +87,7 @@ const Stats = () => {
           <h3 className="text-center text-xl font-bold">
             {showAnimations ? (
               <SlotCounter
-                value={Math.floor(availablePoints)}
+                value={Math.floor(availablePoints).toLocaleString()}
                 autoAnimationStart={false}
                 sequentialAnimationMode={true}
                 useMonospaceWidth={true}
