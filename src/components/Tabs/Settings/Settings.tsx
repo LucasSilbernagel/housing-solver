@@ -24,6 +24,8 @@ const Settings = () => {
     allTimePoints,
     showAnimations,
     toggleShowAnimations,
+    shouldOverrideBrowserReducedMotion,
+    updateShouldOverrideBrowserReducedMotion,
   } = useGameStore(
     useShallow((state) => ({
       shouldUseDarkTheme: state.shouldUseDarkTheme,
@@ -32,6 +34,10 @@ const Settings = () => {
       allTimePoints: state.allTimePoints,
       showAnimations: state.showAnimations,
       toggleShowAnimations: state.toggleShowAnimations,
+      shouldOverrideBrowserReducedMotion:
+        state.shouldOverrideBrowserReducedMotion,
+      updateShouldOverrideBrowserReducedMotion:
+        state.updateShouldOverrideBrowserReducedMotion,
     }))
   )
 
@@ -45,6 +51,9 @@ const Settings = () => {
 
   const handleAnimationsToggle = () => {
     toggleShowAnimations()
+    if (!shouldOverrideBrowserReducedMotion) {
+      updateShouldOverrideBrowserReducedMotion()
+    }
   }
 
   const handleResetGame = () => {

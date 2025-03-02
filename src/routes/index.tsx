@@ -10,6 +10,7 @@ import { useAchievements } from '../hooks/use-achievements'
 import { useAutomaticIncrement } from '../hooks/use-automatic-increment'
 import { useEndGame } from '../hooks/use-end-game'
 import { useGameStore } from '../hooks/use-game-store'
+import { usePrefersReducedMotion } from '../hooks/use-prefers-reduced-motion'
 import { useRandomEvents } from '../hooks/use-random-events'
 import { useRenderUpgrades } from '../hooks/use-render-upgrades'
 import { SocialMetaTags, updateMetaTags } from '../utils/seo'
@@ -42,6 +43,7 @@ function Index() {
   useRenderUpgrades()
   useRandomEvents()
   useEndGame()
+  usePrefersReducedMotion()
 
   useEffect(() => {
     if (allTimePoints === 0) return
@@ -52,9 +54,9 @@ function Index() {
   }, [incrementPlayTime, allTimePoints])
 
   return (
-    <div className="mx-auto p-4 max-w-screen-2xl">
+    <div className="mx-auto max-w-screen-2xl p-4">
       <h1 className="sr-only">Housing Solver</h1>
-      <div className="flex md:flex-row flex-col md:justify-center items-center md:items-start gap-4">
+      <div className="flex flex-col items-center gap-4 md:flex-row md:items-start md:justify-center">
         <Stats />
         <TabsCard />
       </div>
