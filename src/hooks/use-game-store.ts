@@ -16,6 +16,8 @@ export interface Announcement {
 export interface GameState {
   shouldUseDarkTheme: boolean
   toggleTheme: () => void
+  showAnimations: boolean
+  toggleShowAnimations: () => void
   score: number
   updateScore: (score: number) => void
   manualIncrementAmount: number
@@ -105,6 +107,9 @@ export const useGameStore = create<GameState>()(
         shouldUseDarkTheme: false,
         toggleTheme: () =>
           set((state) => ({ shouldUseDarkTheme: !state.shouldUseDarkTheme })),
+        showAnimations: true,
+        toggleShowAnimations: () =>
+          set((state) => ({ showAnimations: !state.showAnimations })),
         score: DEFAULT_SCORE,
         updateScore: (score) => set(() => ({ score: score })),
         manualIncrementAmount: 1,

@@ -10,6 +10,7 @@ const useIsGameState = () => {
       typeof candidate === 'object' &&
       candidate !== null &&
       typeof candidate.shouldUseDarkTheme === 'boolean' &&
+      typeof candidate.showAnimations === 'boolean' &&
       typeof candidate.hasWonGame === 'boolean' &&
       typeof candidate.hasCompletedWinFlow === 'boolean' &&
       typeof candidate.hasLostGame === 'boolean' &&
