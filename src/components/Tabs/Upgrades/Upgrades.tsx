@@ -1,5 +1,5 @@
 import { CheckIcon } from '@radix-ui/react-icons'
-import { Card, Text, Tooltip } from '@radix-ui/themes'
+import { Button, Card, Text, Tooltip } from '@radix-ui/themes'
 import clsx from 'clsx'
 import { useShallow } from 'zustand/shallow'
 import { Upgrade } from '../../../constants/upgrades'
@@ -17,6 +17,7 @@ const Upgrades = () => {
     totalPointsSpent,
     updateTotalPointsSpent,
     incrementTotalUpgradesPurchased,
+    showAnimations,
   } = useGameStore(
     useShallow((state) => ({
       upgrades: state.upgrades,
@@ -26,6 +27,7 @@ const Upgrades = () => {
       totalPointsSpent: state.totalPointsSpent,
       updateTotalPointsSpent: state.updateTotalPointsSpent,
       incrementTotalUpgradesPurchased: state.incrementTotalUpgradesPurchased,
+      showAnimations: state.showAnimations,
     }))
   )
 
@@ -164,19 +166,22 @@ const Upgrades = () => {
                               : 'Not enough points'
                           }
                         >
-                          {/* <Button
-                            disabled={upgrade.cost > availablePoints}
-                            onClick={() => handlePurchase(upgrade)}
-                          >
-                            Purchase
-                          </Button> */}
-                          <FloatingTextButton
-                            disabled={upgrade.cost > availablePoints}
-                            onClick={() => handlePurchase(upgrade)}
-                            floatingText={`$ ${upgrade.cost.toLocaleString()}`}
-                          >
-                            Purchase
-                          </FloatingTextButton>
+                          {showAnimations ? (
+                            <FloatingTextButton
+                              disabled={upgrade.cost > availablePoints}
+                              onClick={() => handlePurchase(upgrade)}
+                              floatingText={`$ ${upgrade.cost.toLocaleString()}`}
+                            >
+                              Purchase
+                            </FloatingTextButton>
+                          ) : (
+                            <Button
+                              disabled={upgrade.cost > availablePoints}
+                              onClick={() => handlePurchase(upgrade)}
+                            >
+                              Purchase
+                            </Button>
+                          )}
                         </Tooltip>
                       )}
                     </div>

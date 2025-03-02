@@ -11,6 +11,7 @@ const Stats = () => {
     totalUpgradesPurchased,
     totalAchievementsEarned,
     totalPlayTime,
+    showAnimations,
   } = useGameStore(
     useShallow((state) => ({
       allTimePoints: state.allTimePoints,
@@ -20,6 +21,7 @@ const Stats = () => {
       totalUpgradesPurchased: state.totalUpgradesPurchased,
       totalAchievementsEarned: state.totalAchievementsEarned,
       totalPlayTime: state.totalPlayTime,
+      showAnimations: state.showAnimations,
     }))
   )
 
@@ -82,9 +84,15 @@ const Stats = () => {
   ]
 
   return (
-    <ul className="space-y-4 max-h-none md:max-h-[450px] overflow-y-auto">
+    <ul className="max-h-none space-y-4 overflow-y-auto md:max-h-[450px]">
       {stats.map((stat) => {
-        return <StatCard key={stat.label} {...stat} />
+        return (
+          <StatCard
+            key={stat.label}
+            {...stat}
+            showAnimations={showAnimations}
+          />
+        )
       })}
     </ul>
   )

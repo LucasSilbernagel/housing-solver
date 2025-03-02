@@ -1,5 +1,5 @@
 import { InfoCircledIcon } from '@radix-ui/react-icons'
-import { Card, IconButton, Popover, Separator } from '@radix-ui/themes'
+import { Button, Card, IconButton, Popover, Separator } from '@radix-ui/themes'
 import clsx from 'clsx'
 import SlotCounter from 'react-slot-counter'
 import { useShallow } from 'zustand/shallow'
@@ -13,12 +13,14 @@ const Stats = () => {
     manualIncrementAmount,
     availablePoints,
     manuallyIncrementPoints,
+    showAnimations,
   } = useGameStore(
     useShallow((state) => ({
       unaffordabilityScore: state.score,
       manualIncrementAmount: state.manualIncrementAmount,
       availablePoints: state.availablePoints,
       manuallyIncrementPoints: state.manuallyIncrementPoints,
+      showAnimations: state.showAnimations,
     }))
   )
   return (
@@ -83,31 +85,37 @@ const Stats = () => {
         <h2 className="text-center text-2xl">Support Points:</h2>
         <div className="my-4">
           <h3 className="text-center text-xl font-bold">
-            <SlotCounter
-              value={Math.floor(availablePoints)}
-              autoAnimationStart={false}
-              sequentialAnimationMode={true}
-              useMonospaceWidth={true}
-            />
-            {/* {Math.floor(availablePoints).toLocaleString()} */}
+            {showAnimations ? (
+              <SlotCounter
+                value={Math.floor(availablePoints)}
+                autoAnimationStart={false}
+                sequentialAnimationMode={true}
+                useMonospaceWidth={true}
+              />
+            ) : (
+              Math.floor(availablePoints).toLocaleString()
+            )}
           </h3>
         </div>
         <div className="flex w-full justify-center">
-          {/* <Button
-            size="4"
-            onClick={() => manuallyIncrementPoints(manualIncrementAmount)}
-            disabled={availablePoints >= MAXIMUM_SUPPORT_POINTS}
-          >
-            Generate Support Points
-          </Button> */}
-          <FloatingTextButton
-            size="4"
-            onClick={() => manuallyIncrementPoints(manualIncrementAmount)}
-            disabled={availablePoints >= MAXIMUM_SUPPORT_POINTS}
-            floatingText={`+ ${manualIncrementAmount.toLocaleString()}`}
-          >
-            Generate Support Points
-          </FloatingTextButton>
+          {showAnimations ? (
+            <FloatingTextButton
+              size="4"
+              onClick={() => manuallyIncrementPoints(manualIncrementAmount)}
+              disabled={availablePoints >= MAXIMUM_SUPPORT_POINTS}
+              floatingText={`+ ${manualIncrementAmount.toLocaleString()}`}
+            >
+              Generate Support Points
+            </FloatingTextButton>
+          ) : (
+            <Button
+              size="4"
+              onClick={() => manuallyIncrementPoints(manualIncrementAmount)}
+              disabled={availablePoints >= MAXIMUM_SUPPORT_POINTS}
+            >
+              Generate Support Points
+            </Button>
+          )}
         </div>
         <div className="absolute top-[5px] right-0">
           <Popover.Root>
