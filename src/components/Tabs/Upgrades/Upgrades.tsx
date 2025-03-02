@@ -1,11 +1,12 @@
 import { CheckIcon } from '@radix-ui/react-icons'
-import { Button, Card, Text, Tooltip } from '@radix-ui/themes'
+import { Card, Text, Tooltip } from '@radix-ui/themes'
 import clsx from 'clsx'
 import { useShallow } from 'zustand/shallow'
 import { Upgrade } from '../../../constants/upgrades'
 import { useCustomToast } from '../../../hooks/use-custom-toast'
 import { useGameStore } from '../../../hooks/use-game-store'
 import { useProcessUpgrade } from '../../../hooks/use-process-upgrade'
+import FloatingTextButton from '../../FloatingTextButton/FloatingTextButton'
 
 const Upgrades = () => {
   const {
@@ -62,7 +63,7 @@ const Upgrades = () => {
   }
 
   return (
-    <ul className="space-y-4 max-h-none md:max-h-[450px] overflow-y-auto">
+    <ul className="max-h-none space-y-4 overflow-y-auto md:max-h-[450px]">
       {upgrades
         .sort((a, b) => {
           const getQuantity = (upgrade: Upgrade) => upgrade.quantity ?? 0
@@ -113,7 +114,7 @@ const Upgrades = () => {
               className={clsx(upgrade.visible ? 'visible' : 'hidden')}
             >
               <Card className="shadow-sm">
-                <div className="flex justify-between items-center gap-4">
+                <div className="flex items-center justify-between gap-4">
                   <div>
                     <div>
                       <Text
@@ -136,7 +137,7 @@ const Upgrades = () => {
                       </Text>
                     </div>
                   </div>
-                  <div className="flex flex-col justify-center items-center gap-1">
+                  <div className="flex flex-col items-center justify-center gap-1">
                     {upgrade.oneTimePurchase ||
                     upgrade.quantity === 0 ? undefined : (
                       <Text className="font-semibold">
@@ -163,12 +164,19 @@ const Upgrades = () => {
                               : 'Not enough points'
                           }
                         >
-                          <Button
+                          {/* <Button
                             disabled={upgrade.cost > availablePoints}
                             onClick={() => handlePurchase(upgrade)}
                           >
                             Purchase
-                          </Button>
+                          </Button> */}
+                          <FloatingTextButton
+                            disabled={upgrade.cost > availablePoints}
+                            onClick={() => handlePurchase(upgrade)}
+                            floatingText={`$ ${upgrade.cost.toLocaleString()}`}
+                          >
+                            Purchase
+                          </FloatingTextButton>
                         </Tooltip>
                       )}
                     </div>
