@@ -1,10 +1,11 @@
 import { InfoCircledIcon } from '@radix-ui/react-icons'
-import { Button, Card, IconButton, Popover, Separator } from '@radix-ui/themes'
+import { Card, IconButton, Popover, Separator } from '@radix-ui/themes'
 import clsx from 'clsx'
 import SlotCounter from 'react-slot-counter'
 import { useShallow } from 'zustand/shallow'
 import { MAXIMUM_SUPPORT_POINTS } from '../../constants/stats'
 import { useGameStore } from '../../hooks/use-game-store'
+import FloatingTextButton from '../FloatingTextButton/FloatingTextButton'
 
 const Stats = () => {
   const {
@@ -92,13 +93,21 @@ const Stats = () => {
           </h3>
         </div>
         <div className="flex justify-center w-full">
-          <Button
+          {/* <Button
             size="4"
             onClick={() => manuallyIncrementPoints(manualIncrementAmount)}
             disabled={availablePoints >= MAXIMUM_SUPPORT_POINTS}
           >
             Generate Support Points
-          </Button>
+          </Button> */}
+          <FloatingTextButton
+            size="4"
+            onClick={() => manuallyIncrementPoints(manualIncrementAmount)}
+            disabled={availablePoints >= MAXIMUM_SUPPORT_POINTS}
+            floatingText={`+ ${manualIncrementAmount}`}
+          >
+            Generate Support Points
+          </FloatingTextButton>
         </div>
         <div className="top-[5px] right-0 absolute">
           <Popover.Root>
