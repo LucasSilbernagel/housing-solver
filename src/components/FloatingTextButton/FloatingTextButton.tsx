@@ -1,8 +1,7 @@
 import { Button, Text } from '@radix-ui/themes'
 import type { ComponentPropsWithoutRef } from 'react'
-import React, { ReactNode, useState } from 'react'
+import React, { ReactNode, useRef, useState } from 'react'
 
-// Create a type that extends both the Radix Button props and our custom props
 interface FloatingTextButtonProperties
   extends ComponentPropsWithoutRef<typeof Button> {
   floatingText: string
@@ -15,18 +14,29 @@ const FloatingTextButton: React.FC<FloatingTextButtonProperties> = ({
   children,
   ...buttonProperties // Collect all other props to pass to the Button
 }) => {
-  const [showAnimation, setShowAnimation] = useState(false)
+  const [animations, setAnimations] = useState<{ id: number }[]>([])
+  const animationIdReference = useRef(0)
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    // Show the animation
-    setShowAnimation(true)
+    // Create a new animation
+    const updatedAnimation = {
+      id: animationIdReference.current,
+    }
 
-    // Remove after 1 second
+    // Increment the animation ID for the next click
+    animationIdReference.current += 1
+
+    // Add the new animation to the list
+    setAnimations((previous) => [...previous, updatedAnimation])
+
+    // Remove the animation after it completes
     setTimeout(() => {
-      setShowAnimation(false)
+      setAnimations((previous) =>
+        previous.filter((animation) => animation.id !== updatedAnimation.id)
+      )
     }, 1000)
 
-    // Call the original onClick handler if it exists
+    // Call the onClick handler passed from props if it exists
     if (onClick) {
       onClick(event)
     }
@@ -34,19 +44,20 @@ const FloatingTextButton: React.FC<FloatingTextButtonProperties> = ({
 
   return (
     <div className="relative">
-      <Button
-        {...buttonProperties} // Spread all other button props
-        onClick={handleClick}
-      >
+      <Button {...buttonProperties} onClick={handleClick}>
         {children}
       </Button>
 
-      {/* Fixed position test animation - should be visible in the center of screen */}
-      {showAnimation && (
-        <Text className="floating-text" color="green">
-          {floatingText}
-        </Text>
-      )}
+      {animations.map((animation) => (
+        <div
+          key={animation.id}
+          className="animate-float pointer-events-none absolute top-0 right-0 z-20"
+        >
+          <Text color="green" className="font-bold">
+            {floatingText}
+          </Text>
+        </div>
+      ))}
     </div>
   )
 }
