@@ -18,6 +18,8 @@ export interface GameState {
   toggleTheme: () => void
   showAnimations: boolean
   toggleShowAnimations: () => void
+  hasGameStarted: boolean
+  updateHasGameStarted: () => void
   updateShowAnimations: (value: boolean) => void
   shouldOverrideBrowserReducedMotion: boolean
   updateShouldOverrideBrowserReducedMotion: () => void
@@ -113,6 +115,8 @@ export const useGameStore = create<GameState>()(
         showAnimations: true,
         toggleShowAnimations: () =>
           set((state) => ({ showAnimations: !state.showAnimations })),
+        hasGameStarted: false,
+        updateHasGameStarted: () => set(() => ({ hasGameStarted: true })),
         updateShowAnimations: (value) => set(() => ({ showAnimations: value })),
         shouldOverrideBrowserReducedMotion: false,
         updateShouldOverrideBrowserReducedMotion: () =>
@@ -370,6 +374,7 @@ export const useGameStore = create<GameState>()(
             immigrationWavesPrevented: 0,
             totalImmmigrationWaves: 0,
             immigrationCaps: 0,
+            hasGameStarted: false,
           })),
       }),
       {

@@ -14,6 +14,7 @@ const useIsGameState = () => {
       typeof candidate.shouldOverrideBrowserReducedMotion === 'boolean' &&
       typeof candidate.hasWonGame === 'boolean' &&
       typeof candidate.hasCompletedWinFlow === 'boolean' &&
+      typeof candidate.hasGameStarted === 'boolean' &&
       typeof candidate.hasLostGame === 'boolean' &&
       typeof candidate.isGameOver === 'boolean' &&
       typeof candidate.score === 'number' &&

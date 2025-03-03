@@ -31,10 +31,10 @@ export const Route = createFileRoute('/')({
 })
 
 function Index() {
-  const { incrementPlayTime, allTimePoints } = useGameStore(
+  const { incrementPlayTime, hasGameStarted } = useGameStore(
     useShallow((state) => ({
       incrementPlayTime: state.incrementPlayTime,
-      allTimePoints: state.allTimePoints,
+      hasGameStarted: state.hasGameStarted,
     }))
   )
 
@@ -46,12 +46,12 @@ function Index() {
   usePrefersReducedMotion()
 
   useEffect(() => {
-    if (allTimePoints === 0) return
+    if (!hasGameStarted) return
     const interval = setInterval(() => {
       incrementPlayTime()
     }, 1000)
     return () => clearInterval(interval)
-  }, [incrementPlayTime, allTimePoints])
+  }, [incrementPlayTime, hasGameStarted])
 
   return (
     <div className="mx-auto max-w-screen-2xl p-4">
