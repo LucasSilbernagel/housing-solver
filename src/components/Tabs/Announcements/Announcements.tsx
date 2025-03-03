@@ -16,7 +16,7 @@ const Announcements = () => {
   TimeAgo.addLocale(en)
 
   return (
-    <ul className="space-y-4 max-h-none md:max-h-[450px] overflow-y-auto">
+    <ul className="max-h-none space-y-4 overflow-y-auto md:max-h-[450px]">
       {announcements.length > 0 ? (
         announcements
           .sort((a, b) => b.timestamp - a.timestamp)
@@ -24,7 +24,7 @@ const Announcements = () => {
             return (
               <li key={`${announcement.title}-${announcement.timestamp}`}>
                 <Card className="shadow-sm">
-                  <div className="flex justify-between items-center gap-4">
+                  <div className="flex items-center justify-between gap-4">
                     <div>
                       <div>
                         <Text wrap="pretty">{announcement.title}</Text>
@@ -38,7 +38,7 @@ const Announcements = () => {
                       ) : undefined}
                     </div>
                     <div>
-                      <Text size="1" wrap="pretty" className="text-gray-600">
+                      <Text size="1" wrap="pretty">
                         <ReactTimeAgo
                           date={announcement.timestamp}
                           locale="en-US"
