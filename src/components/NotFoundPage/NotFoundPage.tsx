@@ -18,7 +18,7 @@ const NotFoundPage = () => {
   return (
     <div className="flex flex-col items-center gap-6 pt-6">
       <div className="w-[200px] sm:w-[250px]">
-        <img src="/public/houses.png" alt="" />
+        <img src="/houses.png" alt="" />
       </div>
       <h1 className="text-6xl font-bold sm:text-7xl">404</h1>
       <h2 className="text-4xl sm:text-6xl">Page not found!</h2>
