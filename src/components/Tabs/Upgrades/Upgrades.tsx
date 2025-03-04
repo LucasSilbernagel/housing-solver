@@ -2,7 +2,7 @@ import { CheckIcon } from '@radix-ui/react-icons'
 import { Button, Card, Text, Tooltip } from '@radix-ui/themes'
 import clsx from 'clsx'
 import { useShallow } from 'zustand/shallow'
-import { Upgrade } from '../../../constants/upgrades'
+import { Upgrade, UPGRADES } from '../../../constants/upgrades'
 import { useCustomToast } from '../../../hooks/use-custom-toast'
 import { useGameStore } from '../../../hooks/use-game-store'
 import { useProcessUpgrade } from '../../../hooks/use-process-upgrade'
@@ -67,45 +67,30 @@ const Upgrades = () => {
   return (
     <ul className="max-h-none space-y-4 overflow-y-auto md:max-h-[450px]">
       {upgrades
+        // Sort by initial cost
         .sort((a, b) => {
-          const getQuantity = (upgrade: Upgrade) => upgrade.quantity ?? 0
-          const getCost = (upgrade: Upgrade) => upgrade.cost ?? 0
-
-          const aQuantity = getQuantity(a)
-          const bQuantity = getQuantity(b)
-          const aCost = getCost(a)
-          const bCost = getCost(b)
-
-          // Un-purchased upgrades appear first
-          if (aQuantity === 0 && bQuantity > 0) return -1
-          if (bQuantity === 0 && aQuantity > 0) return 1
-          // Sort by cost (higher first)
-          if (aQuantity === 0 && bQuantity === 0) {
-            return bCost - aCost
+          const costA =
+            UPGRADES.find((upgrade) => upgrade.title === a.title)?.cost ?? 0
+          const costB =
+            UPGRADES.find((upgrade) => upgrade.title === b.title)?.cost ?? 0
+          if (costA > costB) {
+            return -1
+          } else if (costA < costB) {
+            return 1
+          } else {
+            return 0
           }
-
-          // Upgrades without oneTimePurchase appear next
-          if (
-            !a.oneTimePurchase &&
-            !b.oneTimePurchase && // If costs are different, sort by cost
-            aCost !== bCost
-          ) {
-            return bCost - aCost // Higher quantity first
-          }
+        })
+        .sort((a, b) => {
+          // Unaffordable upgrades appear at the top
+          if (a.cost > availablePoints && b.cost <= availablePoints) return -1
+          if (a.cost <= availablePoints && b.cost > availablePoints) return 1
 
           // Purchased oneTimePurchase items should come last
-          if (a.oneTimePurchase && !b.oneTimePurchase) return 1
-          if (!a.oneTimePurchase && b.oneTimePurchase) return -1
-          // If both have oneTimePurchase, sort by cost
-          if (a.oneTimePurchase && b.oneTimePurchase) {
-            if (a.oneTimePurchase.purchased === b.oneTimePurchase.purchased) {
-              return bCost - aCost
-            }
-            return (
-              Number(a.oneTimePurchase.purchased) -
-              Number(b.oneTimePurchase.purchased)
-            )
-          }
+          if (a.oneTimePurchase?.purchased && !b.oneTimePurchase?.purchased)
+            return 1
+          if (!a.oneTimePurchase?.purchased && b.oneTimePurchase?.purchased)
+            return -1
 
           return 0
         })
