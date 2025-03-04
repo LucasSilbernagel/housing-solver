@@ -14,6 +14,8 @@ const Stats = () => {
     availablePoints,
     manuallyIncrementPoints,
     showAnimations,
+    allTimePoints,
+    updateHasGameStarted,
   } = useGameStore(
     useShallow((state) => ({
       unaffordabilityScore: state.score,
@@ -21,8 +23,21 @@ const Stats = () => {
       availablePoints: state.availablePoints,
       manuallyIncrementPoints: state.manuallyIncrementPoints,
       showAnimations: state.showAnimations,
+      allTimePoints: state.allTimePoints,
+      updateHasGameStarted: state.updateHasGameStarted,
     }))
   )
+
+  const manuallyGeneratePoints = () => {
+    if (availablePoints >= MAXIMUM_SUPPORT_POINTS) return
+
+    if (allTimePoints === 0) {
+      updateHasGameStarted()
+    }
+
+    manuallyIncrementPoints()
+  }
+
   return (
     <Card size="4" className="w-full max-w-max shadow-lg">
       <div className="relative">
@@ -101,7 +116,7 @@ const Stats = () => {
           {showAnimations ? (
             <FloatingTextButton
               size="4"
-              onClick={() => manuallyIncrementPoints(manualIncrementAmount)}
+              onClick={manuallyGeneratePoints}
               disabled={availablePoints >= MAXIMUM_SUPPORT_POINTS}
               floatingText={`+ ${manualIncrementAmount.toLocaleString()}`}
             >
@@ -110,7 +125,7 @@ const Stats = () => {
           ) : (
             <Button
               size="4"
-              onClick={() => manuallyIncrementPoints(manualIncrementAmount)}
+              onClick={manuallyGeneratePoints}
               disabled={availablePoints >= MAXIMUM_SUPPORT_POINTS}
             >
               Generate Support Points
