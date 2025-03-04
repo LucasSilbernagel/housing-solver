@@ -67,8 +67,18 @@ const Upgrades = () => {
   return (
     <ul className="max-h-none space-y-4 overflow-y-auto md:max-h-[450px]">
       {upgrades
-        // Sort by initial cost
         .sort((a, b) => {
+          // Purchased oneTimePurchase items should appear last (first priority)
+          if (a.oneTimePurchase?.purchased && !b.oneTimePurchase?.purchased)
+            return 1
+          if (!a.oneTimePurchase?.purchased && b.oneTimePurchase?.purchased)
+            return -1
+
+          // Unaffordable upgrades appear at the top (second priority)
+          if (a.cost > availablePoints && b.cost <= availablePoints) return -1
+          if (a.cost <= availablePoints && b.cost > availablePoints) return 1
+
+          // Sort by initial cost (lowest priority)
           const costA =
             UPGRADES.find((upgrade) => upgrade.title === a.title)?.cost ?? 0
           const costB =
@@ -77,20 +87,7 @@ const Upgrades = () => {
             return -1
           } else if (costA < costB) {
             return 1
-          } else {
-            return 0
           }
-        })
-        .sort((a, b) => {
-          // Unaffordable upgrades appear at the top
-          if (a.cost > availablePoints && b.cost <= availablePoints) return -1
-          if (a.cost <= availablePoints && b.cost > availablePoints) return 1
-
-          // Purchased oneTimePurchase items should come last
-          if (a.oneTimePurchase?.purchased && !b.oneTimePurchase?.purchased)
-            return 1
-          if (!a.oneTimePurchase?.purchased && b.oneTimePurchase?.purchased)
-            return -1
 
           return 0
         })
