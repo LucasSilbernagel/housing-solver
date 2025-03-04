@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
 import { DEFAULT_SCORE } from '../constants/defaults'
+import { MAXIMUM_SUPPORT_POINTS } from '../constants/stats'
 import { Upgrade, UPGRADES } from '../constants/upgrades'
 import {
   Achievement,
@@ -31,7 +32,7 @@ export interface GameState {
   updateAutomaticIncrementAmount: (amount: number) => void
   allTimePoints: number
   updateAllPoints: (amount: number) => void
-  manuallyIncrementPoints: (manualIncrementAmount: number) => void
+  manuallyIncrementPoints: () => void
   availablePoints: number
   updateAvailablePoints: (amount: number) => void
   totalPointsSpent: number
@@ -151,12 +152,19 @@ export const useGameStore = create<GameState>()(
           set(() => ({
             totalPointsSpent: amount,
           })),
-        automaticallyIncrementPoints: () =>
+        automaticallyIncrementPoints: () => {
+          const state = get()
+          if (
+            state.automaticIncrementAmount === 0 ||
+            state.availablePoints === MAXIMUM_SUPPORT_POINTS
+          )
+            return
           set((state) => ({
             allTimePoints: state.allTimePoints + state.automaticIncrementAmount,
             availablePoints:
               state.availablePoints + state.automaticIncrementAmount,
-          })),
+          }))
+        },
         nimbyProtestsPrevented: 0,
         incrementNimbyProtestsPrevented: () =>
           set((state) => ({

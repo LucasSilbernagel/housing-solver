@@ -29,10 +29,13 @@ const Stats = () => {
   )
 
   const manuallyGeneratePoints = () => {
+    if (availablePoints >= MAXIMUM_SUPPORT_POINTS) return
+
     if (allTimePoints === 0) {
       updateHasGameStarted()
     }
-    manuallyIncrementPoints(manualIncrementAmount)
+
+    manuallyIncrementPoints()
   }
 
   return (
