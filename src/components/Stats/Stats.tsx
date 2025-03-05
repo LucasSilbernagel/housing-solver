@@ -39,14 +39,14 @@ const Stats = () => {
   }
 
   return (
-    <Card size="4" className="w-full max-w-max shadow-lg">
+    <Card size="4" className="shadow-lg w-full max-w-max">
       <div className="relative">
-        <h2 className="mb-1 text-center text-2xl">Housing Unaffordability:</h2>
+        <h2 className="mb-1 text-2xl text-center">Housing Unaffordability:</h2>
         <div
           className={clsx(
-            'mx-auto flex h-36 w-36 items-center justify-center rounded-[50%] border-12 text-3xl font-bold',
+            'flex justify-center items-center mx-auto border-12 rounded-[50%] w-36 h-36 font-bold text-3xl',
             {
-              'animate-pulse': unaffordabilityScore >= 40,
+              'animate-pulse': unaffordabilityScore >= 40 && showAnimations,
               'border-green-500': unaffordabilityScore <= 15,
               'border-yellow-500':
                 unaffordabilityScore < 25 && unaffordabilityScore > 15,
@@ -64,7 +64,7 @@ const Stats = () => {
             </h3>
           </div>
         </div>
-        <div className="absolute right-0 bottom-0">
+        <div className="right-0 bottom-0 absolute">
           <Popover.Root>
             <Popover.Trigger>
               <IconButton variant="ghost">
@@ -78,7 +78,7 @@ const Stats = () => {
                   households that spends more than 30% of their income on
                   shelter.
                 </p>
-                <ul className="list-disc pl-4">
+                <ul className="pl-4 list-disc">
                   <li>30% or higher is considered to be a serious concern.</li>
                   <li>
                     At 40% or higher, a significant portion of the population is
@@ -97,9 +97,9 @@ const Stats = () => {
       </div>
       <Separator size="4" className="my-12" />
       <div className="relative">
-        <h2 className="text-center text-2xl">Support Points:</h2>
+        <h2 className="text-2xl text-center">Support Points:</h2>
         <div className="my-4">
-          <h3 className="text-center text-xl font-bold">
+          <h3 className="font-bold text-xl text-center">
             {showAnimations ? (
               <SlotCounter
                 value={Math.floor(availablePoints).toLocaleString()}
@@ -112,7 +112,7 @@ const Stats = () => {
             )}
           </h3>
         </div>
-        <div className="flex w-full justify-center">
+        <div className="flex justify-center w-full">
           {showAnimations ? (
             <FloatingTextButton
               size="4"
@@ -132,7 +132,7 @@ const Stats = () => {
             </Button>
           )}
         </div>
-        <div className="absolute top-[5px] right-0">
+        <div className="top-[5px] right-0 absolute">
           <Popover.Root>
             <Popover.Trigger>
               <IconButton variant="ghost">
