@@ -1,1 +1,1 @@
-export const DEFAULT_SCORE = 35
+export const DEFAULT_SCORE = 30
