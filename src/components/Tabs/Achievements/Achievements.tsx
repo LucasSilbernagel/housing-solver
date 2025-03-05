@@ -17,7 +17,7 @@ const Achievements = () => {
         .map((achievement) => {
           return (
             <li
-              key={achievement.text}
+              key={achievement.text.replaceAll(' ', '-')}
               className={clsx(achievement.visible ? 'visible' : 'hidden')}
             >
               <Card className="shadow-sm">

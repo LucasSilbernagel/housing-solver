@@ -16,6 +16,8 @@ export const useAchievementConfigs = () => {
       totalAdCampaigns: state.totalAdCampaigns,
       totalTrainingPrograms: state.totalTrainingPrograms,
       nimbyProtestsPrevented: state.nimbyProtestsPrevented,
+      corruptionScandalsPrevented: state.corruptionScandalsPrevented,
+      immigrationWavesPrevented: state.immigrationWavesPrevented,
     }))
   )
 

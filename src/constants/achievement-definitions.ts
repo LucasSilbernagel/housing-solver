@@ -29,6 +29,12 @@ export const TRAINING_PROGRAM_THRESHOLDS = [1, 5, 10]
 
 export const NIMBY_PROTEST_THRESHOLDS = [1, 2, 5, 10, 20, 50, 100, 500, 1000]
 
+export const CORRUPTION_SCANDAL_THRESHOLDS = [
+  1, 2, 5, 10, 20, 50, 100, 500, 1000,
+]
+
+export const IMMIGRATION_WAVE_THRESHOLDS = [1, 2, 5, 10, 20, 50, 100, 500, 1000]
+
 export const ACHIEVEMENT_DEFINITIONS = {
   supportPoints: SUPPORT_POINTS_AMOUNTS.map((points, index) => ({
     text: `Generate ${points.toLocaleString()} support points`,
@@ -111,4 +117,32 @@ export const ACHIEVEMENT_DEFINITIONS = {
         ? `Prevent ${NIMBY_PROTEST_THRESHOLDS[index + 1]} NIMBY protests`
         : undefined,
   })),
+
+  corruptionScandalsPrevented: CORRUPTION_SCANDAL_THRESHOLDS.map(
+    (count, index) => ({
+      text:
+        count === 1
+          ? 'Prevent a government corruption scandal'
+          : `Prevent ${count} government corruption scandals`,
+      threshold: count,
+      next:
+        count < (CORRUPTION_SCANDAL_THRESHOLDS.at(-1) ?? Infinity)
+          ? `Prevent ${CORRUPTION_SCANDAL_THRESHOLDS[index + 1]} corruption scandals`
+          : undefined,
+    })
+  ),
+
+  immigrationWavesPrevented: IMMIGRATION_WAVE_THRESHOLDS.map(
+    (count, index) => ({
+      text:
+        count === 1
+          ? 'Prevent a wave of unfettered immigration'
+          : `Prevent ${count} waves of unfettered immigration`,
+      threshold: count,
+      next:
+        count < (IMMIGRATION_WAVE_THRESHOLDS.at(-1) ?? Infinity)
+          ? `Prevent ${IMMIGRATION_WAVE_THRESHOLDS[index + 1]} waves of unfettered immigration`
+          : undefined,
+    })
+  ),
 }

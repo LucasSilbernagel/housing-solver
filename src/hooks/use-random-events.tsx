@@ -185,7 +185,7 @@ export const useRandomEvents = (): void => {
         content: {
           title: 'Well-managed immigration policies',
           description:
-            'You were able to prevent an unfettered wave of immigration!',
+            'You were able to prevent a wave of unfettered immigration!',
         },
       })
     }
@@ -204,8 +204,20 @@ export const useRandomEvents = (): void => {
 
     setSelectedEvent(undefined)
   }, [
+    antiCorruptionLaws,
     availablePoints,
+    communityFestivals,
     customToast,
+    decrementAntiCorruptionLaws,
+    decrementCommunityFestivals,
+    decrementImmigrationCaps,
+    immigrationCaps,
+    incrementCorruptionScandalsPrevented,
+    incrementImmigrationWavesPrevented,
+    incrementNimbyProtestsPrevented,
+    incrementTotalCorruptionScandals,
+    incrementTotalImmigrationWaves,
+    incrementTotalNimbyProtests,
     score,
     selectedEvent,
     updateAllPoints,

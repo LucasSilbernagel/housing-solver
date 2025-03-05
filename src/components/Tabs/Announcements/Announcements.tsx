@@ -16,15 +16,17 @@ const Announcements = () => {
   TimeAgo.addLocale(en)
 
   return (
-    <ul className="max-h-none space-y-4 overflow-y-auto md:max-h-[450px]">
+    <ul className="space-y-4 max-h-none md:max-h-[450px] overflow-y-auto">
       {announcements.length > 0 ? (
         announcements
           .sort((a, b) => b.timestamp - a.timestamp)
           .map((announcement) => {
             return (
-              <li key={`${announcement.title}-${announcement.timestamp}`}>
+              <li
+                key={`${announcement.title.replaceAll(' ', '-')}-${announcement.timestamp}`}
+              >
                 <Card className="shadow-sm">
-                  <div className="flex items-center justify-between gap-4">
+                  <div className="flex justify-between items-center gap-4">
                     <div>
                       <div>
                         <Text wrap="pretty">{announcement.title}</Text>

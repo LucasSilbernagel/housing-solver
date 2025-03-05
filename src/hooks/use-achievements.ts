@@ -9,45 +9,28 @@ export const useAchievements = () => {
   const {
     achievements,
     updateAchievement,
-    allTimePoints,
-    score,
     electedToLocalOffice,
-    volunteersRecruited,
-    volunteerRecruitersRecruited,
     campaignManagersRecruited,
     totalAdCampaigns,
-    totalTrainingPrograms,
-    electedToRegionalOffice,
-    electedToNationalOffice,
-    nimbyProtestsPrevented,
     totalNimbyProtests,
+    totalCorruptionScandals,
+    totalImmigrationWaves,
   } = useGameStore(
     useShallow((state) => ({
       achievements: state.achievements,
       updateAchievement: state.updateAchievement,
-      allTimePoints: state.allTimePoints,
-      score: state.score,
       electedToLocalOffice: state.electedToLocalOffice,
-      volunteersRecruited: state.volunteersRecruited,
-      volunteerRecruitersRecruited: state.volunteerRecruitersRecruited,
       campaignManagersRecruited: state.campaignManagersRecruited,
       totalAdCampaigns: state.totalAdCampaigns,
-      totalTrainingPrograms: state.totalTrainingPrograms,
-      electedToRegionalOffice: state.electedToRegionalOffice,
-      electedToNationalOffice: state.electedToNationalOffice,
-      nimbyProtestsPrevented: state.nimbyProtestsPrevented,
       totalNimbyProtests: state.totalNimbyProtests,
+      totalCorruptionScandals: state.totalCorruptionScandals,
+      totalImmigrationWaves: state.totalImmigrationWaves,
     }))
   )
 
   const achievementConfigs = useAchievementConfigs()
 
   const customToast = useCustomToast()
-
-  const totalVolunteers =
-    volunteersRecruited +
-    volunteerRecruitersRecruited +
-    campaignManagersRecruited
 
   useEffect(() => {
     const checkAchievement = (
@@ -100,6 +83,20 @@ export const useAchievements = () => {
         updateAchievement(firstProtestPrevented.text, 'visible')
       }
     }
+    if (totalCorruptionScandals >= 1) {
+      const firstCorruptionScandalPrevented =
+        achievementConfigs.corruptionScandalsPrevented[0]
+      if (!checkAchievement(firstCorruptionScandalPrevented.text, 'visible')) {
+        updateAchievement(firstCorruptionScandalPrevented.text, 'visible')
+      }
+    }
+    if (totalImmigrationWaves >= 1) {
+      const firstImmigrationWavePrevented =
+        achievementConfigs.immigrationWavesPrevented[0]
+      if (!checkAchievement(firstImmigrationWavePrevented.text, 'visible')) {
+        updateAchievement(firstImmigrationWavePrevented.text, 'visible')
+      }
+    }
 
     for (const achievement of Object.values(achievementConfigs).flat()) {
       processAchievement(achievement)
@@ -107,18 +104,13 @@ export const useAchievements = () => {
   }, [
     achievementConfigs,
     achievements,
-    allTimePoints,
     campaignManagersRecruited,
     customToast,
     electedToLocalOffice,
-    electedToNationalOffice,
-    electedToRegionalOffice,
-    score,
-    nimbyProtestsPrevented,
     totalAdCampaigns,
+    totalCorruptionScandals,
+    totalImmigrationWaves,
     totalNimbyProtests,
-    totalTrainingPrograms,
-    totalVolunteers,
     updateAchievement,
   ])
 }

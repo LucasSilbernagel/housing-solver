@@ -84,11 +84,11 @@ const Stats = () => {
   ]
 
   return (
-    <ul className="max-h-none space-y-4 overflow-y-auto md:max-h-[450px]">
+    <ul className="space-y-4 max-h-none md:max-h-[450px] overflow-y-auto">
       {stats.map((stat) => {
         return (
           <StatCard
-            key={stat.label}
+            key={stat.label.replaceAll(' ', '-')}
             {...stat}
             showAnimations={showAnimations}
           />

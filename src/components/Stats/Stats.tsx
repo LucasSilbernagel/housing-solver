@@ -9,7 +9,7 @@ import FloatingTextButton from '../FloatingTextButton/FloatingTextButton'
 
 const Stats = () => {
   const {
-    unaffordabilityScore,
+    score,
     manualIncrementAmount,
     availablePoints,
     manuallyIncrementPoints,
@@ -18,7 +18,7 @@ const Stats = () => {
     updateHasGameStarted,
   } = useGameStore(
     useShallow((state) => ({
-      unaffordabilityScore: state.score,
+      score: state.score,
       manualIncrementAmount: state.manualIncrementAmount,
       availablePoints: state.availablePoints,
       manuallyIncrementPoints: state.manuallyIncrementPoints,
@@ -30,11 +30,9 @@ const Stats = () => {
 
   const manuallyGeneratePoints = () => {
     if (availablePoints >= MAXIMUM_SUPPORT_POINTS) return
-
     if (allTimePoints === 0) {
       updateHasGameStarted()
     }
-
     manuallyIncrementPoints()
   }
 
@@ -46,21 +44,16 @@ const Stats = () => {
           className={clsx(
             'flex justify-center items-center mx-auto border-12 rounded-[50%] w-36 h-36 font-bold text-3xl',
             {
-              'animate-pulse': unaffordabilityScore >= 40 && showAnimations,
-              'border-green-500': unaffordabilityScore <= 15,
-              'border-yellow-500':
-                unaffordabilityScore < 25 && unaffordabilityScore > 15,
-              'border-red-500': unaffordabilityScore >= 25,
+              'animate-pulse': score >= 40 && showAnimations,
+              'border-green-500': score <= 15,
+              'border-yellow-500': score < 25 && score > 15,
+              'border-red-500': score >= 25,
             }
           )}
         >
           <div>
             <h3>
-              <span>
-                {Math.round((unaffordabilityScore + Number.EPSILON) * 100) /
-                  100}
-              </span>
-              %
+              <span>{Math.round((score + Number.EPSILON) * 100) / 100}</span>%
             </h3>
           </div>
         </div>

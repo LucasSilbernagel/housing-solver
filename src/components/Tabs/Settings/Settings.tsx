@@ -4,6 +4,7 @@ import {
   Button,
   Flex,
   IconButton,
+  Separator,
   Switch,
   Text,
   TextArea,
@@ -149,7 +150,7 @@ const Settings = () => {
             />
           </Flex>
         </Text>
-        <div className="mt-2 flex gap-2">
+        <div className="flex gap-2 mt-2">
           <Button onClick={createBackup} disabled={allTimePoints === 0}>
             Create backup
           </Button>
@@ -185,13 +186,14 @@ const Settings = () => {
           </AlertDialog.Content>
         </AlertDialog.Root>
       </div>
+      <Separator size="4" />
       <p>
         Developer:{' '}
         <a
           href="https://lucassilbernagel.com/"
           target="_blank"
           rel="noreferrer"
-          className="underline underline-offset-2 transition-all duration-300 ease-in-out hover:underline-offset-4 focus-visible:underline-offset-4"
+          className="underline underline-offset-2 hover:underline-offset-4 focus-visible:underline-offset-4 transition-all duration-300 ease-in-out"
         >
           Lucas Silbernagel
         </a>{' '}

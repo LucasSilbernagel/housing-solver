@@ -12,6 +12,8 @@ export interface GameStateValues {
   totalAdCampaigns: number
   totalTrainingPrograms: number
   nimbyProtestsPrevented: number
+  corruptionScandalsPrevented: number
+  immigrationWavesPrevented: number
 }
 
 export interface AchievementConfig {
@@ -31,6 +33,8 @@ export const createAchievementConfigs = ({
   totalAdCampaigns,
   totalTrainingPrograms,
   nimbyProtestsPrevented,
+  corruptionScandalsPrevented,
+  immigrationWavesPrevented,
   electedToLocalOffice,
   electedToRegionalOffice,
   electedToNationalOffice,
@@ -123,5 +127,25 @@ export const createAchievementConfigs = ({
             : `You prevented ${definition.threshold} NIMBY protests!`,
       })
     ),
+
+    corruptionScandalsPrevented:
+      ACHIEVEMENT_DEFINITIONS.corruptionScandalsPrevented.map((definition) => ({
+        ...definition,
+        customCheck: () => corruptionScandalsPrevented >= definition.threshold,
+        message:
+          definition.threshold === 1
+            ? 'You were able to prevent a government corruption scandal!'
+            : `You prevented ${definition.threshold} government corruption scandals!`,
+      })),
+
+    immigrationWavesPrevented:
+      ACHIEVEMENT_DEFINITIONS.immigrationWavesPrevented.map((definition) => ({
+        ...definition,
+        customCheck: () => immigrationWavesPrevented >= definition.threshold,
+        message:
+          definition.threshold === 1
+            ? 'You were able to prevent a wave of unfettered immigration!'
+            : `You prevented ${definition.threshold} waves of unfettered immigration!`,
+      })),
   }
 }

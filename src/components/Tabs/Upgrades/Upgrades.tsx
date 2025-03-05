@@ -65,7 +65,7 @@ const Upgrades = () => {
   }
 
   return (
-    <ul className="max-h-none space-y-4 overflow-y-auto md:max-h-[450px]">
+    <ul className="space-y-4 max-h-none md:max-h-[450px] overflow-y-auto">
       {upgrades
         .sort((a, b) => {
           // Purchased oneTimePurchase items should appear last (first priority)
@@ -94,11 +94,11 @@ const Upgrades = () => {
         .map((upgrade) => {
           return (
             <li
-              key={upgrade.title}
+              key={upgrade.title.replaceAll(' ', '-')}
               className={clsx(upgrade.visible ? 'visible' : 'hidden')}
             >
               <Card className="shadow-sm">
-                <div className="flex items-center justify-between gap-4">
+                <div className="flex justify-between items-center gap-4">
                   <div>
                     <div>
                       <Text
@@ -121,7 +121,7 @@ const Upgrades = () => {
                       </Text>
                     </div>
                   </div>
-                  <div className="flex flex-col items-center justify-center gap-1">
+                  <div className="flex flex-col justify-center items-center gap-1">
                     {upgrade.oneTimePurchase ||
                     upgrade.quantity === 0 ? undefined : (
                       <Text className="font-semibold">
