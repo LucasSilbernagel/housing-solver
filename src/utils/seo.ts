@@ -1,8 +1,5 @@
 export interface SocialMetaTags {
   title: string
-  description: string
-  image: string
-  url: string
 }
 
 const getOrCreateMetaTag = (selector: string): HTMLMetaElement => {
@@ -23,27 +20,11 @@ const getOrCreateMetaTag = (selector: string): HTMLMetaElement => {
 
 export const updateMetaTags = (meta: SocialMetaTags) => {
   document.title = meta.title
-  getOrCreateMetaTag('meta[name="description"]').setAttribute(
-    'content',
-    meta.description
-  )
 
   // Open Graph meta tags
   getOrCreateMetaTag('meta[property="og:title"]').setAttribute(
     'content',
     meta.title
-  )
-  getOrCreateMetaTag('meta[property="og:description"]').setAttribute(
-    'content',
-    meta.description
-  )
-  getOrCreateMetaTag('meta[property="og:image"]').setAttribute(
-    'content',
-    meta.image
-  )
-  getOrCreateMetaTag('meta[property="og:url"]').setAttribute(
-    'content',
-    meta.url
   )
 
   // Twitter Card meta tags
@@ -51,14 +32,7 @@ export const updateMetaTags = (meta: SocialMetaTags) => {
     'content',
     meta.title
   )
-  getOrCreateMetaTag('meta[name="twitter:description"]').setAttribute(
-    'content',
-    meta.description
-  )
-  getOrCreateMetaTag('meta[name="twitter:image"]').setAttribute(
-    'content',
-    meta.image
-  )
+
   getOrCreateMetaTag('meta[name="twitter:card"]').setAttribute(
     'content',
     'summary_large_image'

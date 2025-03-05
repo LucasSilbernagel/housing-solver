@@ -19,10 +19,6 @@ export const Route = createFileRoute('/')({
   beforeLoad: () => {
     const metaTags: SocialMetaTags = {
       title: 'Housing Solver',
-      description:
-        'Think you have what it takes to solve the affordable housing crisis? Prove it in this incremental clicker game!',
-      image: 'https://yourdomain.com/share-image.jpg',
-      url: globalThis.location.href,
     }
     // Update meta tags when route loads
     updateMetaTags(metaTags)
@@ -54,9 +50,9 @@ function Index() {
   }, [incrementPlayTime, hasGameStarted])
 
   return (
-    <div className="mx-auto max-w-screen-2xl p-4">
+    <div className="mx-auto p-4 max-w-screen-2xl">
       <h1 className="sr-only">Housing Solver</h1>
-      <div className="flex flex-col items-center gap-4 md:flex-row md:items-start md:justify-center">
+      <div className="flex md:flex-row flex-col md:justify-center items-center md:items-start gap-4">
         <Stats />
         <TabsCard />
       </div>
