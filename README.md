@@ -2,7 +2,7 @@
 
 Think you have what it takes to solve the affordable housing crisis? Prove it in this incremental clicker game!
 
-App screenshot...
+![housing-solver](https://github.com/user-attachments/assets/435d1d44-ba76-4067-8440-69b944cf7668)
 
 ## Live Link
 
@@ -50,16 +50,9 @@ To install all of the required dependencies, run `pnpm install`.
 
 - [Vitest](https://vitest.dev/)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
-- [Playwright](https://playwright.dev/)
 
 ### Unit Tests
 
 Unit tests are written with [Vitest](https://vitest.dev/) and [React Testing Library](https://testing-library.com/).
 
 Use `pnpm run test-unit` to run all unit tests, or use `pnpm run test-unit SomeFileToRun` to run a specific test file.
-
-### E2E Tests
-
-E2E tests are written with [Playwright](https://playwright.dev/).
-
-Use `pnpm run test-e2e` to run all E2E tests.
