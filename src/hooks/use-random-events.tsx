@@ -103,7 +103,7 @@ export const useRandomEvents = (): void => {
     }
 
     if (selectedEvent.title === 'Breakthrough in construction technology') {
-      updateScore(score - 0.1)
+      updateScore(score - 0.5)
       customToast({ type: 'success', content: selectedEvent })
     }
 
@@ -154,7 +154,7 @@ export const useRandomEvents = (): void => {
     }
 
     if (selectedEvent.title === 'Construction costs increased') {
-      updateScore(score + 0.1)
+      updateScore(score + 0.5)
       customToast({ type: 'error', content: selectedEvent })
     }
 
@@ -191,7 +191,7 @@ export const useRandomEvents = (): void => {
     }
 
     if (selectedEvent.title === 'Neighbourhood gentrification') {
-      updateScore(score + 0.1)
+      updateScore(score + 0.5)
       customToast({ type: 'error', content: selectedEvent })
     }
 

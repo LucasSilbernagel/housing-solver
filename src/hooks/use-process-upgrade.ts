@@ -174,11 +174,11 @@ export const useProcessUpgrade = () => {
 
       if (title === 'Fund a job training program') {
         incrementTotalTrainingPrograms()
-        updateScore(score - 0.05)
+        updateScore(score - 0.5)
       }
 
       if (title === 'Implement a vacant home tax') {
-        updateScore(score - 0.05)
+        updateScore(score - 0.5)
       }
 
       if (
@@ -200,27 +200,27 @@ export const useProcessUpgrade = () => {
         title ===
         'Encourage remote work to reduce demand for housing in expensive city centers'
       ) {
-        updateScore(score - 0.1)
+        updateScore(score - 0.5)
       }
 
       if (title === 'Implement zoning reforms to increase housing density') {
-        updateScore(score - 0.1)
+        updateScore(score - 0.5)
       }
 
       if (title === 'Fund new home construction subsidies') {
-        updateScore(score - 0.1)
+        updateScore(score - 0.5)
       }
 
       if (title === 'Legislate rent control') {
-        updateScore(score - 0.2)
+        updateScore(score - 0.5)
       }
 
       if (title === 'Tax breaks for developers who build affordable housing') {
-        updateScore(score - 0.2)
+        updateScore(score - 0.5)
       }
 
       if (title === 'Invest in public transportation') {
-        updateScore(score - 0.2)
+        updateScore(score - 0.5)
       }
 
       if (title === 'Legislate rent subsidies for low-income residents') {
@@ -232,7 +232,7 @@ export const useProcessUpgrade = () => {
       }
 
       if (title === 'Legislate a government-funded affordable daycare plan') {
-        updateScore(score - 0.2)
+        updateScore(score - 0.5)
       }
 
       if (title === 'Increase the minimum wage') {

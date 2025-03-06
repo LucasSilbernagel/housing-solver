@@ -114,7 +114,7 @@ export const UPGRADES: Upgrade[] = [
   },
   {
     title: 'Fund a job training program',
-    description: 'Reduce housing unaffordability by 0.05%',
+    description: 'Reduce housing unaffordability by 0.5%',
     cost: 100_000,
     quantity: 0,
     visible: false,
@@ -124,7 +124,7 @@ export const UPGRADES: Upgrade[] = [
   },
   {
     title: 'Implement a vacant home tax',
-    description: 'Reduce housing unaffordability by 0.05%',
+    description: 'Reduce housing unaffordability by 0.5%',
     cost: 100_000,
     quantity: 0,
     visible: false,
@@ -135,7 +135,7 @@ export const UPGRADES: Upgrade[] = [
   {
     title:
       'Encourage remote work to reduce demand for housing in expensive city centers',
-    description: 'Reduce housing unaffordability by 0.1%',
+    description: 'Reduce housing unaffordability by 0.5%',
     cost: 100_000,
     quantity: 0,
     visible: false,
@@ -145,7 +145,7 @@ export const UPGRADES: Upgrade[] = [
   },
   {
     title: 'Implement zoning reforms to increase housing density',
-    description: 'Reduce housing unaffordability by 0.1%',
+    description: 'Reduce housing unaffordability by 0.5%',
     cost: 500_000,
     quantity: 0,
     visible: false,
@@ -155,14 +155,14 @@ export const UPGRADES: Upgrade[] = [
   },
   {
     title: 'Fund new home construction subsidies',
-    description: 'Reduce housing unaffordability by 0.1%',
+    description: 'Reduce housing unaffordability by 0.5%',
     cost: 2_000_000,
     quantity: 0,
     visible: false,
   },
   {
     title: 'Legislate rent control',
-    description: 'Reduce housing unaffordability by 0.2%',
+    description: 'Reduce housing unaffordability by 1%',
     cost: 3_000_000,
     quantity: 0,
     visible: false,
@@ -172,14 +172,14 @@ export const UPGRADES: Upgrade[] = [
   },
   {
     title: 'Tax breaks for developers who build affordable housing',
-    description: 'Reduce housing unaffordability by 0.2%',
+    description: 'Reduce housing unaffordability by 0.5%',
     cost: 6_000_000,
     quantity: 0,
     visible: false,
   },
   {
     title: 'Invest in public transportation',
-    description: 'Reduce housing unaffordability by 0.2%',
+    description: 'Reduce housing unaffordability by 0.5%',
     cost: 20_000_000,
     quantity: 0,
     visible: false,
@@ -221,7 +221,7 @@ export const UPGRADES: Upgrade[] = [
   },
   {
     title: 'Legislate a government-funded affordable daycare plan',
-    description: 'Reduce housing unaffordability by 0.2%',
+    description: 'Reduce housing unaffordability by 0.5%',
     cost: 20_000_000,
     quantity: 0,
     visible: false,
