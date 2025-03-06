@@ -54,7 +54,7 @@ export const UPGRADES: Upgrade[] = [
     title: 'Run a national ad campaign about the affordable housing crisis',
     description:
       'Automatically accumulate 20 additional support points every second',
-    cost: 100_000,
+    cost: 250_000,
     quantity: 0,
     visible: false,
   },
@@ -115,7 +115,7 @@ export const UPGRADES: Upgrade[] = [
   {
     title: 'Fund a job training program',
     description: 'Reduce housing unaffordability by 0.5%',
-    cost: 100_000,
+    cost: 30_000,
     quantity: 0,
     visible: false,
     oneTimePurchase: {
@@ -125,7 +125,7 @@ export const UPGRADES: Upgrade[] = [
   {
     title: 'Implement a vacant home tax',
     description: 'Reduce housing unaffordability by 0.5%',
-    cost: 100_000,
+    cost: 20_000,
     quantity: 0,
     visible: false,
     oneTimePurchase: {
@@ -136,7 +136,7 @@ export const UPGRADES: Upgrade[] = [
     title:
       'Encourage remote work to reduce demand for housing in expensive city centers',
     description: 'Reduce housing unaffordability by 0.5%',
-    cost: 100_000,
+    cost: 10_000,
     quantity: 0,
     visible: false,
     oneTimePurchase: {
@@ -146,7 +146,7 @@ export const UPGRADES: Upgrade[] = [
   {
     title: 'Implement zoning reforms to increase housing density',
     description: 'Reduce housing unaffordability by 0.5%',
-    cost: 500_000,
+    cost: 80_000,
     quantity: 0,
     visible: false,
     oneTimePurchase: {
