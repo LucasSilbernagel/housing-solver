@@ -74,9 +74,19 @@ const Upgrades = () => {
           if (!a.oneTimePurchase?.purchased && b.oneTimePurchase?.purchased)
             return -1
 
-          // Unaffordable upgrades appear at the top (second priority)
-          if (a.cost > availablePoints && b.cost <= availablePoints) return -1
-          if (a.cost <= availablePoints && b.cost > availablePoints) return 1
+          // Unaffordable un-purchased upgrades appear at the top (second priority)
+          if (
+            a.cost > availablePoints &&
+            a.quantity === 0 &&
+            b.cost <= availablePoints
+          )
+            return -1
+          if (
+            a.cost <= availablePoints &&
+            b.cost > availablePoints &&
+            b.quantity === 0
+          )
+            return 1
 
           // Sort by initial cost (lowest priority)
           const costA =
