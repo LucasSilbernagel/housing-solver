@@ -5,7 +5,7 @@ export const RANDOM_EVENTS = [
   },
   {
     title: 'Breakthrough in construction technology',
-    description: 'Housing unaffordability reduced by 0.5%',
+    description: 'Housing unaffordability reduced by 0.1%',
   },
   {
     title: 'NIMBY protest',
@@ -17,23 +17,23 @@ export const RANDOM_EVENTS = [
   },
   {
     title: 'Construction costs increased',
-    description: 'Housing unaffordability increased by 0.5%',
+    description: 'Housing unaffordability increased by 0.1%',
   },
   {
     title: 'Economic recession',
-    description: 'Housing unaffordability increased by 1%',
+    description: 'Housing unaffordability increased by 0.1%',
   },
   {
     title: 'Wave of unfettered immigration',
     description:
-      'Housing unaffordability increased by 0.5% and you lost half of your support points!',
+      'Housing unaffordability increased by 0.1% and you lost half of your support points!',
   },
   {
     title: 'Neighbourhood gentrification',
-    description: 'Housing unaffordability increased by 0.5%',
+    description: 'Housing unaffordability increased by 0.1%',
   },
   {
     title: 'An international trade partner enacted tariffs',
-    description: 'Housing unaffordability increased by 0.5%',
+    description: 'Housing unaffordability increased by 0.1%',
   },
 ]

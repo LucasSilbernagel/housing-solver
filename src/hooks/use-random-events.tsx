@@ -103,7 +103,7 @@ export const useRandomEvents = (): void => {
     }
 
     if (selectedEvent.title === 'Breakthrough in construction technology') {
-      updateScore(score - 0.5)
+      updateScore(score - 0.1)
       customToast({ type: 'success', content: selectedEvent })
     }
 
@@ -154,12 +154,12 @@ export const useRandomEvents = (): void => {
     }
 
     if (selectedEvent.title === 'Construction costs increased') {
-      updateScore(score + 0.5)
+      updateScore(score + 0.1)
       customToast({ type: 'error', content: selectedEvent })
     }
 
     if (selectedEvent.title === 'Economic recession') {
-      updateScore(score + 1)
+      updateScore(score + 0.1)
       customToast({ type: 'error', content: selectedEvent })
     }
 
@@ -167,7 +167,7 @@ export const useRandomEvents = (): void => {
       selectedEvent.title === 'Wave of unfettered immigration' &&
       immigrationCaps === 0
     ) {
-      updateScore(score + 0.5)
+      updateScore(score + 0.1)
       updateAvailablePoints(Math.floor(availablePoints / 2))
       incrementTotalImmigrationWaves()
       customToast({ type: 'error', content: selectedEvent })
@@ -191,14 +191,14 @@ export const useRandomEvents = (): void => {
     }
 
     if (selectedEvent.title === 'Neighbourhood gentrification') {
-      updateScore(score + 0.5)
+      updateScore(score + 0.1)
       customToast({ type: 'error', content: selectedEvent })
     }
 
     if (
       selectedEvent.title === 'An international trade partner enacted tariffs'
     ) {
-      updateScore(score + 0.5)
+      updateScore(score + 0.1)
       customToast({ type: 'error', content: selectedEvent })
     }
 
