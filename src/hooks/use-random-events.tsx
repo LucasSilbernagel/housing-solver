@@ -29,6 +29,7 @@ export const useRandomEvents = (): void => {
     decrementImmigrationCaps,
     incrementImmigrationWavesPrevented,
     incrementTotalImmigrationWaves,
+    electedToNationalOffice,
   } = useGameStore(
     useShallow((state) => ({
       electedToLocalOffice: state.electedToLocalOffice,
@@ -51,6 +52,7 @@ export const useRandomEvents = (): void => {
       incrementImmigrationWavesPrevented:
         state.incrementImmigrationWavesPrevented,
       incrementTotalImmigrationWaves: state.incrementTotalImmigrationWaves,
+      electedToNationalOffice: state.electedToNationalOffice,
     }))
   )
 
@@ -82,17 +84,28 @@ export const useRandomEvents = (): void => {
       return Math.max(1000, intervalMs) // Ensure interval is at least 1 second
     }
 
+    const eligibleRandomEvents = electedToNationalOffice
+      ? RANDOM_EVENTS
+      : RANDOM_EVENTS.filter(
+          (event) => event.title !== 'Wave of unfettered immigration'
+        )
+
     const scheduleNext = () => {
       const intervalMs = getRandomInterval()
       setTimeout(() => {
-        setSelectedEvent(getRandomEvent(RANDOM_EVENTS))
+        setSelectedEvent(getRandomEvent(eligibleRandomEvents))
         scheduleNext()
       }, intervalMs)
     }
 
     // Start the first interval
     scheduleNext()
-  }, [baseMinutes, electedToLocalOffice, varianceMinutes])
+  }, [
+    baseMinutes,
+    electedToLocalOffice,
+    electedToNationalOffice,
+    varianceMinutes,
+  ])
 
   useEffect(() => {
     if (!selectedEvent) return
