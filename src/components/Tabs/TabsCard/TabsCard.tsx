@@ -1,4 +1,6 @@
 import { Box, Card, Tabs } from '@radix-ui/themes'
+import { useState } from 'react'
+import useScreenWidth from '../../../hooks/use-screen-width'
 import Achievements from '../Achievements/Achievements'
 import Announcements from '../Announcements/Announcements'
 import Settings from '../Settings/Settings'
@@ -6,8 +8,15 @@ import Stats from '../Stats/Stats'
 import Upgrades from '../Upgrades/Upgrades'
 
 const TabsCard = () => {
+  const [isMinWidth, setIsMinWidth] = useState(false)
+
+  useScreenWidth(setIsMinWidth)
+
   return (
-    <Card size="4" className="shadow-lg w-full max-w-[800px] min-h-[481px]">
+    <Card
+      size={isMinWidth ? '4' : '2'}
+      className="shadow-lg w-full min-h-[481px]"
+    >
       <Tabs.Root defaultValue="upgrades">
         <Tabs.List wrap="wrap">
           <Tabs.Trigger value="upgrades">Upgrades</Tabs.Trigger>

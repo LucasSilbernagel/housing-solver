@@ -65,7 +65,7 @@ const Upgrades = () => {
   }
 
   return (
-    <ul className="space-y-4 max-h-none md:max-h-[450px] overflow-y-auto">
+    <ul className="space-y-4">
       {upgrades
         .sort((a, b) => {
           // Purchased oneTimePurchase items should appear last (first priority)

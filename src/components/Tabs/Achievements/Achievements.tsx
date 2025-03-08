@@ -11,7 +11,7 @@ const Achievements = () => {
     }))
   )
   return (
-    <ul className="space-y-4 max-h-none md:max-h-[450px] overflow-y-auto">
+    <ul className="space-y-4">
       {achievements
         .sort((a, b) => Number(a.achieved) - Number(b.achieved))
         .map((achievement) => {

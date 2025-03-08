@@ -1,10 +1,12 @@
 import { InfoCircledIcon } from '@radix-ui/react-icons'
 import { Button, Card, IconButton, Popover, Separator } from '@radix-ui/themes'
 import clsx from 'clsx'
+import { useState } from 'react'
 import SlotCounter from 'react-slot-counter'
 import { useShallow } from 'zustand/shallow'
 import { MAXIMUM_SUPPORT_POINTS } from '../../constants/stats'
 import { useGameStore } from '../../hooks/use-game-store'
+import useScreenWidth from '../../hooks/use-screen-width'
 import FloatingTextButton from '../FloatingTextButton/FloatingTextButton'
 
 const Stats = () => {
@@ -28,6 +30,10 @@ const Stats = () => {
     }))
   )
 
+  const [isMinWidth, setIsMinWidth] = useState(false)
+
+  useScreenWidth(setIsMinWidth)
+
   const manuallyGeneratePoints = () => {
     if (availablePoints >= MAXIMUM_SUPPORT_POINTS) return
     if (allTimePoints === 0) {
@@ -37,7 +43,10 @@ const Stats = () => {
   }
 
   return (
-    <Card size="4" className="shadow-lg w-full max-w-max">
+    <Card
+      size={isMinWidth ? '4' : '2'}
+      className="shadow-lg w-full min-w-max max-w-max"
+    >
       <div className="relative">
         <h2 className="mb-1 text-2xl text-center">Housing Unaffordability:</h2>
         <div

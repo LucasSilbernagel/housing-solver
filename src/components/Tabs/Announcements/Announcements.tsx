@@ -16,7 +16,7 @@ const Announcements = () => {
   TimeAgo.addLocale(en)
 
   return (
-    <ul className="space-y-4 max-h-none md:max-h-[450px] overflow-y-auto">
+    <ul className="space-y-4">
       {announcements.length > 0 ? (
         announcements
           .sort((a, b) => b.timestamp - a.timestamp)
