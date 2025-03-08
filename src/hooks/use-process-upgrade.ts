@@ -122,7 +122,7 @@ export const useProcessUpgrade = () => {
         reduceUpgradeCosts(20)
         makeNextUpgradeVisible('Fund a local research project')
         makeNextUpgradeVisible('Fund a job training program')
-        makeNextUpgradeVisible('Implement a vacant home tax')
+        makeNextUpgradeVisible('Tax vacant homes')
         makeNextUpgradeVisible(
           'Support remote work policies to reduce demand for housing in expensive city centers'
         )
