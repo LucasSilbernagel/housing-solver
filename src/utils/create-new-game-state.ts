@@ -33,7 +33,8 @@ export const createNewGameState = () => ({
   totalCorruptionScandals: 0,
   antiCorruptionLaws: 0,
   immigrationWavesPrevented: 0,
-  totalImmmigrationWaves: 0,
+  totalImmigrationWaves: 0,
+  totalAdCampaigns: 0,
   immigrationCaps: 0,
   hasGameStarted: false,
 })
