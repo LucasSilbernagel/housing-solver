@@ -118,9 +118,6 @@ export const UPGRADES: Upgrade[] = [
     cost: 30_000,
     quantity: 0,
     visible: false,
-    oneTimePurchase: {
-      purchased: false,
-    },
   },
   {
     title: 'Implement a vacant home tax',
@@ -128,9 +125,6 @@ export const UPGRADES: Upgrade[] = [
     cost: 20_000,
     quantity: 0,
     visible: false,
-    oneTimePurchase: {
-      purchased: false,
-    },
   },
   {
     title:
@@ -139,9 +133,6 @@ export const UPGRADES: Upgrade[] = [
     cost: 10_000,
     quantity: 0,
     visible: false,
-    oneTimePurchase: {
-      purchased: false,
-    },
   },
   {
     title: 'Implement zoning reforms to increase housing density',
@@ -149,9 +140,6 @@ export const UPGRADES: Upgrade[] = [
     cost: 80_000,
     quantity: 0,
     visible: false,
-    oneTimePurchase: {
-      purchased: false,
-    },
   },
   {
     title: 'Fund new home construction subsidies',
@@ -166,9 +154,6 @@ export const UPGRADES: Upgrade[] = [
     cost: 2_500_000,
     quantity: 0,
     visible: false,
-    oneTimePurchase: {
-      purchased: false,
-    },
   },
   {
     title: 'Tax breaks for developers who build affordable housing',
