@@ -174,11 +174,11 @@ export const useProcessUpgrade = () => {
 
       if (title === 'Fund a job training program') {
         incrementTotalTrainingPrograms()
-        updateScore(score - 0.5)
+        updateScore(score - 0.2)
       }
 
       if (title === 'Implement a vacant home tax') {
-        updateScore(score - 0.5)
+        updateScore(score - 0.2)
       }
 
       if (
@@ -200,7 +200,7 @@ export const useProcessUpgrade = () => {
         title ===
         'Support remote work policies to reduce demand for housing in expensive city centers'
       ) {
-        updateScore(score - 0.5)
+        updateScore(score - 0.2)
       }
 
       if (title === 'Implement zoning reforms to increase housing density') {
