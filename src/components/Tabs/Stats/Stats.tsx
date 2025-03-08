@@ -54,20 +54,20 @@ const Stats = () => {
 
   const stats = [
     {
-      label: 'Total support points generated:',
-      value: Math.floor(allTimePoints).toLocaleString(),
-    },
-    {
-      label: 'Total support points spent:',
-      value: totalPointsSpent.toLocaleString(),
-    },
-    {
       label: 'Support points earned per click:',
       value: manualIncrementAmount.toLocaleString(),
     },
     {
       label: 'Support points automatically earned per second:',
       value: automaticIncrementAmount.toLocaleString(),
+    },
+    {
+      label: 'Total support points generated:',
+      value: Math.floor(allTimePoints).toLocaleString(),
+    },
+    {
+      label: 'Total support points spent:',
+      value: totalPointsSpent.toLocaleString(),
     },
     {
       label: 'Total upgrades purchased:',
