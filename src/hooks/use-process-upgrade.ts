@@ -177,7 +177,7 @@ export const useProcessUpgrade = () => {
         updateScore(score - 0.2)
       }
 
-      if (title === 'Implement a vacant home tax') {
+      if (title === 'Tax vacant homes') {
         updateScore(score - 0.2)
       }
 
@@ -200,7 +200,7 @@ export const useProcessUpgrade = () => {
         title ===
         'Support remote work policies to reduce demand for housing in expensive city centers'
       ) {
-        updateScore(score - 0.2)
+        updateScore(score - 0.1)
       }
 
       if (title === 'Implement zoning reforms to increase housing density') {

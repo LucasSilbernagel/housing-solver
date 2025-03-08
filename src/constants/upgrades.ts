@@ -120,7 +120,7 @@ export const UPGRADES: Upgrade[] = [
     visible: false,
   },
   {
-    title: 'Implement a vacant home tax',
+    title: 'Tax vacant homes',
     description: 'Reduce housing unaffordability by 0.2%',
     cost: 20_000,
     quantity: 0,
@@ -129,7 +129,7 @@ export const UPGRADES: Upgrade[] = [
   {
     title:
       'Support remote work policies to reduce demand for housing in expensive city centers',
-    description: 'Reduce housing unaffordability by 0.2%',
+    description: 'Reduce housing unaffordability by 0.1%',
     cost: 10_000,
     quantity: 0,
     visible: false,
