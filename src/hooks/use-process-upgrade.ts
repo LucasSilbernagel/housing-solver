@@ -124,7 +124,7 @@ export const useProcessUpgrade = () => {
         makeNextUpgradeVisible('Fund a job training program')
         makeNextUpgradeVisible('Implement a vacant home tax')
         makeNextUpgradeVisible(
-          'Encourage remote work to reduce demand for housing in expensive city centers'
+          'Support remote work policies to reduce demand for housing in expensive city centers'
         )
         makeNextUpgradeVisible(
           'Implement zoning reforms to increase housing density'
@@ -198,7 +198,7 @@ export const useProcessUpgrade = () => {
 
       if (
         title ===
-        'Encourage remote work to reduce demand for housing in expensive city centers'
+        'Support remote work policies to reduce demand for housing in expensive city centers'
       ) {
         updateScore(score - 0.5)
       }

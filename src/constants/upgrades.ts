@@ -128,7 +128,7 @@ export const UPGRADES: Upgrade[] = [
   },
   {
     title:
-      'Encourage remote work to reduce demand for housing in expensive city centers',
+      'Support remote work policies to reduce demand for housing in expensive city centers',
     description: 'Reduce housing unaffordability by 0.5%',
     cost: 10_000,
     quantity: 0,
