@@ -60,6 +60,9 @@ export const useRandomEvents = (): void => {
 
   const [selectedEvent, setSelectedEvent] = useState<RandomEvent | undefined>()
 
+  const timeoutReference = useRef<number | null>(null)
+  const isMounted = useRef(false)
+
   function getRandomEvent<T>(randomEvents: T[]): T | undefined {
     if (randomEvents.length === 0) {
       return undefined
@@ -70,11 +73,11 @@ export const useRandomEvents = (): void => {
 
   const baseMinutes = 12
   const varianceMinutes = 2
-  const initializedCount = useRef(false)
 
   useEffect(() => {
-    if (initializedCount.current || !electedToLocalOffice) return
-    initializedCount.current = true
+    if (!electedToLocalOffice) return
+
+    isMounted.current = true
 
     const getRandomInterval = (): number => {
       // Generate a random value between -variance and +variance
@@ -91,21 +94,36 @@ export const useRandomEvents = (): void => {
         )
 
     const scheduleNext = () => {
+      // Clear any existing timeout
+      if (timeoutReference.current !== null) {
+        globalThis.clearTimeout(timeoutReference.current)
+      }
+
       const intervalMs = getRandomInterval()
-      setTimeout(() => {
-        setSelectedEvent(getRandomEvent(eligibleRandomEvents))
-        scheduleNext()
+
+      // Store timeout ID in ref for cleanup
+      timeoutReference.current = globalThis.setTimeout(() => {
+        // Only proceed if component is still mounted
+        if (isMounted.current) {
+          setSelectedEvent(getRandomEvent(eligibleRandomEvents))
+          scheduleNext()
+        }
       }, intervalMs)
     }
 
     // Start the first interval
     scheduleNext()
-  }, [
-    baseMinutes,
-    electedToLocalOffice,
-    electedToNationalOffice,
-    varianceMinutes,
-  ])
+
+    // Cleanup function to run when component unmounts or dependencies change
+    return () => {
+      isMounted.current = false
+      if (timeoutReference.current !== null) {
+        globalThis.clearTimeout(timeoutReference.current)
+        // eslint-disable-next-line unicorn/no-null
+        timeoutReference.current = null
+      }
+    }
+  }, [electedToLocalOffice, electedToNationalOffice])
 
   useEffect(() => {
     if (!selectedEvent) return
