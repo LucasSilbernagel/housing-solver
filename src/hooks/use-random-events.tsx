@@ -30,6 +30,8 @@ export const useRandomEvents = (): void => {
     incrementImmigrationWavesPrevented,
     incrementTotalImmigrationWaves,
     electedToNationalOffice,
+    updateUpgrade,
+    upgrades,
   } = useGameStore(
     useShallow((state) => ({
       electedToLocalOffice: state.electedToLocalOffice,
@@ -53,6 +55,8 @@ export const useRandomEvents = (): void => {
         state.incrementImmigrationWavesPrevented,
       incrementTotalImmigrationWaves: state.incrementTotalImmigrationWaves,
       electedToNationalOffice: state.electedToNationalOffice,
+      updateUpgrade: state.updateUpgrade,
+      upgrades: state.upgrades,
     }))
   )
 
@@ -148,6 +152,18 @@ export const useRandomEvents = (): void => {
       incrementTotalNimbyProtests()
       incrementNimbyProtestsPrevented()
       decrementCommunityFestivals()
+      const updatedUpgrade = upgrades.find(
+        (upgrade) =>
+          upgrade.title ===
+          'Run a community festival to promote affordable housing discussions'
+      )
+      const clonedUpgrade = updatedUpgrade ? { ...updatedUpgrade } : undefined
+      if (clonedUpgrade) {
+        updateUpgrade(clonedUpgrade.title, {
+          ...clonedUpgrade,
+          quantity: clonedUpgrade.quantity - 1,
+        })
+      }
       customToast({
         type: 'success',
         content: {
@@ -174,6 +190,16 @@ export const useRandomEvents = (): void => {
       incrementTotalCorruptionScandals()
       incrementCorruptionScandalsPrevented()
       decrementAntiCorruptionLaws()
+      const updatedUpgrade = upgrades.find(
+        (upgrade) => upgrade.title === 'Pass an anti-corruption law'
+      )
+      const clonedUpgrade = updatedUpgrade ? { ...updatedUpgrade } : undefined
+      if (clonedUpgrade) {
+        updateUpgrade(clonedUpgrade.title, {
+          ...clonedUpgrade,
+          quantity: clonedUpgrade.quantity - 1,
+        })
+      }
       customToast({
         type: 'success',
         content: {
@@ -211,6 +237,16 @@ export const useRandomEvents = (): void => {
       incrementTotalImmigrationWaves()
       incrementImmigrationWavesPrevented()
       decrementImmigrationCaps()
+      const updatedUpgrade = upgrades.find(
+        (upgrade) => upgrade.title === 'Put an annual cap on immigration'
+      )
+      const clonedUpgrade = updatedUpgrade ? { ...updatedUpgrade } : undefined
+      if (clonedUpgrade) {
+        updateUpgrade(clonedUpgrade.title, {
+          ...clonedUpgrade,
+          quantity: clonedUpgrade.quantity - 1,
+        })
+      }
       customToast({
         type: 'success',
         content: {
@@ -254,5 +290,7 @@ export const useRandomEvents = (): void => {
     updateAllPoints,
     updateAvailablePoints,
     updateScore,
+    updateUpgrade,
+    upgrades,
   ])
 }
