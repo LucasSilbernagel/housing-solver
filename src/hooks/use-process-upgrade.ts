@@ -69,19 +69,19 @@ export const useProcessUpgrade = () => {
     (title: string) => {
       if (title === 'Recruit a volunteer') {
         incrementVolunteersRecruited()
-        updateAutomaticIncrementAmount(automaticIncrementAmount + 0.5)
+        updateAutomaticIncrementAmount(automaticIncrementAmount + 1)
         makeNextUpgradeVisible('Recruit a volunteer recruiter')
       }
 
       if (title === 'Recruit a volunteer recruiter') {
         incrementVolunteerRecruitersRecruited()
-        updateAutomaticIncrementAmount(automaticIncrementAmount + 1)
+        updateAutomaticIncrementAmount(automaticIncrementAmount + 2)
         makeNextUpgradeVisible('Recruit a campaign manager')
       }
 
       if (title === 'Recruit a campaign manager') {
         incrementCampaignManagersRecruited()
-        updateAutomaticIncrementAmount(automaticIncrementAmount + 2)
+        updateAutomaticIncrementAmount(automaticIncrementAmount + 5)
         makeNextUpgradeVisible(
           'Run a local ad campaign about the affordable housing crisis'
         )
@@ -91,7 +91,7 @@ export const useProcessUpgrade = () => {
         title === 'Run a local ad campaign about the affordable housing crisis'
       ) {
         incrementTotalAdCampaigns()
-        updateAutomaticIncrementAmount(automaticIncrementAmount + 4)
+        updateAutomaticIncrementAmount(automaticIncrementAmount + 10)
         makeNextUpgradeVisible(
           'Run a regional ad campaign about the affordable housing crisis'
         )
@@ -103,7 +103,7 @@ export const useProcessUpgrade = () => {
         'Run a regional ad campaign about the affordable housing crisis'
       ) {
         incrementTotalAdCampaigns()
-        updateAutomaticIncrementAmount(automaticIncrementAmount + 8)
+        updateAutomaticIncrementAmount(automaticIncrementAmount + 25)
         makeNextUpgradeVisible(
           'Run a national ad campaign about the affordable housing crisis'
         )
@@ -114,7 +114,7 @@ export const useProcessUpgrade = () => {
         'Run a national ad campaign about the affordable housing crisis'
       ) {
         incrementTotalAdCampaigns()
-        updateAutomaticIncrementAmount(automaticIncrementAmount + 20)
+        updateAutomaticIncrementAmount(automaticIncrementAmount + 100)
       }
 
       if (title === 'Run for local office') {
@@ -165,11 +165,11 @@ export const useProcessUpgrade = () => {
       }
 
       if (title === 'Fund a regional research project') {
-        updateManualIncrementAmount(manualIncrementAmount + 10)
+        updateManualIncrementAmount(manualIncrementAmount + 20)
       }
 
       if (title === 'Fund a national research project') {
-        updateManualIncrementAmount(manualIncrementAmount + 25)
+        updateManualIncrementAmount(manualIncrementAmount + 50)
       }
 
       if (title === 'Fund a job training program') {

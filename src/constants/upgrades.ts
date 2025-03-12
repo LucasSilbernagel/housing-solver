@@ -13,7 +13,7 @@ export const UPGRADES: Upgrade[] = [
   {
     title: 'Recruit a volunteer',
     description:
-      'Automatically accumulate 1 additional support point every 2 seconds',
+      'Automatically accumulate 1 additional support point every second',
     cost: 50,
     quantity: 0,
     visible: true,
@@ -21,7 +21,7 @@ export const UPGRADES: Upgrade[] = [
   {
     title: 'Recruit a volunteer recruiter',
     description:
-      'Automatically accumulate 1 additional support point every second',
+      'Automatically accumulate 2 additional support points every second',
     cost: 150,
     quantity: 0,
     visible: false,
@@ -29,7 +29,7 @@ export const UPGRADES: Upgrade[] = [
   {
     title: 'Recruit a campaign manager',
     description:
-      'Automatically accumulate 2 additional support points every second',
+      'Automatically accumulate 5 additional support points every second',
     cost: 500,
     quantity: 0,
     visible: false,
@@ -37,7 +37,7 @@ export const UPGRADES: Upgrade[] = [
   {
     title: 'Run a local ad campaign about the affordable housing crisis',
     description:
-      'Automatically accumulate 4 additional support points every second',
+      'Automatically accumulate 10 additional support points every second',
     cost: 2000,
     quantity: 0,
     visible: false,
@@ -45,7 +45,7 @@ export const UPGRADES: Upgrade[] = [
   {
     title: 'Run a regional ad campaign about the affordable housing crisis',
     description:
-      'Automatically accumulate 8 additional support points every second',
+      'Automatically accumulate 25 additional support points every second',
     cost: 8000,
     quantity: 0,
     visible: false,
@@ -53,7 +53,7 @@ export const UPGRADES: Upgrade[] = [
   {
     title: 'Run a national ad campaign about the affordable housing crisis',
     description:
-      'Automatically accumulate 20 additional support points every second',
+      'Automatically accumulate 100 additional support points every second',
     cost: 150_000,
     quantity: 0,
     visible: false,
@@ -99,7 +99,7 @@ export const UPGRADES: Upgrade[] = [
   {
     title: 'Fund a regional research project',
     description:
-      'Learn how to make housing more affordable; each click generates 10 additional support points',
+      'Learn how to make housing more affordable; each click generates 20 additional support points',
     cost: 50_000,
     quantity: 0,
     visible: false,
@@ -107,7 +107,7 @@ export const UPGRADES: Upgrade[] = [
   {
     title: 'Fund a national research project',
     description:
-      'Learn how to make housing more affordable; each click generates 25 additional support points',
+      'Learn how to make housing more affordable; each click generates 50 additional support points',
     cost: 1_000_000,
     quantity: 0,
     visible: false,
