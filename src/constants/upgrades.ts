@@ -108,7 +108,7 @@ export const UPGRADES: Upgrade[] = [
     title: 'Fund a national research project',
     description:
       'Learn how to make housing more affordable; each click generates 50 additional support points',
-    cost: 1_000_000,
+    cost: 500_000,
     quantity: 0,
     visible: false,
   },
@@ -144,14 +144,14 @@ export const UPGRADES: Upgrade[] = [
   {
     title: 'Fund new home construction subsidies',
     description: 'Reduce housing unaffordability by 0.5%',
-    cost: 2_000_000,
+    cost: 1_200_000,
     quantity: 0,
     visible: false,
   },
   {
     title: 'Legislate rent control',
     description: 'Reduce housing unaffordability by 1%',
-    cost: 2_500_000,
+    cost: 2_000_000,
     quantity: 0,
     visible: false,
   },
@@ -165,7 +165,7 @@ export const UPGRADES: Upgrade[] = [
   {
     title: 'Invest in public transportation',
     description: 'Reduce housing unaffordability by 0.5%',
-    cost: 10_000_000,
+    cost: 5_000_000,
     quantity: 0,
     visible: false,
   },
@@ -193,7 +193,7 @@ export const UPGRADES: Upgrade[] = [
   {
     title: 'Legislate rent subsidies for low-income residents',
     description: 'Reduce housing unaffordability by 0.5%',
-    cost: 3_500_000,
+    cost: 2_000_000,
     quantity: 0,
     visible: false,
   },
@@ -207,7 +207,7 @@ export const UPGRADES: Upgrade[] = [
   {
     title: 'Legislate a government-funded affordable daycare plan',
     description: 'Reduce housing unaffordability by 0.5%',
-    cost: 12_000_000,
+    cost: 2_000_000,
     quantity: 0,
     visible: false,
     oneTimePurchase: {
@@ -217,7 +217,7 @@ export const UPGRADES: Upgrade[] = [
   {
     title: 'Increase the minimum wage',
     description: 'Reduce housing unaffordability by 1%',
-    cost: 20_000_000,
+    cost: 5_000_000,
     quantity: 0,
     visible: false,
   },
@@ -225,7 +225,7 @@ export const UPGRADES: Upgrade[] = [
     title:
       'Restrict corporation ownership of residential properties to specific types',
     description: 'Reduce housing unaffordability by 1%',
-    cost: 40_000_000,
+    cost: 6_000_000,
     quantity: 0,
     visible: false,
     oneTimePurchase: {
@@ -235,21 +235,21 @@ export const UPGRADES: Upgrade[] = [
   {
     title: 'Increase taxes on large corporations',
     description: 'Reduce housing unaffordability by 1%',
-    cost: 50_000_000,
+    cost: 10_000_000,
     quantity: 0,
     visible: false,
   },
   {
     title: 'Increase taxes on billionaires',
     description: 'Reduce housing unaffordability by 2%',
-    cost: 100_000_000,
+    cost: 20_000_000,
     quantity: 0,
     visible: false,
   },
   {
     title: 'Make it illegal for individuals to own more than two homes',
     description: 'Reduce housing unaffordability by 4%',
-    cost: 200_000_000,
+    cost: 50_000_000,
     quantity: 0,
     visible: false,
     oneTimePurchase: {
