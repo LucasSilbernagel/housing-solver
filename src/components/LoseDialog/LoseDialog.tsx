@@ -32,6 +32,7 @@ const LoseDialog = () => {
               variant="solid"
               color="blue"
               onClick={() => {
+                setIsOpen(false)
                 resetGame()
               }}
             >

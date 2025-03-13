@@ -48,6 +48,7 @@ const WinDialog = () => {
               variant="solid"
               color="green"
               onClick={() => {
+                setIsOpen(false)
                 resetGame()
               }}
             >

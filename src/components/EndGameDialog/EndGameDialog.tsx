@@ -31,6 +31,7 @@ const EndGameDialog = () => {
               variant="solid"
               color="green"
               onClick={() => {
+                setIsOpen(false)
                 resetGame()
               }}
             >
