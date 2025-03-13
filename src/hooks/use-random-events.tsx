@@ -75,7 +75,7 @@ export const useRandomEvents = (): void => {
     return randomEvents[randomIndex]
   }
 
-  const baseMinutes = 10
+  const baseMinutes = 8
   const varianceMinutes = 2
 
   useEffect(() => {
