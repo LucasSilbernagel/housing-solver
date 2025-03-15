@@ -268,7 +268,9 @@ export const useGameStore = create<GameState>()(
             upgrades: state.upgrades.map((upgrade) => ({
               ...upgrade,
               cost:
-                upgrade.visible && !upgrade.oneTimePurchase
+                upgrade.visible &&
+                upgrade.maximumQuantity &&
+                upgrade.maximumQuantity > 1
                   ? Math.round(upgrade.cost * (1 - percentage / 100))
                   : upgrade.cost,
             })),

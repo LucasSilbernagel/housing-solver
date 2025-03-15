@@ -4,9 +4,7 @@ export interface Upgrade {
   cost: number
   quantity: number
   visible: boolean
-  oneTimePurchase?: {
-    purchased: boolean
-  }
+  maximumQuantity?: number
 }
 
 export const UPGRADES: Upgrade[] = [
@@ -64,9 +62,7 @@ export const UPGRADES: Upgrade[] = [
     cost: 6000,
     quantity: 0,
     visible: false,
-    oneTimePurchase: {
-      purchased: false,
-    },
+    maximumQuantity: 1,
   },
   {
     title: 'Run for regional office',
@@ -74,9 +70,7 @@ export const UPGRADES: Upgrade[] = [
     cost: 100_000,
     quantity: 0,
     visible: false,
-    oneTimePurchase: {
-      purchased: false,
-    },
+    maximumQuantity: 1,
   },
   {
     title: 'Run for national office',
@@ -84,9 +78,7 @@ export const UPGRADES: Upgrade[] = [
     cost: 1_000_000,
     quantity: 0,
     visible: false,
-    oneTimePurchase: {
-      purchased: false,
-    },
+    maximumQuantity: 1,
   },
   {
     title: 'Fund a local research project',
@@ -118,6 +110,7 @@ export const UPGRADES: Upgrade[] = [
     cost: 30_000,
     quantity: 0,
     visible: false,
+    maximumQuantity: 16,
   },
   {
     title: 'Tax vacant homes',
@@ -125,6 +118,7 @@ export const UPGRADES: Upgrade[] = [
     cost: 20_000,
     quantity: 0,
     visible: false,
+    maximumQuantity: 18,
   },
   {
     title:
@@ -133,6 +127,7 @@ export const UPGRADES: Upgrade[] = [
     cost: 10_000,
     quantity: 0,
     visible: false,
+    maximumQuantity: 20,
   },
   {
     title: 'Implement zoning reforms to increase housing density',
@@ -140,6 +135,7 @@ export const UPGRADES: Upgrade[] = [
     cost: 80_000,
     quantity: 0,
     visible: false,
+    maximumQuantity: 14,
   },
   {
     title: 'Fund new home construction subsidies',
@@ -147,6 +143,7 @@ export const UPGRADES: Upgrade[] = [
     cost: 1_200_000,
     quantity: 0,
     visible: false,
+    maximumQuantity: 12,
   },
   {
     title: 'Legislate rent control',
@@ -154,6 +151,7 @@ export const UPGRADES: Upgrade[] = [
     cost: 2_000_000,
     quantity: 0,
     visible: false,
+    maximumQuantity: 5,
   },
   {
     title: 'Tax breaks for developers who build affordable housing',
@@ -161,6 +159,7 @@ export const UPGRADES: Upgrade[] = [
     cost: 2_400_000,
     quantity: 0,
     visible: false,
+    maximumQuantity: 10,
   },
   {
     title: 'Invest in public transportation',
@@ -196,6 +195,7 @@ export const UPGRADES: Upgrade[] = [
     cost: 2_000_000,
     quantity: 0,
     visible: false,
+    maximumQuantity: 2,
   },
   {
     title: 'Build a public housing project',
@@ -210,9 +210,7 @@ export const UPGRADES: Upgrade[] = [
     cost: 2_000_000,
     quantity: 0,
     visible: false,
-    oneTimePurchase: {
-      purchased: false,
-    },
+    maximumQuantity: 1,
   },
   {
     title: 'Increase the minimum wage',
@@ -228,9 +226,7 @@ export const UPGRADES: Upgrade[] = [
     cost: 6_000_000,
     quantity: 0,
     visible: false,
-    oneTimePurchase: {
-      purchased: false,
-    },
+    maximumQuantity: 1,
   },
   {
     title: 'Increase taxes on large corporations',
@@ -252,8 +248,6 @@ export const UPGRADES: Upgrade[] = [
     cost: 50_000_000,
     quantity: 0,
     visible: false,
-    oneTimePurchase: {
-      purchased: false,
-    },
+    maximumQuantity: 1,
   },
 ]

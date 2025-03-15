@@ -40,19 +40,11 @@ const Upgrades = () => {
 
     if (clonedUpgrade.cost > availablePoints) return
 
-    if (clonedUpgrade.oneTimePurchase) {
-      updateUpgrade(clonedUpgrade.title, {
-        ...clonedUpgrade,
-        quantity: clonedUpgrade.quantity + 1,
-        oneTimePurchase: { purchased: true },
-      })
-    } else {
-      updateUpgrade(clonedUpgrade.title, {
-        ...clonedUpgrade,
-        quantity: clonedUpgrade.quantity + 1,
-        cost: Math.round(clonedUpgrade.cost * 1.1),
-      })
-    }
+    updateUpgrade(clonedUpgrade.title, {
+      ...clonedUpgrade,
+      quantity: clonedUpgrade.quantity + 1,
+      cost: Math.round(clonedUpgrade.cost * 1.1),
+    })
 
     updateAvailablePoints(availablePoints - clonedUpgrade.cost)
     updateTotalPointsSpent(totalPointsSpent + clonedUpgrade.cost)
@@ -64,14 +56,17 @@ const Upgrades = () => {
     processUpgrade(clonedUpgrade.title)
   }
 
+  const isMultiUpgradePurchased = (upgrade: Upgrade) =>
+    upgrade.maximumQuantity && upgrade.quantity === upgrade.maximumQuantity
+
   return (
     <ul className="space-y-4">
       {upgrades
         .sort((a, b) => {
-          // Purchased oneTimePurchase items should appear last (first priority)
-          if (a.oneTimePurchase?.purchased && !b.oneTimePurchase?.purchased)
+          // Purchased one time purchase items should appear last (first priority)
+          if (isMultiUpgradePurchased(a) && !isMultiUpgradePurchased(b))
             return 1
-          if (!a.oneTimePurchase?.purchased && b.oneTimePurchase?.purchased)
+          if (!isMultiUpgradePurchased(a) && isMultiUpgradePurchased(b))
             return -1
 
           // Unaffordable un-purchased upgrades appear at the top (second priority)
@@ -114,11 +109,11 @@ const Upgrades = () => {
                       <Text
                         wrap="pretty"
                         className={clsx('font-bold', {
-                          'line-through': upgrade.oneTimePurchase?.purchased,
+                          'line-through': isMultiUpgradePurchased(upgrade),
                         })}
                       >
                         {upgrade.title}{' '}
-                        {upgrade.oneTimePurchase?.purchased ? undefined : (
+                        {isMultiUpgradePurchased(upgrade) ? undefined : (
                           <Text color="green">
                             - {upgrade.cost.toLocaleString()} points
                           </Text>
@@ -132,14 +127,18 @@ const Upgrades = () => {
                     </div>
                   </div>
                   <div className="flex flex-col justify-center items-center gap-1">
-                    {upgrade.oneTimePurchase ||
+                    {(upgrade.maximumQuantity &&
+                      upgrade.maximumQuantity === 1) ||
                     upgrade.quantity === 0 ? undefined : (
                       <Text className="font-semibold">
                         {upgrade.quantity.toLocaleString()}
+                        {upgrade.maximumQuantity && upgrade.maximumQuantity > 1
+                          ? ` / ${upgrade.maximumQuantity.toLocaleString()}`
+                          : undefined}
                       </Text>
                     )}
                     <div>
-                      {upgrade.oneTimePurchase?.purchased ? (
+                      {isMultiUpgradePurchased(upgrade) ? (
                         <Tooltip content="Purchased">
                           <button>
                             <CheckIcon
