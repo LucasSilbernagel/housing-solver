@@ -69,7 +69,10 @@ const Stats = () => {
         <div className="right-0 bottom-0 absolute">
           <Popover.Root>
             <Popover.Trigger>
-              <IconButton variant="ghost">
+              <IconButton
+                variant="ghost"
+                aria-label="housing unaffordability score information"
+              >
                 <InfoCircledIcon width="25" height="25" />
               </IconButton>
             </Popover.Trigger>
@@ -137,7 +140,10 @@ const Stats = () => {
         <div className="top-[5px] right-0 absolute">
           <Popover.Root>
             <Popover.Trigger>
-              <IconButton variant="ghost">
+              <IconButton
+                variant="ghost"
+                aria-label="support points information"
+              >
                 <InfoCircledIcon width="25" height="25" />
               </IconButton>
             </Popover.Trigger>
