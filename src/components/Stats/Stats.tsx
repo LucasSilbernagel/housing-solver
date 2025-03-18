@@ -73,7 +73,7 @@ const Stats = () => {
                 <InfoCircledIcon width="25" height="25" />
               </IconButton>
             </Popover.Trigger>
-            <Popover.Content width="360px">
+            <Popover.Content width="300px">
               <div>
                 <p>
                   The housing unaffordability score represents the percentage of
@@ -141,7 +141,7 @@ const Stats = () => {
                 <InfoCircledIcon width="25" height="25" />
               </IconButton>
             </Popover.Trigger>
-            <Popover.Content width="360px">
+            <Popover.Content width="300px">
               <div>
                 <p>
                   Support points represent your ability to fight the housing
