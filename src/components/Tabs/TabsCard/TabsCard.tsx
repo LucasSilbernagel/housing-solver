@@ -15,7 +15,7 @@ const TabsCard = () => {
   return (
     <Card
       size={isMinWidth ? '4' : '2'}
-      className="shadow-lg w-full min-h-[481px]"
+      className="shadow-lg mt-4 md:mt-0 ml-4 w-full min-h-[481px]"
     >
       <Tabs.Root defaultValue="upgrades">
         <Tabs.List wrap="wrap">
