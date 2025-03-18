@@ -53,7 +53,7 @@ function Index() {
     <div className="mx-auto p-4 max-w-screen-2xl">
       <h1 className="sr-only">Housing Solver</h1>
       <div className="flex md:flex-row flex-col md:justify-center items-center md:items-start gap-4">
-        <div className="top-4 static md:sticky">
+        <div className="top-4 static md:sticky min-w-max">
           <Stats />
         </div>
         <TabsCard />
