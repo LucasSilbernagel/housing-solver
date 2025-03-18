@@ -149,30 +149,24 @@ const Upgrades = () => {
                             />
                           </button>
                         </Tooltip>
-                      ) : (
-                        <Tooltip
-                          content={
-                            upgrade.cost <= availablePoints
-                              ? 'Purchase'
-                              : 'Not enough points'
-                          }
-                        >
+                      ) : upgrade.cost <= availablePoints ? (
+                        <>
                           {showAnimations ? (
                             <FloatingTextButton
-                              disabled={upgrade.cost > availablePoints}
                               onClick={() => handlePurchase(upgrade)}
                               floatingText={`$ ${upgrade.cost.toLocaleString()}`}
                             >
                               Purchase
                             </FloatingTextButton>
                           ) : (
-                            <Button
-                              disabled={upgrade.cost > availablePoints}
-                              onClick={() => handlePurchase(upgrade)}
-                            >
+                            <Button onClick={() => handlePurchase(upgrade)}>
                               Purchase
                             </Button>
                           )}
+                        </>
+                      ) : (
+                        <Tooltip content="Not enough points">
+                          <Button disabled>Purchase</Button>
                         </Tooltip>
                       )}
                     </div>
