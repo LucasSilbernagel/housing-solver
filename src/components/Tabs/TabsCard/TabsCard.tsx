@@ -19,11 +19,36 @@ const TabsCard = () => {
     >
       <Tabs.Root defaultValue="upgrades">
         <Tabs.List wrap="wrap">
-          <Tabs.Trigger value="upgrades">Upgrades</Tabs.Trigger>
-          <Tabs.Trigger value="achievements">Achievements</Tabs.Trigger>
-          <Tabs.Trigger value="announcements">Announcements</Tabs.Trigger>
-          <Tabs.Trigger value="stats">Stats</Tabs.Trigger>
-          <Tabs.Trigger value="settings">Settings</Tabs.Trigger>
+          <Tabs.Trigger
+            value="upgrades"
+            aria-label="Upgrades. Press the tab key to enter the tab panel"
+          >
+            Upgrades
+          </Tabs.Trigger>
+          <Tabs.Trigger
+            value="achievements"
+            aria-label="Achievements. Press the tab key to enter the tab panel"
+          >
+            Achievements
+          </Tabs.Trigger>
+          <Tabs.Trigger
+            value="announcements"
+            aria-label="Announcements. Press the tab key to enter the tab panel"
+          >
+            Announcements
+          </Tabs.Trigger>
+          <Tabs.Trigger
+            value="stats"
+            aria-label="Stats. Press the tab key to enter the tab panel"
+          >
+            Stats
+          </Tabs.Trigger>
+          <Tabs.Trigger
+            value="settings"
+            aria-label="Settings. Press the tab key to enter the tab panel"
+          >
+            Settings
+          </Tabs.Trigger>
         </Tabs.List>
         <Box pt="3">
           <Tabs.Content value="upgrades" className="pt-4">
