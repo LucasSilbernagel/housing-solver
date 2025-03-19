@@ -71,11 +71,21 @@ const Settings = () => {
     try {
       deserializeStore(backup)
       setBackup('')
-      toast.success('Backup loaded successfully')
+      toast.success('Backup loaded successfully', {
+        ariaProps: {
+          role: 'alert',
+          'aria-live': 'assertive',
+        },
+      })
     } catch (error) {
       console.error('Failed to load backup:', error)
       if (error instanceof Error) {
-        toast.error(`Failed to load backup: ${error.message}`)
+        toast.error(`Failed to load backup: ${error.message}`, {
+          ariaProps: {
+            role: 'alert',
+            'aria-live': 'assertive',
+          },
+        })
       }
     }
   }
@@ -85,16 +95,33 @@ const Settings = () => {
       await copy(backup).catch((error) => {
         if (error instanceof Error) {
           toast.error(
-            `There was an error copying the backup code: ${error.message}`
+            `There was an error copying the backup code: ${error.message}`,
+            {
+              ariaProps: {
+                role: 'alert',
+                'aria-live': 'assertive',
+              },
+            }
           )
         }
         console.error(error)
       })
-      toast.success('Backup code copied to clipboard!')
+      toast.success('Backup code copied to clipboard!', {
+        ariaProps: {
+          role: 'alert',
+          'aria-live': 'assertive',
+        },
+      })
     } catch (error) {
       if (error instanceof Error) {
         toast.error(
-          `There was an error copying the backup code: ${error.message}`
+          `There was an error copying the backup code: ${error.message}`,
+          {
+            ariaProps: {
+              role: 'alert',
+              'aria-live': 'assertive',
+            },
+          }
         )
       }
       console.error(error)

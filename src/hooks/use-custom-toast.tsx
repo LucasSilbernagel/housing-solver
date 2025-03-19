@@ -37,16 +37,36 @@ export const useCustomToast = () => {
   }) => {
     if (typeof content === 'string') {
       if (type === 'success') {
-        toast.success(content)
+        toast.success(content, {
+          ariaProps: {
+            role: 'alert',
+            'aria-live': 'assertive',
+          },
+        })
       } else {
-        toast.error(content)
+        toast.error(content, {
+          ariaProps: {
+            role: 'alert',
+            'aria-live': 'assertive',
+          },
+        })
       }
     } else {
       const { title, description } = content
       if (type === 'success') {
-        toast.success(customToastContent({ title, description }))
+        toast.success(customToastContent({ title, description }), {
+          ariaProps: {
+            role: 'alert',
+            'aria-live': 'assertive',
+          },
+        })
       } else {
-        toast.error(customToastContent({ title, description }))
+        toast.error(customToastContent({ title, description }), {
+          ariaProps: {
+            role: 'alert',
+            'aria-live': 'assertive',
+          },
+        })
       }
     }
 
