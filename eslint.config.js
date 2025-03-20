@@ -47,6 +47,7 @@ export default tseslint.config(
       'unicorn/filename-case': 'off',
       'unicorn/consistent-function-scoping': 'off',
       'unicorn/no-nested-ternary': 'off',
+      'unicorn/no-keyword-prefix': 'off',
     },
   }
 )
