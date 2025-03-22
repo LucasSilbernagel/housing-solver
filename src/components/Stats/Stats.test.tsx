@@ -64,12 +64,12 @@ describe('Stats Component', () => {
   it('renders correctly with animations enabled', () => {
     render(<Stats />)
 
-    expect(screen.getByText('Housing Unaffordability:')).toBeInTheDocument()
+    expect(screen.getByText('Housing Unaffordability:')).toBeVisible()
     const scoreElement = screen.getByText('20')
-    expect(scoreElement).toBeInTheDocument()
+    expect(scoreElement).toBeVisible()
     expect(scoreElement.nextSibling?.textContent).toBe('%')
 
-    expect(screen.getByText('Support Points:')).toBeInTheDocument()
+    expect(screen.getByText('Support Points:')).toBeVisible()
     expect(screen.getByTestId('slot-counter')).toHaveTextContent('50')
     expect(screen.getByTestId('floating-button')).toHaveTextContent(
       'Generate Support Points'
@@ -95,10 +95,10 @@ describe('Stats Component', () => {
 
     render(<Stats />)
 
-    expect(screen.getByText('50')).toBeInTheDocument()
+    expect(screen.getByText('50')).toBeVisible()
     expect(
       screen.getByRole('button', { name: 'Generate Support Points' })
-    ).toBeInTheDocument()
+    ).toBeVisible()
   })
 
   it('applies correct border color based on score', () => {
@@ -191,7 +191,7 @@ describe('Stats Component', () => {
     )
 
     render(<Stats />)
-    expect(screen.getByText('20.12')).toBeInTheDocument()
+    expect(screen.getByText('20.12')).toBeVisible()
   })
 
   it('calls manuallyIncrementPoints when generate button is clicked', () => {
@@ -257,13 +257,13 @@ describe('Stats Component', () => {
     fireEvent.click(screen.getAllByRole('button', { name: /information/i })[0])
     expect(
       screen.getByText(/represents the percentage of households/i)
-    ).toBeInTheDocument()
-    expect(screen.getByText(/30% or higher is considered/i)).toBeInTheDocument()
+    ).toBeVisible()
+    expect(screen.getByText(/30% or higher is considered/i)).toBeVisible()
 
     // Support points info popup
     fireEvent.click(screen.getAllByRole('button', { name: /information/i })[1])
     expect(
       screen.getByText(/support points represent your ability/i)
-    ).toBeInTheDocument()
+    ).toBeVisible()
   })
 })

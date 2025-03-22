@@ -20,7 +20,7 @@ import { useGameStore } from '../../../hooks/use-game-store'
 const Settings = () => {
   const {
     shouldUseDarkTheme,
-    toggleDarkTheme,
+    toggleTheme,
     resetGame,
     allTimePoints,
     showAnimations,
@@ -30,7 +30,7 @@ const Settings = () => {
   } = useGameStore(
     useShallow((state) => ({
       shouldUseDarkTheme: state.shouldUseDarkTheme,
-      toggleDarkTheme: state.toggleTheme,
+      toggleTheme: state.toggleTheme,
       resetGame: state.resetGame,
       allTimePoints: state.allTimePoints,
       showAnimations: state.showAnimations,
@@ -47,7 +47,7 @@ const Settings = () => {
   const [backup, setBackup] = useState('')
 
   const handleDarkThemeToggle = () => {
-    toggleDarkTheme()
+    toggleTheme()
   }
 
   const handleAnimationsToggle = () => {
