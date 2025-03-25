@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import useScreenWidth from '../../../hooks/use-screen-width'
 import TabsCard from './TabsCard'
@@ -71,13 +71,14 @@ describe('TabsCard', () => {
     expect(screen.getByTestId('upgrades-component')).toBeVisible()
   })
 
-  it('applies the correct size based on screen width', () => {
+  it('applies the correct size based on screen width', async () => {
     const useScreenWidthMock = vi.fn()
     vi.mocked(
       useScreenWidth as (callback: (value: boolean) => void) => void
     ).mockImplementation(useScreenWidthMock)
 
     let setIsMinWidthCallback: ((value: boolean) => void) | undefined
+
     useScreenWidthMock.mockImplementation(
       (callback: (value: boolean) => void) => {
         setIsMinWidthCallback = callback
@@ -87,7 +88,9 @@ describe('TabsCard', () => {
 
     const { rerender } = render(<TabsCard />)
 
-    if (setIsMinWidthCallback) setIsMinWidthCallback(true)
+    await waitFor(() => {
+      if (setIsMinWidthCallback) setIsMinWidthCallback(true)
+    })
 
     rerender(<TabsCard />)
 
@@ -97,7 +100,9 @@ describe('TabsCard', () => {
       expect.stringContaining('rt-r-size-4')
     )
 
-    if (setIsMinWidthCallback) setIsMinWidthCallback(false)
+    await waitFor(() => {
+      if (setIsMinWidthCallback) setIsMinWidthCallback(false)
+    })
 
     rerender(<TabsCard />)
 
