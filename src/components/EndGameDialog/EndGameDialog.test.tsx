@@ -108,7 +108,7 @@ describe('EndGameDialog', () => {
 
     render(<EndGameDialog />)
 
-    fireEvent.click(screen.getByText('Play again'))
+    fireEvent.click(screen.getByText('Play againn'))
 
     expect(resetGameMock).toHaveBeenCalledTimes(1)
   })
