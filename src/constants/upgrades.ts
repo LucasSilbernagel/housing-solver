@@ -105,12 +105,20 @@ export const UPGRADES: Upgrade[] = [
     visible: false,
   },
   {
+    title: 'Regulate and reduce short-term housing rentals',
+    description: 'Reduce housing unaffordability by 0.2%',
+    cost: 40_000,
+    quantity: 0,
+    visible: false,
+    maximumQuantity: 8,
+  },
+  {
     title: 'Fund a job training program',
     description: 'Reduce housing unaffordability by 0.2%',
     cost: 30_000,
     quantity: 0,
     visible: false,
-    maximumQuantity: 16,
+    maximumQuantity: 8,
   },
   {
     title: 'Tax vacant homes',

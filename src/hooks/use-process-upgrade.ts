@@ -123,6 +123,7 @@ export const useProcessUpgrade = () => {
         makeNextUpgradeVisible('Fund a local research project')
         makeNextUpgradeVisible('Fund a job training program')
         makeNextUpgradeVisible('Tax vacant homes')
+        makeNextUpgradeVisible('Regulate and reduce short-term housing rentals')
         makeNextUpgradeVisible(
           'Support remote work policies to reduce demand for housing in expensive city centers'
         )
@@ -178,6 +179,10 @@ export const useProcessUpgrade = () => {
       }
 
       if (title === 'Tax vacant homes') {
+        updateScore(score - 0.2)
+      }
+
+      if (title === 'Regulate and reduce short-term housing rentals') {
         updateScore(score - 0.2)
       }
 
