@@ -136,6 +136,7 @@ describe('AppRoot', () => {
 
     expect(ReactRouter.createRouter).toHaveBeenCalledWith({
       routeTree: 'mocked-route-tree',
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       defaultNotFoundComponent: expect.any(Function),
     })
   })
