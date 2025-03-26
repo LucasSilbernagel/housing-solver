@@ -175,7 +175,7 @@ describe('Upgrades', () => {
     vi.mocked(useCustomToast).mockReturnValue(mockCustomToast)
   })
 
-  it('renders visible upgrades correctly', () => {
+  it('renders visible and hidden upgrades correctly', () => {
     render(<Upgrades />)
 
     const cards = screen.getAllByTestId('upgrade-card')
