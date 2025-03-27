@@ -469,4 +469,14 @@ describe('Settings Component', () => {
     expect(link).toHaveAttribute('target', '_blank')
     expect(link).toHaveAttribute('rel', 'noreferrer')
   })
+
+  it('renders "Buy me a coffee" link', () => {
+    render(<Settings />)
+
+    expect(screen.getByAltText('Buy Me A Coffee')).toBeVisible()
+    expect(screen.getByAltText('Buy Me A Coffee').closest('a')).toHaveAttribute(
+      'href',
+      'https://www.buymeacoffee.com/LucasSilbernagel'
+    )
+  })
 })
