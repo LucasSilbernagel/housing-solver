@@ -13,6 +13,19 @@ Link
 ### Front End
 
 - [React](https://reactjs.org/)
+- [Vite](https://vite.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [zustand](https://github.com/pmndrs/zustand)
+- [Tailwind](https://tailwindcss.com/)
+- [Radix UI](https://www.radix-ui.com/)
+- [TanStack Router](https://tanstack.com/router/latest)
+- [clipboard-copy](https://www.npmjs.com/package/clipboard-copy)
+- [clsx](https://www.npmjs.com/package/clsx)
+- [javascript-time-ago](https://www.npmjs.com/package/javascript-time-ago)
+- [lz-string](https://www.npmjs.com/package/lz-string)
+- [React Hot Toast](https://react-hot-toast.com/)
+- [react-slot-counter](https://www.npmjs.com/package/react-slot-counter)
+- [react-time-ago](https://www.npmjs.com/package/react-time-ago)
 
 ### Linting & Formatting
 
@@ -51,8 +64,8 @@ To install all of the required dependencies, run `pnpm install`.
 - [Vitest](https://vitest.dev/)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 
-### Unit Tests
+### Tests
 
-Unit tests are written with [Vitest](https://vitest.dev/) and [React Testing Library](https://testing-library.com/).
+Tests are written with [Vitest](https://vitest.dev/) and [React Testing Library](https://testing-library.com/).
 
-Use `pnpm run test-unit` to run all unit tests, or use `pnpm run test-unit SomeFileToRun` to run a specific test file.
+Use `pnpm run test` to run all tests, or use `pnpm run test SomeFileToRun` to run a specific test file.
